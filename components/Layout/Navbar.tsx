@@ -1,7 +1,51 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
+import Link from "next/link";
 
-const StyledNavbar = styled.nav``;
+const StyledNavbar = styled.nav`
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+
+  :before {
+    content: "";
+    display: block;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: url("/img/background.svg");
+    background-size: 400%;
+    background-repeat: no-repeat;
+    background-position: 80px -20px;
+  }
+
+  .navbar-burger {
+    color: #ffffff;
+    display: flex;
+
+    i {
+      margin: auto;
+      font-size: 2rem;
+    }
+  }
+
+  .navbar-brand {
+    padding: 1rem;
+
+    .navbar-item {
+      padding: 0;
+    }
+
+    img {
+      display: block;
+      width: 180px;
+      max-height: unset;
+    }
+  }
+`;
 
 const Navbar = () => {
   useEffect(() => {
@@ -30,13 +74,11 @@ const Navbar = () => {
       aria-label="main navigation"
     >
       <div className="navbar-brand">
-        <a className="navbar-item" href="https://bulma.io">
-          <img
-            src="https://bulma.io/images/bulma-logo.png"
-            width="112"
-            height="28"
-          />
-        </a>
+        <Link href="/">
+          <a className="navbar-item">
+            <img src="/img/logo.svg" />
+          </a>
+        </Link>
 
         <a
           role="button"
@@ -45,9 +87,7 @@ const Navbar = () => {
           aria-expanded="false"
           data-target="navbarBasicExample"
         >
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
+          <i className="fas fa-bars"></i>
         </a>
       </div>
 
