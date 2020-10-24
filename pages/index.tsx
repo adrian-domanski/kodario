@@ -1,7 +1,10 @@
 import styled from "styled-components";
-
-const StyledText = styled.h1``;
+import Layout from "../components/Layout/Layout";
 
 export default function Home() {
-  return <StyledText>Hello world!</StyledText>;
+  return (
+    <Layout>
+      <h1>Hello world!</h1>
+    </Layout>
+  );
 }
