@@ -12,6 +12,7 @@ const GlobalStyles = createGlobalStyle`
 
   body {
       font-family: 'Montserrat', sans-serif;
+      background-color: #F8F8F8;
   }
 `;
 
@@ -21,7 +22,7 @@ const PageWrapper = styled.div`
   min-height: 100vh;
 `;
 
-const StyledMain = styled.main`
+const StyledContent = styled.div`
   flex: 1;
 `;
 
@@ -31,7 +32,7 @@ const Layout = ({ children }) => {
       <GlobalStyles />
       <PageWrapper>
         <Navbar />
-        <StyledMain>{children}</StyledMain>
+        <StyledContent>{children}</StyledContent>
         <Footer />
       </PageWrapper>
     </>

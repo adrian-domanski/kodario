@@ -7,6 +7,7 @@ const StyledNavbar = styled.nav`
   margin: 0 auto;
   width: 100%;
   position: relative;
+  background: #fff;
 
   :before {
     content: "";
@@ -87,7 +88,7 @@ const Navbar = () => {
           aria-expanded="false"
           data-target="navbarBasicExample"
         >
-          <i className="fas fa-bars"></i>
+          <i className="fas fa-bars" aria-hidden="true"></i>
         </a>
       </div>
 
