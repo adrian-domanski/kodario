@@ -134,7 +134,8 @@ const Footer = () => {
             </a>
           </li>
           <li>
-            <i className="fas fa-mobile-alt mr-2"></i>667 458 654
+            <i className="fas fa-mobile-alt mr-2" aria-hidden="true"></i>667 458
+            654
           </li>
         </FooterList>
       </FooterSection>

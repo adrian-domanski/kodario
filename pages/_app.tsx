@@ -1,7 +1,7 @@
 import "../styles/bulma.config.scss";
 import App from "next/app";
 import { ThemeProvider } from "styled-components";
-import { theme } from "../styles/styled/theme";
+import { theme } from "../styles/theme";
 import Head from "next/head";
 
 class MyApp extends App {
