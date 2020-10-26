@@ -10,7 +10,7 @@ const StyledHomeHeader = styled.header`
 
   h1 {
     font-weight: 700;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
   }
 
   button {

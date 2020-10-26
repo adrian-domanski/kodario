@@ -43,7 +43,7 @@ const WhatWeDoItem = styled.div<{ number: string }>`
 
 const WhatWeDo = () => {
   return (
-    <Section className="py-0">
+    <Section>
       <Title>Czym się zajmuję?</Title>
       <WhatWeDoItem number="1">
         <img

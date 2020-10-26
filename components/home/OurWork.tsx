@@ -1,8 +1,9 @@
 import React from "react";
-import Section from "../../styles/components/Section";
+import Sectiong from "../../styles/components/Section";
 import Title from "../../styles/components/Title";
 import styled from "styled-components";
 import Button from "../../styles/components/Button";
+import Section from "../../styles/components/Section";
 
 const PortfolioGridItem = styled.img`
   display: block;
@@ -15,7 +16,6 @@ const ColumnsWrapper = styled.div`
 
 const CustomSection = styled(Section)`
   margin-top: 2rem;
-  padding: 0.5rem 1rem 2rem;
 `;
 
 const OurWork = () => {

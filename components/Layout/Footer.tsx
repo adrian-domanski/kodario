@@ -22,7 +22,8 @@ const StyledFooter = styled.footer`
   }
 
   hr.divider {
-    background: ${({ theme }) => theme.colors.darkerBlue};
+    border-color: ${({ theme }) => theme.colors.darkerBlue};
+    margin: 1rem 0;
   }
 
   p.lead {
@@ -49,6 +50,7 @@ const StyledFooter = styled.footer`
     i {
       transition: color 0.2s ease-in-out;
       cursor: pointer;
+
       &:hover {
         color: #dadada;
       }
@@ -63,6 +65,10 @@ const FooterTitle = styled.h3`
 
 const FooterList = styled.ul`
   margin-top: 1rem;
+
+  i {
+    margin-right: 0.5rem;
+  }
 
   li:not(:last-child) {
     margin-bottom: 0.5rem;
@@ -120,22 +126,21 @@ const Footer = () => {
         <FooterTitle>Kontakt</FooterTitle>
         <FooterList>
           <li>
-            <i className="fas fa-map-marker-alt mr-2" aria-hidden="true"></i>
+            <i className="fas fa-map-marker-alt" aria-hidden="true"></i>
             Mosina, Śrem, Poznań
           </li>
           <li>
-            <i className="fas fa-envelope mr-2" aria-hidden="true"></i>
+            <i className="fas fa-envelope" aria-hidden="true"></i>
             adrian.domanski.dev@gmail.com
           </li>
           <li>
-            <i className="fab fa-facebook-f mr-2" aria-hidden="true"></i>
+            <i className="fab fa-facebook-f" aria-hidden="true"></i>
             <a className="footer-link" href="#">
               Napisz do nas na Facebooku
             </a>
           </li>
           <li>
-            <i className="fas fa-mobile-alt mr-2" aria-hidden="true"></i>667 458
-            654
+            <i className="fas fa-mobile-alt" aria-hidden="true"></i>667 458 654
           </li>
         </FooterList>
       </FooterSection>

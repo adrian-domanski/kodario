@@ -9,10 +9,18 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
     box-sizing: border-box;
   }
+  
+  ul {
+    list-style-type: none;
+  }
+  
+  a {
+    text-decoration: none;
+  }
 
   body {
-      font-family: 'Montserrat', sans-serif;
-      background-color: #F8F8F8;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #F8F8F8;
   }
 `;
 
