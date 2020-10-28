@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Link from "next/link";
 
@@ -8,6 +8,10 @@ const StyledNavbar = styled.nav`
   width: 100%;
   position: relative;
   background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1;
 
   :before {
     content: "";
@@ -15,6 +19,7 @@ const StyledNavbar = styled.nav`
     width: 200px;
     height: 200px;
     position: absolute;
+    z-index: -1;
     right: 0;
     top: 0;
     background: url("/img/background.svg");
@@ -48,25 +53,35 @@ const StyledNavbar = styled.nav`
   }
 `;
 
+const NavbarList = styled.ul`
+  display: flex;
+  flex-direction: column;
+`;
+
+const ListItem = styled.li``;
+
+const Hamburger = styled.button<{ isActive?: boolean }>`
+  background: ${({ isActive }) => (isActive ? "#0d222e" : "transparent")};
+  border: none;
+  outline: none;
+  box-shadow: none;
+  display: block;
+  width: 50px;
+  height: 50px;
+  color: #fff;
+  margin-right: 1rem;
+  transition: background 0.2s ease-in-out;
+
+  i {
+    color: #fff;
+    font-size: 2rem;
+  }
+`;
+
 const Navbar = () => {
-  useEffect(() => {
-    const $navbarBurgers = Array.prototype.slice.call(
-      document.querySelectorAll(".navbar-burger"),
-      0
-    );
+  const [isMobileActive, setIsMobileActive] = useState(false);
 
-    if ($navbarBurgers.length > 0) {
-      $navbarBurgers.forEach((el) => {
-        el.addEventListener("click", () => {
-          const target = el.dataset.target;
-          const $target = document.getElementById(target);
-
-          el.classList.toggle("is-active");
-          $target.classList.toggle("is-active");
-        });
-      });
-    }
-  }, []);
+  const toggleMobileMenu = () => setIsMobileActive(!isMobileActive);
 
   return (
     <StyledNavbar
@@ -80,37 +95,19 @@ const Navbar = () => {
             <img src="/img/logo.svg" />
           </a>
         </Link>
-
-        <a
-          role="button"
-          className="navbar-burger burger"
-          aria-label="menu"
-          aria-expanded="false"
-          data-target="navbarBasicExample"
-        >
-          <i className="fas fa-bars" aria-hidden="true"></i>
-        </a>
       </div>
 
-      <div id="navbarBasicExample" className="navbar-menu">
-        <div className="navbar-end">
-          <a className="navbar-item">Home</a>
+      <Hamburger onClick={toggleMobileMenu} isActive={isMobileActive}>
+        <i className="fas fa-bars" aria-hidden="true"></i>
+      </Hamburger>
 
-          <a className="navbar-item">Documentation</a>
-
-          <div className="navbar-item has-dropdown is-hoverable">
-            <a className="navbar-link">More</a>
-
-            <div className="navbar-dropdown">
-              <a className="navbar-item">About</a>
-              <a className="navbar-item">Jobs</a>
-              <a className="navbar-item">Contact</a>
-              <hr className="navbar-divider" />
-              <a className="navbar-item">Report an issue</a>
-            </div>
-          </div>
-        </div>
-      </div>
+      <NavbarList>
+        <ListItem>
+          <Link href="/">
+            <a>Home</a>
+          </Link>
+        </ListItem>
+      </NavbarList>
     </StyledNavbar>
   );
 };
