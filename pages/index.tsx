@@ -11,7 +11,7 @@ export default function Home() {
       <Header />
       <WhatWeDo />
       <OurWork />
-      <Hello />
+      <Parallax />
       <ContactForm />
     </Layout>
   );

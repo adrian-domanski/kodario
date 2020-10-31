@@ -2,16 +2,21 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Link from "next/link";
 
-const StyledNavbar = styled.nav`
+const StyledNavbar = styled.nav<{ isSticky: boolean }>`
   max-width: 1400px;
   margin: 0 auto;
   width: 100%;
-  position: relative;
+  position: sticky;
+  top: 0;
+  left: 0;
   background: #fff;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  z-index: 1;
+  z-index: 100;
+  box-shadow: ${({ isSticky }) =>
+    isSticky ? "0 0 10px -4px #8a8a8a" : "none"};
+  transition: box-shadow 0.5s ease-in-out;
 
   :before {
     content: "";
@@ -53,12 +58,33 @@ const StyledNavbar = styled.nav`
   }
 `;
 
-const NavbarList = styled.ul`
+const NavbarList = styled.ul<{ isActive?: boolean }>`
   display: flex;
+  transform: ${({ isActive }) => (isActive ? "scaleY(1)" : "scaleY(0)")};
+  transform-origin: top;
+  transition: transform 0.2s ease-in-out;
   flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: ${({ theme }) => theme.colors.darkerBlue};
 `;
 
-const ListItem = styled.li``;
+const ListItem = styled.li`
+  text-align: center;
+  font-size: 1.1rem;
+
+  :not(:last-child) {
+    border-bottom: 1px solid #0d222e;
+  }
+
+  a {
+    color: #fff;
+    padding: 1rem;
+    display: block;
+  }
+`;
 
 const Hamburger = styled.button<{ isActive?: boolean }>`
   background: ${({ isActive }) => (isActive ? "#0d222e" : "transparent")};
@@ -80,6 +106,24 @@ const Hamburger = styled.button<{ isActive?: boolean }>`
 
 const Navbar = () => {
   const [isMobileActive, setIsMobileActive] = useState(false);
+  const [isSticky, setIsSticky] = useState(false);
+
+  useEffect(() => {
+    let isMenuSticky = isSticky;
+    const checkScrollTop = () => {
+      const scrollTop = document.scrollingElement.scrollTop;
+      if (scrollTop > 0 && !isMenuSticky) {
+        isMenuSticky = true;
+      } else if (scrollTop === 0 && isMenuSticky) {
+        isMenuSticky = false;
+      }
+      setIsSticky(isMenuSticky);
+    };
+
+    document.addEventListener("scroll", checkScrollTop);
+
+    return () => document.removeEventListener("scroll", checkScrollTop);
+  }, []);
 
   const toggleMobileMenu = () => setIsMobileActive(!isMobileActive);
 
@@ -88,6 +132,7 @@ const Navbar = () => {
       className="navbar"
       role="navigation"
       aria-label="main navigation"
+      isSticky={isSticky}
     >
       <div className="navbar-brand">
         <Link href="/">
@@ -101,10 +146,30 @@ const Navbar = () => {
         <i className="fas fa-bars" aria-hidden="true"></i>
       </Hamburger>
 
-      <NavbarList>
+      <NavbarList isActive={isMobileActive}>
         <ListItem>
           <Link href="/">
-            <a>Home</a>
+            <a>Strona Główna</a>
+          </Link>
+        </ListItem>
+        <ListItem>
+          <Link href="/oferta">
+            <a>Oferta</a>
+          </Link>
+        </ListItem>
+        <ListItem>
+          <Link href="/portfolio">
+            <a>Portfolio</a>
+          </Link>
+        </ListItem>
+        <ListItem>
+          <Link href="/o-mnie">
+            <a>O mnie</a>
+          </Link>
+        </ListItem>
+        <ListItem>
+          <Link href="/kontakt">
+            <a>Kontakt</a>
           </Link>
         </ListItem>
       </NavbarList>
