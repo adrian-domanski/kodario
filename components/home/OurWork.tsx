@@ -1,13 +1,16 @@
 import React from "react";
-import Sectiong from "../../styles/components/Section";
+import Section from "../../styles/components/Section";
 import Title from "../../styles/components/Title";
 import styled from "styled-components";
 import Button from "../../styles/components/Button";
-import Section from "../../styles/components/Section";
 
 const PortfolioGridItem = styled.img`
   display: block;
-  margin: 0 auto;
+  margin: 1rem auto;
+
+  :last-child {
+    margin-bottom: 0;
+  }
 `;
 
 const ColumnsWrapper = styled.div`
@@ -15,7 +18,9 @@ const ColumnsWrapper = styled.div`
 `;
 
 const CustomSection = styled(Section)`
-  margin-top: 2rem;
+  ${Button} {
+    margin-top: 1rem;
+  }
 `;
 
 const OurWork = () => {

@@ -5,5 +5,7 @@ export const theme: DefaultTheme = {
     darkBlue: "#245E7E",
     darkerBlue: "#122F3F",
     lightWhite: "#F5F5F5",
+    darkerSection: "#EFF4F8",
+    backgroundColor: "#F8F8F8",
   },
 };

@@ -3,7 +3,7 @@ import Section from "../../styles/components/Section";
 import Title from "../../styles/components/Title";
 import styled from "styled-components";
 
-const WhatWeDoItem = styled.div<{ number: string }>`
+export const WhatWeDoItem = styled.div<{ number: string }>`
   text-align: center;
 
   &:not(:last-child) {

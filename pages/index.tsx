@@ -8,7 +8,17 @@ import Parallax from "../components/Parallax";
 export default function Home() {
   return (
     <Layout>
-      <Header />
+      <Header
+        title="Innowacyjne rozwiązania w nowoczesnym stylu"
+        img={{
+          src: "/img/phone-start.svg",
+          alt: "Strona internetowa na urządzeniu mobilnym",
+        }}
+        button={{
+          value: "Portfolio",
+          href: "/portfolio",
+        }}
+      />
       <WhatWeDo />
       <OurWork />
       <Parallax />

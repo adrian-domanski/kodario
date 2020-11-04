@@ -11,20 +11,24 @@ export default styled.h2<IProps>`
   font-size: ${(props) => (props.subTitle ? "1.5rem" : "1.3rem")};
   font-weight: ${(props) => (props.subTitle ? 500 : 700)};
   position: relative;
+  text-align: center;
+  z-index: 1;
   display: ${(props) => (props.subTitle ? "block" : "table")};
-  margin: 2rem auto;
+  margin: 0 auto 2rem auto;
 
   ${({ subTitle }) =>
     !subTitle &&
     `
   :before {
     content: "";
-    display: block;
-    position: absolute;
-    top: -14px;
-    left: -23px;
+    display: inline-block;
+    position: relative;
+    z-index: -1;
     background: url("/img/title-accent.svg") no-repeat;
     background-size: 100%;
+    margin-right: -50px;
+    top: 15px;
+    left: -26px;
     width: 50px;
     height: 50px;
   }

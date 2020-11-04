@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 interface IProps {
   centered?: boolean;
+  as?: string;
 }
 
 export default styled.button.attrs({ className: "button" })<IProps>`
@@ -11,7 +12,7 @@ export default styled.button.attrs({ className: "button" })<IProps>`
   padding: 0.7rem 2.5rem;
   font-size: 1rem;
   height: auto;
-  display: block;
+  display: ${({ as }) => (as ? "table" : "block")};
   border: none;
 
   ${({ centered }) => centered && "margin: 0 auto"}

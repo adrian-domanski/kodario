@@ -8,6 +8,7 @@ interface IProps {
 export default styled.section.attrs(({ className }: IProps) => ({
   className: `section ${className}`,
 }))<IProps>`
-  ${({ darker }) => darker && "background: #ebebeb;"}
+  background-color: ${({ darker, theme }) =>
+    darker ? theme.colors.darkerSection : theme.colors.lightWhite};
   padding: 2rem;
 `;
