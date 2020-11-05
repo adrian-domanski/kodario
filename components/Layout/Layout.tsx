@@ -20,7 +20,7 @@ const GlobalStyles = createGlobalStyle`
 
   body {
     font-family: 'Montserrat', sans-serif;
-    background-color: #F8F8F8;
+    background-color: ${({ theme }) => theme.colors.backgroundColor};
   }
 `;
 

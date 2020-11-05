@@ -52,7 +52,7 @@ const WhatWeDo = () => {
         />
         <Title subTitle>Tworzenie stron i aplikacji internetowych</Title>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae enim
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae eim
           expedita numquam ullam repellat aspernatur officia tempora ex maiores
           consequuntur.
         </p>

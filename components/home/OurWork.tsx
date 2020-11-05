@@ -3,19 +3,7 @@ import Section from "../../styles/components/Section";
 import Title from "../../styles/components/Title";
 import styled from "styled-components";
 import Button from "../../styles/components/Button";
-
-const PortfolioGridItem = styled.img`
-  display: block;
-  margin: 1rem auto;
-
-  :last-child {
-    margin-bottom: 0;
-  }
-`;
-
-const ColumnsWrapper = styled.div`
-  max-width: 800px;
-`;
+import { PortfolioGrid, PortfolioGridItem } from "../../pages/portfolio";
 
 const CustomSection = styled(Section)`
   ${Button} {
@@ -27,7 +15,7 @@ const OurWork = () => {
   return (
     <CustomSection darker>
       <Title>Przykładowe realizacje</Title>
-      <ColumnsWrapper className="columns is-multiline">
+      <PortfolioGrid>
         <PortfolioGridItem
           className="column is-6"
           src="/img/portfolio/portfolio-1.jpg"
@@ -43,7 +31,7 @@ const OurWork = () => {
           src="/img/portfolio/portfolio-1.jpg"
           alt="#"
         />
-      </ColumnsWrapper>
+      </PortfolioGrid>
       <Button centered>Zobacz więcej</Button>
     </CustomSection>
   );

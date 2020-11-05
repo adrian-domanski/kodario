@@ -8,21 +8,21 @@ const StyledFooter = styled.footer`
   text-align: center;
   position: relative;
   padding: 2rem 1rem;
-  margin-top: 50px;
 
   :before {
     content: "";
     position: absolute;
     left: 0;
     bottom: 100%;
-    background: url("/img/footer-wave.svg") no-repeat;
+    background-image: url("/img/footer-wave.svg");
+    background-repeat: no-repeat;
     width: 100%;
     height: 55px;
     background-size: cover;
   }
 
   hr.divider {
-    border-color: ${({ theme }) => theme.colors.darkerBlue};
+    border: 1px solid ${({ theme }) => theme.colors.darkBlue};
     margin: 1rem 0;
   }
 

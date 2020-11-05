@@ -8,7 +8,7 @@ interface IProps {
 export default styled.h2<IProps>`
   color: ${({ theme, isWhite }) =>
     isWhite ? theme.colors.lightWhite : theme.colors.darkBlue};
-  font-size: ${(props) => (props.subTitle ? "1.5rem" : "1.3rem")};
+  font-size: ${(props) => (props.subTitle ? "1.4rem" : "1.5rem")};
   font-weight: ${(props) => (props.subTitle ? 500 : 700)};
   position: relative;
   text-align: center;
@@ -16,7 +16,7 @@ export default styled.h2<IProps>`
   display: ${(props) => (props.subTitle ? "block" : "table")};
   margin: 0 auto 2rem auto;
 
-  ${({ subTitle }) =>
+  ${({ subTitle: subTitle }) =>
     !subTitle &&
     `
   :before {

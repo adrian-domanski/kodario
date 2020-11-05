@@ -25,7 +25,7 @@ const OfferPage: React.FC = () => {
         }}
         button={{
           href: "/kontakt",
-          value: "Zadaj pytanie dotyczące oferty",
+          value: "Zapytaj o szczegóły",
         }}
         paragraph={{
           value: "Poznaj dokładny zakres, naszych usług",
@@ -95,7 +95,7 @@ const OfferPage: React.FC = () => {
           </p>
         </WhatWeDoItem>
       </Section>
-      <GoToContact darker>
+      <GoToContact darker footerSpace>
         <Title>Masz pytanie do naszych usług?</Title>
         <Paragraph blueColor fontWeight="500" isCentered>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident

@@ -11,7 +11,7 @@ export default function Home() {
       <Header
         title="Innowacyjne rozwiązania w nowoczesnym stylu"
         img={{
-          src: "/img/phone-start.svg",
+          src: "/img/header/home.svg",
           alt: "Strona internetowa na urządzeniu mobilnym",
         }}
         button={{

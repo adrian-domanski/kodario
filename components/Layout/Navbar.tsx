@@ -17,6 +17,7 @@ const StyledNavbar = styled.nav<{ isSticky: boolean }>`
   box-shadow: ${({ isSticky }) =>
     isSticky ? "0 0 10px -4px #8a8a8a" : "none"};
   transition: box-shadow 0.5s ease-in-out;
+  transform: scaleY(1) scaleX(1);
 
   :before {
     content: "";
@@ -31,6 +32,14 @@ const StyledNavbar = styled.nav<{ isSticky: boolean }>`
     background-size: 400%;
     background-repeat: no-repeat;
     background-position: 80px -20px;
+    transition: transform 0.3s ease;
+    transform-origin: top right;
+
+    ${({ isSticky }) =>
+      isSticky &&
+      `
+      transform: scaleY(0.7) scaleX(1.1);
+    `}
   }
 
   .navbar-burger {
