@@ -32,7 +32,7 @@ const PortfolioPage = () => {
         }}
       />
       <Section footerSpace>
-        <Title>Przykładowe realizacje</Title>
+        <Title>Realizacje</Title>
         <PortfolioGrid>
           <PortfolioGridItem src="/img/portfolio/portfolio-1.jpg" alt="#" />
           <PortfolioGridItem src="/img/portfolio/portfolio-1.jpg" alt="#" />

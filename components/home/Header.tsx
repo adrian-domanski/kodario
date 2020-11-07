@@ -21,7 +21,8 @@ const StyledHomeHeader = styled.header`
   }
 
   ${Paragraph} {
-    margin-top: 0.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 2.5rem;
     font-size: 1.5rem;
   }
 `;
@@ -43,6 +44,7 @@ interface IProps {
   button?: {
     href: string;
     value: string;
+    externalPage?: boolean;
   };
   paragraph?: {
     value: string;
@@ -58,13 +60,18 @@ const Header: React.FC<IProps> = ({ title, button, img, paragraph }) => {
         <Paragraph blueColor={paragraph.isBlue}>{paragraph.value}</Paragraph>
       )}
       <StyledImage src={img.src} alt={img.alt} maxWidth={img.maxWidth} />
-      {button && (
-        <Link href={button.href}>
-          <Button as="a" centered>
+      {button &&
+        (button.externalPage ? (
+          <Button as="a" href={button.href} target="_blank" centered>
             {button.value}
           </Button>
-        </Link>
-      )}
+        ) : (
+          <Link href={button.href}>
+            <Button as="a" centered>
+              {button.value}
+            </Button>
+          </Link>
+        ))}
     </StyledHomeHeader>
   );
 };

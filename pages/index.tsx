@@ -4,6 +4,7 @@ import OurWork from "../components/home/OurWork";
 import WhatWeDo from "../components/home/WhatWeDo";
 import Layout from "../components/Layout/Layout";
 import Parallax from "../components/Parallax";
+import Section from "../styles/components/Section";
 
 export default function Home() {
   return (
@@ -22,7 +23,9 @@ export default function Home() {
       <WhatWeDo />
       <OurWork />
       <Parallax />
-      <ContactForm />
+      <Section footerSpace>
+        <ContactForm />
+      </Section>
     </Layout>
   );
 }

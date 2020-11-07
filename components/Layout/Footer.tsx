@@ -22,7 +22,7 @@ const StyledFooter = styled.footer`
   }
 
   hr.divider {
-    border: 1px solid ${({ theme }) => theme.colors.darkBlue};
+    border: 1px solid #1b4d69;
     margin: 1rem 0;
   }
 
@@ -146,7 +146,12 @@ const Footer = () => {
       </FooterSection>
       <FooterSection>
         <hr className="divider" />
-        <p>Wszelkie prawa zastrzeżone &copy; 2020 | Kodario.pl</p>
+        <p>
+          Wszelkie prawa zastrzeżone &copy; 2020 |{" "}
+          <Link href="/">
+            <a className="footer-link ">Kodario.pl</a>
+          </Link>
+        </p>
       </FooterSection>
     </StyledFooter>
   );
