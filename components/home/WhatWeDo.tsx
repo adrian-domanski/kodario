@@ -2,12 +2,14 @@ import React from "react";
 import Section from "../../styles/components/Section";
 import Title from "../../styles/components/Title";
 import styled from "styled-components";
+import Button from "../../styles/components/Button";
+import Link from "next/link";
 
 export const WhatWeDoItem = styled.div<{ number: string }>`
   text-align: center;
 
-  &:not(:last-child) {
-    margin-bottom: 2rem;
+  :not(:last-of-type) {
+    margin-bottom: 4rem;
   }
 
   img {
@@ -41,9 +43,15 @@ export const WhatWeDoItem = styled.div<{ number: string }>`
   }
 `;
 
+const WhatWeDoSection = styled(Section)`
+  ${Button} {
+    margin: 2rem auto 0;
+  }
+`;
+
 const WhatWeDo = () => {
   return (
-    <Section>
+    <WhatWeDoSection>
       <Title>Czym się zajmuję?</Title>
       <WhatWeDoItem number="1">
         <img
@@ -81,7 +89,10 @@ const WhatWeDo = () => {
           consequuntur.
         </p>
       </WhatWeDoItem>
-    </Section>
+      <Link href="/oferta">
+        <Button as="a">Zobacz więcej</Button>
+      </Link>
+    </WhatWeDoSection>
   );
 };
 

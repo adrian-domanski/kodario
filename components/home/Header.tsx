@@ -8,7 +8,7 @@ const StyledHomeHeader = styled.header`
   text-align: center;
   color: ${({ theme }) => theme.colors.darkBlue};
   background: #fff;
-  padding: 2rem 1rem 1.5rem;
+  padding: 3.5rem 2rem 3rem;
 
   h1 {
     font-weight: 700;
@@ -24,6 +24,10 @@ const StyledHomeHeader = styled.header`
     margin-top: 1.5rem;
     margin-bottom: 2.5rem;
     font-size: 1.5rem;
+  }
+
+  ${Button} {
+    margin-top: 1.5rem;
   }
 `;
 

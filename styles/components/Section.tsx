@@ -11,7 +11,7 @@ export default styled.section.attrs(({ className }: IProps) => ({
 }))<IProps>`
   background-color: ${({ darker, theme }) =>
     darker ? theme.colors.darkerSection : theme.colors.lightWhite};
-  padding: 2rem;
+  padding: 3rem 2rem 4rem;
 
   ${({ footerSpace }) => footerSpace && "padding-bottom: calc(2rem + 90px);"}
 `;

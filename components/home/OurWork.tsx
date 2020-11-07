@@ -7,7 +7,7 @@ import { PortfolioGrid, PortfolioGridItem } from "../../pages/portfolio";
 
 const CustomSection = styled(Section)`
   ${Button} {
-    margin-top: 1rem;
+    margin-top: 2rem;
   }
 `;
 

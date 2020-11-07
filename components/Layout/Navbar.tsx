@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Link from "next/link";
+import Hamburger from "../Hamburger";
 
 const StyledNavbar = styled.nav<{ isSticky: boolean }>`
   max-width: 1400px;
@@ -95,35 +96,17 @@ const ListItem = styled.li`
   }
 `;
 
-const Hamburger = styled.button<{ isActive?: boolean }>`
-  background: ${({ isActive }) => (isActive ? "#0d222e" : "transparent")};
-  border: none;
-  outline: none;
-  box-shadow: none;
-  display: block;
-  width: 50px;
-  height: 50px;
-  color: #fff;
-  margin-right: 1rem;
-  transition: background 0.2s ease-in-out;
-
-  i {
-    color: #fff;
-    font-size: 2rem;
-  }
-`;
-
 const Navbar = () => {
-  const [isMobileActive, setIsMobileActive] = useState(false);
+  const [isMobileActive, setIsMobileActive] = useState(null);
   const [isSticky, setIsSticky] = useState(false);
 
   useEffect(() => {
     let isMenuSticky = isSticky;
     const checkScrollTop = () => {
       const scrollTop = document.scrollingElement.scrollTop;
-      if (scrollTop > 0 && !isMenuSticky) {
+      if (scrollTop > 0 && isMenuSticky === false) {
         isMenuSticky = true;
-      } else if (scrollTop === 0 && isMenuSticky) {
+      } else if (scrollTop === 0 && isMenuSticky === true) {
         isMenuSticky = false;
       }
       setIsSticky(isMenuSticky);
@@ -151,9 +134,17 @@ const Navbar = () => {
         </Link>
       </div>
 
-      <Hamburger onClick={toggleMobileMenu} isActive={isMobileActive}>
-        <i className="fas fa-bars" aria-hidden="true"></i>
-      </Hamburger>
+      <Hamburger
+        toggleMobileMenu={toggleMobileMenu}
+        className={`${
+          isMobileActive !== null
+            ? isMobileActive
+              ? "fade-in"
+              : "fade-out"
+            : ""
+        }`}
+        isActive={isMobileActive}
+      ></Hamburger>
 
       <NavbarList isActive={isMobileActive}>
         <ListItem>
