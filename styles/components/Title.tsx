@@ -8,13 +8,13 @@ interface IProps {
 export default styled.h2<IProps>`
   color: ${({ theme, isWhite }) =>
     isWhite ? theme.colors.lightWhite : theme.colors.darkBlue};
-  font-size: ${(props) => (props.subTitle ? "1.4rem" : "1.5rem")};
+  font-size: ${(props) => (props.subTitle ? "1.4rem" : "1.6rem")};
   font-weight: ${(props) => (props.subTitle ? 500 : 700)};
   position: relative;
   text-align: center;
   z-index: 1;
   display: ${(props) => (props.subTitle ? "block" : "table")};
-  margin: 0 auto 2rem auto;
+  margin: 0 auto 3rem auto;
 
   ${({ subTitle: subTitle }) =>
     !subTitle &&
@@ -33,4 +33,9 @@ export default styled.h2<IProps>`
     height: 50px;
   }
   `}
+
+  @media screen and (min-width: 768px) {
+    margin: 0 auto 3.5rem auto;
+    font-size: ${(props) => (props.subTitle ? "1.4rem" : "1.7rem")};
+  }
 `;

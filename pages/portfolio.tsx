@@ -6,7 +6,7 @@ import styled from "styled-components";
 
 export const PortfolioGridItem = styled.img`
   display: block;
-  margin: 1rem auto;
+  width: 100%;
 
   :last-child {
     margin-bottom: 0;
@@ -15,6 +15,13 @@ export const PortfolioGridItem = styled.img`
 
 export const PortfolioGrid = styled.div`
   display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 1.5rem;
+
+  @media screen and (min-width: 600px) {
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+  }
 `;
 
 const PortfolioPage = () => {

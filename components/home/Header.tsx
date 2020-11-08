@@ -10,9 +10,19 @@ const StyledHomeHeader = styled.header`
   background: #fff;
   padding: 3.5rem 2rem 3rem;
 
+  @media screen and (min-width: 768px) {
+    padding: 4.5rem 2rem 4rem;
+  }
+
   h1 {
     font-weight: 700;
     font-size: 2rem;
+    max-width: 500px;
+    margin: 0 auto;
+
+    @media screen and (min-width: 800px) {
+      font-size: 2.2rem;
+    }
   }
 
   a {
@@ -28,6 +38,11 @@ const StyledHomeHeader = styled.header`
 
   ${Button} {
     margin-top: 1.5rem;
+
+    @media screen and (min-width: 768px) {
+      font-size: 1.3rem;
+      padding: 0.8rem 2.6rem;
+    }
   }
 `;
 
@@ -36,6 +51,16 @@ const StyledImage = styled.img<{ maxWidth?: string }>`
   max-width: ${({ maxWidth }) => (maxWidth ? maxWidth : "90%")};
   width: 100%;
   display: block;
+
+  @media screen and (min-width: 600px) {
+    max-width: 70%;
+    margin: 3rem auto 2rem auto;
+  }
+
+  @media screen and (min-width: 768px) {
+    max-width: 65%;
+    margin: 3rem auto 2rem auto;
+  }
 `;
 
 interface IProps {

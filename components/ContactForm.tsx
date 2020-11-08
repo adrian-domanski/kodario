@@ -71,7 +71,10 @@ const ContactListItem = styled.li`
   }
 `;
 
-const PageWrapper = styled.div``;
+const PageWrapper = styled.div`
+  max-width: 500px;
+  margin: 0 auto;
+`;
 
 interface IProps {
   contactInformation?: boolean;

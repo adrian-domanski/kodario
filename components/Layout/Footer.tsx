@@ -7,7 +7,7 @@ const StyledFooter = styled.footer`
   color: ${({ theme }) => theme.colors.lightWhite};
   text-align: center;
   position: relative;
-  padding: 2rem 1rem;
+  padding: 3rem 1rem 2rem;
 
   :before {
     content: "";
@@ -76,7 +76,7 @@ const FooterList = styled.ul`
 `;
 
 const FooterSection = styled.div`
-  margin-top: 2rem;
+  margin-top: 4rem;
 `;
 
 const Footer = () => {

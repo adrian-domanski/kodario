@@ -4,6 +4,7 @@ import Title from "../../styles/components/Title";
 import styled from "styled-components";
 import Button from "../../styles/components/Button";
 import { PortfolioGrid, PortfolioGridItem } from "../../pages/portfolio";
+import ContentWrapper from "../../styles/components/ContentWrapper";
 
 const CustomSection = styled(Section)`
   ${Button} {
@@ -14,25 +15,16 @@ const CustomSection = styled(Section)`
 const OurWork = () => {
   return (
     <CustomSection darker>
-      <Title>Przykładowe realizacje</Title>
-      <PortfolioGrid>
-        <PortfolioGridItem
-          className="column is-6"
-          src="/img/portfolio/portfolio-1.jpg"
-          alt="#"
-        />
-        <PortfolioGridItem
-          className="column is-6"
-          src="/img/portfolio/portfolio-1.jpg"
-          alt="#"
-        />
-        <PortfolioGridItem
-          className="column is-6"
-          src="/img/portfolio/portfolio-1.jpg"
-          alt="#"
-        />
-      </PortfolioGrid>
-      <Button centered>Zobacz więcej</Button>
+      <ContentWrapper>
+        <Title>Przykładowe realizacje</Title>
+        <PortfolioGrid>
+          <PortfolioGridItem src="/img/portfolio/portfolio-1.jpg" alt="#" />
+          <PortfolioGridItem src="/img/portfolio/portfolio-1.jpg" alt="#" />
+          <PortfolioGridItem src="/img/portfolio/portfolio-1.jpg" alt="#" />
+          <PortfolioGridItem src="/img/portfolio/portfolio-1.jpg" alt="#" />
+        </PortfolioGrid>
+        <Button centered>Zobacz więcej</Button>
+      </ContentWrapper>
     </CustomSection>
   );
 };

@@ -6,7 +6,7 @@ const ParallaxWrapper = styled.div`
   background: url("/img/parallax.jpg") no-repeat;
   background-position: center;
   background-size: cover;
-  padding: 3rem 2rem;
+  padding: 3rem 2rem 4rem;
   position: relative;
   z-index: 2;
   color: ${({ theme }) => theme.colors.lightWhite};
@@ -27,7 +27,7 @@ const ParallaxWrapper = styled.div`
 
   h2 {
     font-size: 1.6rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2.5rem;
     margin-top: 0;
   }
 `;

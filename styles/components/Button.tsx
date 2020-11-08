@@ -15,5 +15,9 @@ export default styled.button.attrs({ className: "button" })<IProps>`
   display: ${({ as }) => (as ? "table" : "block")};
   border: none;
 
-  ${({ centered }) => centered && "margin: 0 auto"}
+  ${({ centered }) => centered && "margin: 0 auto"};
+
+  @media screen and (min-width: 700px) {
+    font-size: 1.1rem;
+  }
 `;

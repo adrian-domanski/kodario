@@ -149,27 +149,27 @@ const Navbar = () => {
       <NavbarList isActive={isMobileActive}>
         <ListItem>
           <Link href="/">
-            <a>Strona Główna</a>
+            <a onClick={toggleMobileMenu}>Strona Główna</a>
           </Link>
         </ListItem>
         <ListItem>
           <Link href="/oferta">
-            <a>Oferta</a>
+            <a onClick={toggleMobileMenu}>Oferta</a>
           </Link>
         </ListItem>
         <ListItem>
           <Link href="/portfolio">
-            <a>Portfolio</a>
+            <a onClick={toggleMobileMenu}>Portfolio</a>
           </Link>
         </ListItem>
         <ListItem>
           <Link href="/o-mnie">
-            <a>O mnie</a>
+            <a onClick={toggleMobileMenu}>O mnie</a>
           </Link>
         </ListItem>
         <ListItem>
           <Link href="/kontakt">
-            <a>Kontakt</a>
+            <a onClick={toggleMobileMenu}>Kontakt</a>
           </Link>
         </ListItem>
       </NavbarList>
