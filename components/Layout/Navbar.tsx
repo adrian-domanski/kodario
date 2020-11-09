@@ -4,9 +4,9 @@ import Link from "next/link";
 import Hamburger from "../Hamburger";
 
 const StyledNavbar = styled.nav<{ isSticky: boolean }>`
-  max-width: 1400px;
   margin: 0 auto;
   width: 100%;
+  height: 70px;
   position: sticky;
   top: 0;
   left: 0;
@@ -16,9 +16,20 @@ const StyledNavbar = styled.nav<{ isSticky: boolean }>`
   justify-content: space-between;
   z-index: 100;
   box-shadow: ${({ isSticky }) =>
-    isSticky ? "0 0 10px -4px #8a8a8a" : "none"};
-  transition: box-shadow 0.5s ease-in-out;
+    isSticky ? "0 0 10px -8px #000000" : "none"};
+  transition: box-shadow 0.5s ease;
   transform: scaleY(1) scaleX(1);
+
+  .content-wrapper {
+    max-width: 1400px;
+    width: 100%;
+    display: flex;
+    margin: 0 auto;
+
+    @media screen and (max-width: 998px) {
+      justify-content: space-between;
+    }
+  }
 
   :before {
     content: "";
@@ -26,7 +37,7 @@ const StyledNavbar = styled.nav<{ isSticky: boolean }>`
     width: 200px;
     height: 200px;
     position: absolute;
-    z-index: -1;
+    z-index: -2;
     right: 0;
     top: 0;
     background: url("/img/background.svg");
@@ -36,10 +47,34 @@ const StyledNavbar = styled.nav<{ isSticky: boolean }>`
     transition: transform 0.3s ease;
     transform-origin: top right;
 
+    @media screen and (min-width: 998px) {
+      background-size: 100%;
+      width: 80%;
+      height: 100%;
+    }
+
+    @media screen and (min-width: 1200px) {
+      width: 70%;
+    }
+
+    @media screen and (min-width: 1400px) {
+      width: 60%;
+    }
+
+    @media screen and (min-width: 2700px) {
+      width: 53%;
+    }
+
     ${({ isSticky }) =>
       isSticky &&
       `
-      transform: scaleY(0.7) scaleX(1.1);
+      @media screen and (max-width: 997px) {
+        transform: scaleY(0.7) scaleX(1.1);
+      }
+      
+      @media screen and (min-width: 998px) {
+        transform: scaleX(1.03);
+    }
     `}
   }
 
@@ -55,6 +90,10 @@ const StyledNavbar = styled.nav<{ isSticky: boolean }>`
 
   .navbar-brand {
     padding: 1rem;
+
+    @media screen and (min-width: 998px) {
+      padding-left: 2rem;
+    }
 
     .navbar-item {
       padding: 0;
@@ -79,6 +118,14 @@ const NavbarList = styled.ul<{ isActive?: boolean }>`
   left: 0;
   width: 100%;
   background-color: ${({ theme }) => theme.colors.darkerBlue};
+
+  @media screen and (min-width: 998px) {
+    position: static;
+    background-color: unset;
+    transform: none;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
 `;
 
 const ListItem = styled.li`
@@ -87,6 +134,16 @@ const ListItem = styled.li`
 
   :not(:last-child) {
     border-bottom: 1px solid #0d222e;
+
+    @media screen and (min-width: 998px) {
+      border-bottom: unset;
+    }
+  }
+
+  @media screen and (min-width: 998px) {
+    :last-child {
+      padding-right: 2rem;
+    }
   }
 
   a {
@@ -121,58 +178,59 @@ const Navbar = () => {
 
   return (
     <StyledNavbar
-      className="navbar"
       role="navigation"
       aria-label="main navigation"
       isSticky={isSticky}
     >
-      <div className="navbar-brand">
-        <Link href="/">
-          <a className="navbar-item">
-            <img src="/img/logo.svg" />
-          </a>
-        </Link>
-      </div>
-
-      <Hamburger
-        toggleMobileMenu={toggleMobileMenu}
-        className={`${
-          isMobileActive !== null
-            ? isMobileActive
-              ? "fade-in"
-              : "fade-out"
-            : ""
-        }`}
-        isActive={isMobileActive}
-      ></Hamburger>
-
-      <NavbarList isActive={isMobileActive}>
-        <ListItem>
+      <div className="content-wrapper">
+        <div className="navbar-brand">
           <Link href="/">
-            <a onClick={toggleMobileMenu}>Strona Główna</a>
+            <a className="navbar-item">
+              <img src="/img/logo.svg" />
+            </a>
           </Link>
-        </ListItem>
-        <ListItem>
-          <Link href="/oferta">
-            <a onClick={toggleMobileMenu}>Oferta</a>
-          </Link>
-        </ListItem>
-        <ListItem>
-          <Link href="/portfolio">
-            <a onClick={toggleMobileMenu}>Portfolio</a>
-          </Link>
-        </ListItem>
-        <ListItem>
-          <Link href="/o-mnie">
-            <a onClick={toggleMobileMenu}>O mnie</a>
-          </Link>
-        </ListItem>
-        <ListItem>
-          <Link href="/kontakt">
-            <a onClick={toggleMobileMenu}>Kontakt</a>
-          </Link>
-        </ListItem>
-      </NavbarList>
+        </div>
+
+        <Hamburger
+          toggleMobileMenu={toggleMobileMenu}
+          className={`${
+            isMobileActive !== null
+              ? isMobileActive
+                ? "fade-in"
+                : "fade-out"
+              : ""
+          }`}
+          isActive={isMobileActive}
+        ></Hamburger>
+
+        <NavbarList isActive={isMobileActive}>
+          <ListItem>
+            <Link href="/">
+              <a onClick={toggleMobileMenu}>Strona Główna</a>
+            </Link>
+          </ListItem>
+          <ListItem>
+            <Link href="/oferta">
+              <a onClick={toggleMobileMenu}>Oferta</a>
+            </Link>
+          </ListItem>
+          <ListItem>
+            <Link href="/portfolio">
+              <a onClick={toggleMobileMenu}>Portfolio</a>
+            </Link>
+          </ListItem>
+          <ListItem>
+            <Link href="/o-mnie">
+              <a onClick={toggleMobileMenu}>O mnie</a>
+            </Link>
+          </ListItem>
+          <ListItem>
+            <Link href="/kontakt">
+              <a onClick={toggleMobileMenu}>Kontakt</a>
+            </Link>
+          </ListItem>
+        </NavbarList>
+      </div>
     </StyledNavbar>
   );
 };

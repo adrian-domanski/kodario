@@ -6,11 +6,16 @@ const ParallaxWrapper = styled.div`
   background: url("/img/parallax.jpg") no-repeat;
   background-position: center;
   background-size: cover;
-  padding: 3rem 2rem 4rem;
+  padding: 5rem 2rem 6rem;
   position: relative;
   z-index: 2;
   color: ${({ theme }) => theme.colors.lightWhite};
   text-align: center;
+
+  @media screen and (min-width: 998px) {
+    padding: 6rem 2rem 4rem;
+    background-attachment: fixed;
+  }
 
   :before {
     content: "";
@@ -26,15 +31,24 @@ const ParallaxWrapper = styled.div`
   }
 
   h2 {
-    font-size: 1.6rem;
     margin-bottom: 2.5rem;
     margin-top: 0;
+
+    :before {
+      display: none;
+    }
   }
 `;
 
 const ParallaxFlex = styled.div`
   display: flex;
   flex-direction: column;
+
+  @media screen and (min-width: 998px) {
+    flex-direction: row;
+    max-width: 1200px;
+    margin: 5rem auto 2rem;
+  }
 `;
 const ParallaxFlexItem = styled.div`
   width: 100%;

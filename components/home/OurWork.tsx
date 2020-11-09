@@ -5,8 +5,11 @@ import styled from "styled-components";
 import Button from "../../styles/components/Button";
 import { PortfolioGrid, PortfolioGridItem } from "../../pages/portfolio";
 import ContentWrapper from "../../styles/components/ContentWrapper";
+import SideText from "../../styles/components/SideText";
 
 const CustomSection = styled(Section)`
+  position: relative;
+
   ${Button} {
     margin-top: 2rem;
   }
@@ -15,6 +18,7 @@ const CustomSection = styled(Section)`
 const OurWork = () => {
   return (
     <CustomSection darker>
+      <SideText side="LEFT" text="portfolio" />
       <ContentWrapper>
         <Title>Przykładowe realizacje</Title>
         <PortfolioGrid>

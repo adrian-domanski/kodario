@@ -7,7 +7,7 @@ const StyledFooter = styled.footer`
   color: ${({ theme }) => theme.colors.lightWhite};
   text-align: center;
   position: relative;
-  padding: 3rem 1rem 2rem;
+  padding: 1rem;
 
   :before {
     content: "";
@@ -17,7 +17,7 @@ const StyledFooter = styled.footer`
     background-image: url("/img/footer-wave.svg");
     background-repeat: no-repeat;
     width: 100%;
-    height: 55px;
+    height: 7vw;
     background-size: cover;
   }
 
@@ -46,6 +46,10 @@ const StyledFooter = styled.footer`
     max-width: 200px;
     margin: 1.5rem auto;
     justify-content: space-around;
+
+    @media screen and (min-width: 998px) {
+      margin: 2rem auto 0 0;
+    }
 
     i {
       transition: color 0.2s ease-in-out;
@@ -76,83 +80,107 @@ const FooterList = styled.ul`
 `;
 
 const FooterSection = styled.div`
-  margin-top: 4rem;
+  margin-top: 3rem;
+
+  @media screen and (min-width: 998px) {
+    :last-of-type {
+      width: 100%;
+      grid-column: 1 / 4;
+      text-align: center;
+    }
+  }
+`;
+
+const FooterContentWrapper = styled.div`
+  max-width: 1100px;
+  margin: 0 auto;
+
+  @media screen and (min-width: 998px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: left;
+  }
 `;
 
 const Footer = () => {
   return (
     <StyledFooter>
-      <FooterTitle>Kodario.pl</FooterTitle>
-      <p className="lead">
-        Tworzenie nowoczesnych stron internetowych w przystępnej cenie.
-      </p>
-      <div className="social-icons">
-        <i className="fab fa-facebook" aria-hidden="true"></i>
-        <i className="fab fa-github" aria-hidden="true"></i>
-        <i className="fab fa-linkedin" aria-hidden="true"></i>
-      </div>
+      <FooterContentWrapper>
+        <FooterSection>
+          <FooterTitle>Kodario.pl</FooterTitle>
+          <p className="lead">
+            Tworzenie nowoczesnych stron internetowych w przystępnej cenie.
+          </p>
+          <div className="social-icons">
+            <i className="fab fa-facebook" aria-hidden="true"></i>
+            <i className="fab fa-github" aria-hidden="true"></i>
+            <i className="fab fa-linkedin" aria-hidden="true"></i>
+          </div>
+        </FooterSection>
 
-      <FooterSection>
-        <FooterTitle>Nawigacja</FooterTitle>
-        <FooterList>
-          <li>
+        <FooterSection>
+          <FooterTitle>Nawigacja</FooterTitle>
+          <FooterList>
+            <li>
+              <Link href="/">
+                <a className="footer-link">Strona Główna</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/">
+                <a className="footer-link">O mnie</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/">
+                <a className="footer-link">Oferta</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/">
+                <a className="footer-link">Portfolio</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/">
+                <a className="footer-link">Kontakt</a>
+              </Link>
+            </li>
+          </FooterList>
+        </FooterSection>
+        <FooterSection>
+          <FooterTitle>Kontakt</FooterTitle>
+          <FooterList>
+            <li>
+              <i className="fas fa-map-marker-alt" aria-hidden="true"></i>
+              Mosina, Śrem, Poznań
+            </li>
+            <li>
+              <i className="fas fa-envelope" aria-hidden="true"></i>
+              adrian.domanski.dev@gmail.com
+            </li>
+            <li>
+              <i className="fab fa-facebook-f" aria-hidden="true"></i>
+              <a className="footer-link" href="#">
+                Napisz do nas na Facebooku
+              </a>
+            </li>
+            <li>
+              <i className="fas fa-mobile-alt" aria-hidden="true"></i>667 458
+              654
+            </li>
+          </FooterList>
+        </FooterSection>
+        <FooterSection>
+          <hr className="divider" />
+          <p>
+            Wszelkie prawa zastrzeżone &copy; 2020 |{" "}
             <Link href="/">
-              <a className="footer-link">Strona Główna</a>
+              <a className="footer-link ">Kodario.pl</a>
             </Link>
-          </li>
-          <li>
-            <Link href="/">
-              <a className="footer-link">O mnie</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/">
-              <a className="footer-link">Oferta</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/">
-              <a className="footer-link">Portfolio</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/">
-              <a className="footer-link">Kontakt</a>
-            </Link>
-          </li>
-        </FooterList>
-      </FooterSection>
-      <FooterSection>
-        <FooterTitle>Kontakt</FooterTitle>
-        <FooterList>
-          <li>
-            <i className="fas fa-map-marker-alt" aria-hidden="true"></i>
-            Mosina, Śrem, Poznań
-          </li>
-          <li>
-            <i className="fas fa-envelope" aria-hidden="true"></i>
-            adrian.domanski.dev@gmail.com
-          </li>
-          <li>
-            <i className="fab fa-facebook-f" aria-hidden="true"></i>
-            <a className="footer-link" href="#">
-              Napisz do nas na Facebooku
-            </a>
-          </li>
-          <li>
-            <i className="fas fa-mobile-alt" aria-hidden="true"></i>667 458 654
-          </li>
-        </FooterList>
-      </FooterSection>
-      <FooterSection>
-        <hr className="divider" />
-        <p>
-          Wszelkie prawa zastrzeżone &copy; 2020 |{" "}
-          <Link href="/">
-            <a className="footer-link ">Kodario.pl</a>
-          </Link>
-        </p>
-      </FooterSection>
+          </p>
+        </FooterSection>
+      </FooterContentWrapper>
     </StyledFooter>
   );
 };

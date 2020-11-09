@@ -1,6 +1,5 @@
 import React from "react";
 import { Paragraph } from "../styles/components/Paragraph";
-import Section from "../styles/components/Section";
 import Title from "../styles/components/Title";
 import styled from "styled-components";
 import Button from "../styles/components/Button";
@@ -45,6 +44,12 @@ const FormControl = styled.div`
   }
 `;
 
+const ContactFormWrapper = styled.div`
+  @media screen and (min-width: 998px) {
+    width: 60%;
+  }
+`;
+
 const ContactInformation = styled.div`
   margin-top: 2.5rem;
   margin-bottom: 2rem;
@@ -57,6 +62,10 @@ const ContactInformation = styled.div`
 const ContactList = styled.ul`
   margin: 3rem 0 2rem;
   text-align: center;
+
+  @media screen and (min-width: 998px) {
+    text-align: left;
+  }
 `;
 
 const ContactListItem = styled.li`
@@ -71,9 +80,28 @@ const ContactListItem = styled.li`
   }
 `;
 
+const StyledImage = styled.img`
+  display: none;
+
+  @media screen and (min-width: 998px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    position: relative;
+    left: 8%;
+  }
+`;
+
 const PageWrapper = styled.div`
   max-width: 500px;
   margin: 0 auto;
+
+  @media screen and (min-width: 998px) {
+    display: flex;
+    max-width: 1100px;
+    justify-content: space-between;
+  }
 `;
 
 interface IProps {
@@ -83,26 +111,29 @@ interface IProps {
 const ContactForm: React.FC<IProps> = ({ contactInformation }) => {
   return (
     <PageWrapper>
-      <Title>Masz pomysł na projekt?</Title>
-      <Paragraph isCentered blueColor>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, dolor.
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. A nobis nihil
-      </Paragraph>
-      <Form>
-        <FormControl>
-          <label htmlFor="name">Twoje imie:</label>
-          <input type="text" name="name" id="name" />
-        </FormControl>
-        <FormControl>
-          <label htmlFor="email">Twój adres email:</label>
-          <input type="email" name="email" id="email" />
-        </FormControl>
-        <FormControl>
-          <label htmlFor="message">Treść wiadomości:</label>
-          <textarea name="message" id="message" />
-        </FormControl>
-        <Button>Wyślij</Button>
-      </Form>
+      <ContactFormWrapper>
+        <Title>Masz pomysł na projekt?</Title>
+        <Paragraph isCentered blueColor>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, dolor.
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. A nobis
+          nihil
+        </Paragraph>
+        <Form>
+          <FormControl>
+            <label htmlFor="name">Twoje imie:</label>
+            <input type="text" name="name" id="name" />
+          </FormControl>
+          <FormControl>
+            <label htmlFor="email">Twój adres email:</label>
+            <input type="email" name="email" id="email" />
+          </FormControl>
+          <FormControl>
+            <label htmlFor="message">Treść wiadomości:</label>
+            <textarea name="message" id="message" />
+          </FormControl>
+          <Button>Wyślij</Button>
+        </Form>
+      </ContactFormWrapper>
 
       {contactInformation && (
         <ContactInformation>
@@ -121,6 +152,11 @@ const ContactForm: React.FC<IProps> = ({ contactInformation }) => {
           <Button>Napisz na Facebooku</Button>
         </ContactInformation>
       )}
+
+      <StyledImage
+        src="/img/contact.svg"
+        alt="Czat grupowy, komunikacja, formularz kontaktowy"
+      />
     </PageWrapper>
   );
 };

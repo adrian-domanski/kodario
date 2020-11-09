@@ -26,6 +26,10 @@ const StyledHamburger = styled.button<{
     display: block;
   }
 
+  @media screen and (min-width: 998px) {
+    display: none;
+  }
+
   &.fade-in {
     span:nth-child(1) {
       animation: topBar 0.5s forwards;

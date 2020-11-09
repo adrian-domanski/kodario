@@ -20,5 +20,10 @@ export default styled.section.attrs(({ className }: IProps) => ({
     padding-right: 4rem;
   }
 
-  ${({ footerSpace }) => footerSpace && "padding-bottom: calc(2rem + 90px);"}
+  @media screen and (min-width: 998px) {
+    padding: 5rem 2rem 6rem;
+  }
+
+  ${({ footerSpace }) =>
+    footerSpace && "padding-bottom: calc(2rem + 11vw) !important;"}
 `;

@@ -15,6 +15,7 @@ export default function Home() {
           src: "/img/header/home.svg",
           alt: "Strona internetowa na urządzeniu mobilnym",
         }}
+        showList
         button={{
           value: "Portfolio",
           href: "/portfolio",
