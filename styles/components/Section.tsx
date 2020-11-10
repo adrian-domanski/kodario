@@ -26,5 +26,5 @@ export default styled.section.attrs(({ className }: IProps) => ({
   }
 
   ${({ footerSpace }) =>
-    footerSpace && "padding-bottom: calc(2rem + 11vw) !important;"}
+    footerSpace && "padding-bottom: calc(2rem + 13vw) !important;"}
 `;

@@ -47,6 +47,11 @@ const FormControl = styled.div`
 const ContactFormWrapper = styled.div`
   @media screen and (min-width: 998px) {
     width: 60%;
+
+    ${Paragraph} {
+      text-align: left;
+      margin-bottom: 3rem;
+    }
   }
 `;
 
@@ -54,8 +59,16 @@ const ContactInformation = styled.div`
   margin-top: 2.5rem;
   margin-bottom: 2rem;
 
+  @media screen and (min-width: 998px) {
+    margin-top: 0;
+  }
+
   ${Button} {
     margin: 0 auto;
+
+    @media screen and (min-width: 998px) {
+      margin-left: 0;
+    }
   }
 `;
 
@@ -101,14 +114,19 @@ const PageWrapper = styled.div`
     display: flex;
     max-width: 1100px;
     justify-content: space-between;
+
+    ${Title} {
+      margin-left: 0;
+    }
   }
 `;
 
 interface IProps {
   contactInformation?: boolean;
+  showImage?: boolean;
 }
 
-const ContactForm: React.FC<IProps> = ({ contactInformation }) => {
+const ContactForm: React.FC<IProps> = ({ contactInformation, showImage }) => {
   return (
     <PageWrapper>
       <ContactFormWrapper>
@@ -153,10 +171,12 @@ const ContactForm: React.FC<IProps> = ({ contactInformation }) => {
         </ContactInformation>
       )}
 
-      <StyledImage
-        src="/img/contact.svg"
-        alt="Czat grupowy, komunikacja, formularz kontaktowy"
-      />
+      {showImage && (
+        <StyledImage
+          src="/img/contact.svg"
+          alt="Czat grupowy, komunikacja, formularz kontaktowy"
+        />
+      )}
     </PageWrapper>
   );
 };

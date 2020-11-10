@@ -4,11 +4,16 @@ import Layout from "../components/Layout/Layout";
 import { Paragraph } from "../styles/components/Paragraph";
 import Section from "../styles/components/Section";
 import Title from "../styles/components/Title";
+import ContactWrapper from "../styles/components/ContentWrapper";
 import styled from "styled-components";
 
 const TeamWorkSection = styled(Section)`
   ${Paragraph} {
     text-align: center;
+    color: ${({ theme }) => theme.colors.darkBlue};
+    font-weight: 500;
+    font-size: 1.2rem;
+    margin-top: -1rem;
   }
 `;
 
@@ -30,13 +35,15 @@ const ContactPage = () => {
         scrollToId="contact-start"
       />
       <TeamWorkSection darker id="contact-start">
-        <Title>Jesteś zainteresowany współpracą?</Title>
-        <Paragraph>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam sed
-          distinctio, dolorem impedit natus tenetur omnis vel rerum quasi.
-        </Paragraph>
+        <ContactWrapper>
+          <Title>Jesteś zainteresowany współpracą?</Title>
+          <Paragraph>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
+            sed distinctio, dolorem impedit natus tenetur omnis vel rerum quasi.
+          </Paragraph>
+        </ContactWrapper>
       </TeamWorkSection>
-      <Section>
+      <Section footerSpace>
         <ContactForm contactInformation />
       </Section>
     </Layout>

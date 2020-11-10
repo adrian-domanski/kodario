@@ -85,7 +85,7 @@ export const WhatWeDoItem = styled.div<{ number: string }>`
   }
 `;
 
-const WhatWeDoSection = styled(Section)`
+export const WhatWeDoSection = styled(Section)`
   ${Button} {
     margin: 2rem auto 0;
 

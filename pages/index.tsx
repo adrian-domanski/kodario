@@ -31,7 +31,7 @@ export default function Home() {
         <Parallax />
         <Section footerSpace>
           <SideText text="KONTAKT" side="LEFT" minWidthDisplay={1850} />
-          <ContactForm />
+          <ContactForm showImage />
         </Section>
       </Layout>
     </>
