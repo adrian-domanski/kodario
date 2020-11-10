@@ -1,24 +1,49 @@
 import styled from "styled-components";
 
-const StyledText = styled.h3<{ side: string }>`
+const StyledText = styled.h3<{ side: string; minWidthDisplay?: number }>`
   font-size: 4rem;
   text-transform: uppercase;
   letter-spacing: 20px;
   position: absolute;
-  left: 0;
   top: 50%;
   color: ${({ theme }) => theme.colors.darkerBlue};
-  opacity: 0.1;
-  transform: rotate(90deg) translateY(200%);
+  opacity: 0.05;
+  transform: rotate(90deg) translate(50%, 50%);
+  transform-origin: 100% 50%;
+
+  ${({ minWidthDisplay }) =>
+    !!minWidthDisplay &&
+    `
+    @media screen and (max-width: ${minWidthDisplay}px) {
+      display: none;
+    }
+  `}
+
+  ${({ side }) => {
+    if (side === "LEFT") {
+      return `
+      left: -10%;
+      `;
+    } else if (side === "RIGHT") {
+      return `
+      right: 10%;
+      `;
+    }
+  }}
 `;
 
 interface IProps {
   side: "LEFT" | "RIGHT";
   text: string;
+  minWidthDisplay?: number;
 }
 
-const SideText: React.FC<IProps> = ({ side, text }) => {
-  return <StyledText side={side}>{text}</StyledText>;
+const SideText: React.FC<IProps> = ({ side, text, minWidthDisplay }) => {
+  return (
+    <StyledText side={side} minWidthDisplay={minWidthDisplay}>
+      {text}
+    </StyledText>
+  );
 };
 
 export default SideText;

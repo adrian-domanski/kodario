@@ -18,7 +18,7 @@ const CustomSection = styled(Section)`
 const OurWork = () => {
   return (
     <CustomSection darker>
-      <SideText side="LEFT" text="portfolio" />
+      <SideText side="RIGHT" text="portfolio" />
       <ContentWrapper>
         <Title>Przykładowe realizacje</Title>
         <PortfolioGrid>

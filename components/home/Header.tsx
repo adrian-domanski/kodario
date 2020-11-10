@@ -14,8 +14,11 @@ const StyledHomeHeader = styled.header<StyledHomeHeaderProps>`
   color: ${({ theme }) => theme.colors.darkBlue};
   padding: 3.5rem 2rem 3rem;
   position: relative;
-  min-height: 100vh;
   margin-top: -70px;
+
+  @media screen and (min-width: 768px) {
+    padding: 4.5rem 2rem 10rem;
+  }
 
   .content-wrapper {
     max-width: 1100px;
@@ -29,14 +32,15 @@ const StyledHomeHeader = styled.header<StyledHomeHeaderProps>`
 
     @media screen and (min-width: 998px) {
       display: grid;
+      row-gap: 2rem;
       padding: 8rem 0;
       text-align: left;
       grid-template-columns: 55% 45%;
       ${({ paragraph, showList }) => {
         return `
-          grid-auto-rows: auto ${paragraph ? "auto" : ""} ${
+          grid-auto-rows: 1fr ${paragraph ? "auto" : ""} ${
           showList ? "auto" : ""
-        } auto;
+        } 1fr;
         `;
       }}
       align-items: center;
@@ -94,10 +98,6 @@ const StyledHomeHeader = styled.header<StyledHomeHeaderProps>`
     background-color: #fff;
   }
 
-  @media screen and (min-width: 768px) {
-    padding: 4.5rem 2rem 4rem;
-  }
-
   h1 {
     font-weight: 700;
     font-size: 2rem;
@@ -112,6 +112,8 @@ const StyledHomeHeader = styled.header<StyledHomeHeaderProps>`
     @media screen and (min-width: 998px) {
       max-width: unset;
       margin-top: 0;
+      margin-left: 0;
+      align-self: flex-end;
     }
 
     @media screen and (min-width: 1200px) {
@@ -129,6 +131,10 @@ const StyledHomeHeader = styled.header<StyledHomeHeaderProps>`
     margin-bottom: 2.5rem;
     font-size: 1.5rem;
     grid-area: paragraph;
+
+    @media screen and (min-width: 998px) {
+      margin: 0 0 2rem 0;
+    }
   }
 
   ${Button} {
@@ -141,6 +147,7 @@ const StyledHomeHeader = styled.header<StyledHomeHeaderProps>`
       margin-right: auto;
       margin-left: unset;
       margin-top: 0;
+      align-self: flex-start;
     }
   }
 `;
@@ -208,6 +215,7 @@ interface IProps {
     isBlue?: boolean;
   };
   showList?: boolean;
+  scrollToId?: string;
 }
 
 const Header: React.FC<IProps> = ({
@@ -216,6 +224,7 @@ const Header: React.FC<IProps> = ({
   img,
   paragraph,
   showList,
+  scrollToId,
 }) => {
   return (
     <StyledHomeHeader paragraph={!!paragraph} showList={showList}>
@@ -245,7 +254,7 @@ const Header: React.FC<IProps> = ({
             </Link>
           ))}
       </div>
-      <ScrollBottomIcon />
+      {scrollToId && <ScrollBottomIcon scrollToId={scrollToId} />}
     </StyledHomeHeader>
   );
 };

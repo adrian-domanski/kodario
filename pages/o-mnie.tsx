@@ -82,8 +82,9 @@ const AboutMePage = () => {
         img={{ src: "/img/header/about-me.svg", alt: "Niewielka grupa ludzi" }}
         title="O mnie"
         paragraph={{ value: "Dowiedz się więcej o mojej osobie", isBlue: true }}
+        scrollToId="about-me-start"
       />
-      <AboutMeSection>
+      <AboutMeSection id="about-me-start">
         <Title>Kilka słów o mnie</Title>
         <img src="/img/me.png" alt="Moje zdjęcie w Hiszpani" />
         <Paragraph>

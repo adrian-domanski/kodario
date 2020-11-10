@@ -14,6 +14,7 @@ export default styled.section.attrs(({ className }: IProps) => ({
   padding: 3rem 2rem 4rem;
   display: block;
   width: 100%;
+  position: relative;
 
   @media screen and (min-width: 600px) {
     padding-left: 4rem;

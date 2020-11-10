@@ -9,7 +9,7 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
     box-sizing: border-box;
   }
-
+  
   html {
     scroll-behavior: smooth;
   }
@@ -20,6 +20,7 @@ const GlobalStyles = createGlobalStyle`
   
   a {
     text-decoration: none;
+    cursor: pointer;
   }
 
   body {

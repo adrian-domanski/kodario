@@ -27,8 +27,9 @@ const ContactPage = () => {
           value: "Zadaj pytanie na Facebooku",
           externalPage: true,
         }}
+        scrollToId="contact-start"
       />
-      <TeamWorkSection darker>
+      <TeamWorkSection darker id="contact-start">
         <Title>Jesteś zainteresowany współpracą?</Title>
         <Paragraph>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam sed

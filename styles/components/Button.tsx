@@ -14,10 +14,24 @@ export default styled.button.attrs({ className: "button" })<IProps>`
   height: auto;
   display: ${({ as }) => (as ? "table" : "block")};
   border: none;
+  transition: background-color 0.2s ease-in, transform 0.2s ease-in;
+  cursor: pointer;
+
+  :hover {
+    background-color: ${({ theme }) => theme.colors.darkBlue};
+    transform: scale(1.05);
+  }
+
+  :active,
+  :focus {
+    outline: none;
+    box-shadow: 0 0 0 2px red;
+    background-color: 
+  }
+  }
 
   ${({ centered }) => centered && "margin: 0 auto"};
 
   @media screen and (min-width: 700px) {
     font-size: 1.1rem;
-  }
 `;

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const StyledMouse = styled.div`
+const StyledMouse = styled.a`
   width: 3.5em;
   height: 6em;
   transform: scale(0.7) translateX(-50%);
@@ -15,10 +15,10 @@ const StyledMouse = styled.div`
   transition: opacity 0.2s ease-in, background-color 0.2s ease-in,
     transform 0.2s ease-in;
   display: none;
-  transform-origin: center;
+  transform-origin: left;
 
   @media screen and (min-width: 998px) {
-    display: inline-block;
+    display: block;
   }
 
   :hover {
@@ -135,14 +135,13 @@ const StyledMouse = styled.div`
   }
 `;
 
-const ScrollBottomIcon = () => {
-  const scrollBottom = () => {
-    const scrollingElement = document.scrollingElement;
-    scrollingElement.scrollTop = window.innerHeight - 70;
-  };
+interface IProps {
+  scrollToId: string;
+}
 
+const ScrollBottomIcon: React.FC<IProps> = ({ scrollToId }) => {
   return (
-    <StyledMouse onClick={scrollBottom}>
+    <StyledMouse href={`#${scrollToId}`}>
       <div id="wheel"></div>
       <div className="scroll"></div>
       <div className="scroll2"></div>

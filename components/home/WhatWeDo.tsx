@@ -5,6 +5,7 @@ import styled from "styled-components";
 import Button from "../../styles/components/Button";
 import Link from "next/link";
 import ContentWrapper from "../../styles/components/ContentWrapper";
+import SideText from "../../styles/components/SideText";
 
 export const WhatWeDoItem = styled.div<{ number: string }>`
   text-align: center;
@@ -96,7 +97,8 @@ const WhatWeDoSection = styled(Section)`
 
 const WhatWeDo = () => {
   return (
-    <WhatWeDoSection>
+    <WhatWeDoSection id="home-start">
+      <SideText text="Oferta" side="LEFT" />
       <ContentWrapper>
         <Title>Czym się zajmuję?</Title>
         <WhatWeDoItem number="1">

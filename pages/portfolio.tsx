@@ -37,8 +37,9 @@ const PortfolioPage = () => {
           isBlue: true,
           value: "Zapoznaj się z moimi dotychczasowymi projektami",
         }}
+        scrollToId="portfolio-start"
       />
-      <Section footerSpace>
+      <Section footerSpace id="portfolio-start">
         <Title>Realizacje</Title>
         <PortfolioGrid>
           <PortfolioGridItem src="/img/portfolio/portfolio-1.jpg" alt="#" />

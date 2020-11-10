@@ -28,11 +28,12 @@ const OfferPage: React.FC = () => {
           value: "Zapytaj o szczegóły",
         }}
         paragraph={{
-          value: "Poznaj dokładny zakres, naszych usług",
+          value: "Poznaj dokładny zakres, moich usług",
           isBlue: true,
         }}
+        scrollToId="offer-start"
       />
-      <Section>
+      <Section id="offer-start">
         <Title>Czym się zajmuję?</Title>
         <WhatWeDoItem number="1">
           <img

@@ -90,6 +90,9 @@ const StyledNavbar = styled.nav<{ isSticky: boolean }>`
 
   .navbar-brand {
     padding: 1rem;
+    a {
+      display: block;
+    }
 
     @media screen and (min-width: 998px) {
       padding-left: 2rem;
@@ -132,6 +135,36 @@ const ListItem = styled.li`
   text-align: center;
   font-size: 1.1rem;
 
+  @media screen and (min-width: 998px) {
+    a {
+      position: relative;
+      transition: transform 0.15s ease-in;
+
+      :hover,
+      :focus,
+      :active {
+        outline: none;
+        transform: translateY(-3px);
+        :before {
+          transform: translateX(5%) scaleX(1);
+        }
+      }
+
+      :before {
+        content: "";
+        position: absolute;
+        transition: transform 0.15s ease-in;
+        bottom: 5px;
+        height: 1px;
+        transform: translateX(5%) scaleX(0);
+        transform-origin: center;
+        left: 0;
+        width: 90%;
+        background-color: ${({ theme }) => theme.colors.lightWhite};
+      }
+    }
+  }
+
   :not(:last-child) {
     border-bottom: 1px solid #0d222e;
 
@@ -142,7 +175,7 @@ const ListItem = styled.li`
 
   @media screen and (min-width: 998px) {
     :last-child {
-      padding-right: 2rem;
+      margin-right: 2rem;
     }
   }
 
@@ -150,6 +183,7 @@ const ListItem = styled.li`
     color: #fff;
     padding: 1rem;
     display: block;
+    cursor: pointer;
   }
 `;
 
