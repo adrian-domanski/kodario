@@ -109,9 +109,9 @@ const WhatWeDo = () => {
           <div className="content">
             <Title subTitle>Tworzenie stron i aplikacji internetowych</Title>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
-              eim expedita numquam ullam repellat aspernatur officia tempora ex
-              maiores consequuntur.
+              Stowrzę dla Ciebię nowoczesną stronę, lub aplikację internetową.
+              Zadbam o to, aby twoja strona wyświetlała się poprawnie na każdym
+              urządzeniu!
             </p>
           </div>
         </WhatWeDoItem>
@@ -123,9 +123,9 @@ const WhatWeDo = () => {
           <div className="content">
             <Title subTitle>Projektowanie graficzne</Title>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
-              enim expedita numquam ullam repellat aspernatur officia tempora ex
-              maiores consequuntur.
+              Zaprojektuję stronę internetową, logo, baner, lub inną grafikę na
+              twoje potrzeby. Zadbam o odpowiednie dopasowanie kolorów, czcionek
+              oraz pozostałych elementów.
             </p>
           </div>
         </WhatWeDoItem>

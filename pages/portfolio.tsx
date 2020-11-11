@@ -3,14 +3,20 @@ import Layout from "../components/Layout/Layout";
 import Section from "../styles/components/Section";
 import Title from "../styles/components/Title";
 import styled from "styled-components";
+import ContentWrapper from "../styles/components/ContentWrapper";
+import Link from "next/link";
 
-export const PortfolioGridItem = styled.img`
+export const PortfolioImage = styled.img`
   display: block;
   width: 100%;
 
   :last-child {
     margin-bottom: 0;
   }
+`;
+
+const CustomContentWrapper = styled(ContentWrapper)`
+  max-width: 1100px;
 `;
 
 export const PortfolioGrid = styled.div`
@@ -21,6 +27,19 @@ export const PortfolioGrid = styled.div`
   @media screen and (min-width: 600px) {
     gap: 1rem;
     grid-template-columns: 1fr 1fr;
+  }
+
+  @media screen and (min-width: 998px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+`;
+
+export const PortfolioGridItem = styled.div`
+  transition: transform 0.2s ease-in;
+  transform: scale(0.95);
+
+  :hover {
+    transform: scale(1);
   }
 `;
 
@@ -40,12 +59,71 @@ const PortfolioPage = () => {
         scrollToId="portfolio-start"
       />
       <Section footerSpace id="portfolio-start">
-        <Title>Realizacje</Title>
-        <PortfolioGrid>
-          <PortfolioGridItem src="/img/portfolio/portfolio-1.jpg" alt="#" />
-          <PortfolioGridItem src="/img/portfolio/portfolio-1.jpg" alt="#" />
-          <PortfolioGridItem src="/img/portfolio/portfolio-1.jpg" alt="#" />
-        </PortfolioGrid>
+        <CustomContentWrapper>
+          <Title>Realizacje</Title>
+          <PortfolioGrid>
+            <PortfolioGridItem>
+              <Link href="/portfolio/[slug]" as={`/portfolio/${123}`}>
+                <a>
+                  <PortfolioImage
+                    src="/img/portfolio/portfolio-1.jpg"
+                    alt="#"
+                  />
+                </a>
+              </Link>
+            </PortfolioGridItem>
+            <PortfolioGridItem>
+              <Link href="/portfolio/[slug]" as={`/portfolio/${123}`}>
+                <a>
+                  <PortfolioImage
+                    src="/img/portfolio/portfolio-1.jpg"
+                    alt="#"
+                  />
+                </a>
+              </Link>
+            </PortfolioGridItem>
+            <PortfolioGridItem>
+              <Link href="/portfolio/[slug]" as={`/portfolio/${123}`}>
+                <a>
+                  <PortfolioImage
+                    src="/img/portfolio/portfolio-1.jpg"
+                    alt="#"
+                  />
+                </a>
+              </Link>
+            </PortfolioGridItem>
+            <PortfolioGridItem>
+              <Link href="/portfolio/[slug]" as={`/portfolio/${123}`}>
+                <a>
+                  <PortfolioImage
+                    src="/img/portfolio/portfolio-1.jpg"
+                    alt="#"
+                  />
+                </a>
+              </Link>
+            </PortfolioGridItem>
+            <PortfolioGridItem>
+              <Link href="/portfolio/[slug]" as={`/portfolio/${123}`}>
+                <a>
+                  <PortfolioImage
+                    src="/img/portfolio/portfolio-1.jpg"
+                    alt="#"
+                  />
+                </a>
+              </Link>
+            </PortfolioGridItem>
+            <PortfolioGridItem>
+              <Link href="/portfolio/[slug]" as={`/portfolio/${123}`}>
+                <a>
+                  <PortfolioImage
+                    src="/img/portfolio/portfolio-1.jpg"
+                    alt="#"
+                  />
+                </a>
+              </Link>
+            </PortfolioGridItem>
+          </PortfolioGrid>
+        </CustomContentWrapper>
       </Section>
     </Layout>
   );

@@ -5,9 +5,24 @@ import styled from "styled-components";
 import Title from "../styles/components/Title";
 import { Paragraph } from "../styles/components/Paragraph";
 import Button from "../styles/components/Button";
+import ContentWrapper from "../styles/components/ContentWrapper";
 
 const TrustMeGrid = styled.div`
   display: grid;
+
+  @media screen and (min-width: 768px) and (max-width: 997px) {
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 1fr;
+    gap: 1rem;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  @media screen and (min-width: 998px) {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-rows: 1fr;
+    gap: 2rem;
+  }
 `;
 
 const TrustMeGridItem = styled.div`
@@ -17,8 +32,16 @@ const TrustMeGridItem = styled.div`
   border-radius: 25px;
   box-shadow: 0 0 10px -8px #808080;
 
+  @media screen and (min-width: 998px) {
+    padding: 3.5rem 2rem 3rem;
+  }
+
   :not(:last-child) {
     margin-bottom: 2rem;
+
+    @media screen and (min-width: 768px) {
+      margin-bottom: 0;
+    }
   }
 
   .icon {
@@ -54,6 +77,10 @@ const TrustMeGridItem = styled.div`
     font-weight: 500;
     font-size: 1.2rem;
     color: ${({ theme }) => theme.colors.darkerBlue};
+
+    @media screen and (min-width: 998px) {
+      margin-top: 2rem;
+    }
   }
 `;
 
@@ -63,15 +90,43 @@ const AboutMeSection = styled(Section)`
     width: 85%;
     max-width: 300px;
     margin: 0 auto;
+
+    @media screen and (min-width: 998px) {
+      padding-right: 2rem;
+    }
   }
 
   ${Paragraph} {
     text-align: center;
     margin-top: 1rem;
+
+    @media screen and (min-width: 998px) {
+      text-align: left;
+    }
+  }
+
+  ${ContentWrapper} {
+    max-width: 1000px;
   }
 
   ${Button} {
     margin: 1.5rem auto 0;
+
+    @media screen and (min-width: 998px) {
+      margin-left: 0;
+    }
+  }
+
+  @media screen and (min-width: 998px) {
+    .content-flex {
+      display: flex;
+    }
+  }
+`;
+
+const TrustMeSection = styled(Section)`
+  ${ContentWrapper} {
+    max-width: 1000px;
   }
 `;
 
@@ -85,59 +140,68 @@ const AboutMePage = () => {
         scrollToId="about-me-start"
       />
       <AboutMeSection id="about-me-start">
-        <Title>Kilka słów o mnie</Title>
-        <img src="/img/me.png" alt="Moje zdjęcie w Hiszpani" />
-        <Paragraph>
-          Nazywam się <b>Adrian Domański</b> i mieszkam pod Poznaniem.
-          Tworzeniem stron i aplikacji internetowych zajmuje się od 3 lat. Łączę
-          swoją pasję do programowania z grafiką i staram się tworzyć nowoczesne
-          produkty, które spełniają swoje zadania w sieci.
-        </Paragraph>
-        <Button as="a" href="https://adrian-domanski.pl" target="_blank">
-          Moja strona
-        </Button>
+        <ContentWrapper>
+          <Title>Kilka słów o mnie</Title>
+          <div className="content-flex">
+            <img src="/img/me.png" alt="Moje zdjęcie w Hiszpani" />
+            <div className="content-right">
+              <Paragraph>
+                Nazywam się <b>Adrian Domański</b> i mieszkam pod Poznaniem.
+                Tworzeniem stron i aplikacji internetowych zajmuje się od 3 lat.
+                Łączę swoją pasję do programowania z grafiką i staram się
+                tworzyć nowoczesne produkty, które spełniają swoje zadania w
+                sieci.
+              </Paragraph>
+              <Button as="a" href="https://adrian-domanski.pl" target="_blank">
+                Moja strona
+              </Button>
+            </div>
+          </div>
+        </ContentWrapper>
       </AboutMeSection>
-      <Section footerSpace darker>
-        <Title>Dlaczego warto mi zaufać?</Title>
-        <TrustMeGrid>
-          <TrustMeGridItem>
-            <div className="icon">
-              <i className="fas fa-tasks" />
-            </div>
-            <p>Odpowiedznialnie wykonuje swoje zadania</p>
-          </TrustMeGridItem>
-          <TrustMeGridItem>
-            <div className="icon">
-              <i className="fas fa-hands-helping" />
-            </div>
-            <p>Dbam o dobrą opinię swoich klientów</p>
-          </TrustMeGridItem>
-          <TrustMeGridItem>
-            <div className="icon">
-              <i className="fas fa-headset" />
-            </div>
-            <p>Oferuje wsparcie techniczne</p>
-          </TrustMeGridItem>
-          <TrustMeGridItem>
-            <div className="icon">
-              <i className="fas fa-laptop-code" />
-            </div>
-            <p>Posiadam praktyczne doświadczenie</p>
-          </TrustMeGridItem>
-          <TrustMeGridItem>
-            <div className="icon">
-              <i className="fas fa-cubes" />
-            </div>
-            <p>Oferuje kompleksowy zakres usług</p>
-          </TrustMeGridItem>
-          <TrustMeGridItem>
-            <div className="icon">
-              <i className="fas fa-dollar-sign" />
-            </div>
-            <p>Oferuje produkty w przystępnej cenie</p>
-          </TrustMeGridItem>
-        </TrustMeGrid>
-      </Section>
+      <TrustMeSection footerSpace darker>
+        <ContentWrapper>
+          <Title>Dlaczego warto mi zaufać?</Title>
+          <TrustMeGrid>
+            <TrustMeGridItem>
+              <div className="icon">
+                <i className="fas fa-tasks" />
+              </div>
+              <p>Odpowiedznialnie wykonuje swoje zadania</p>
+            </TrustMeGridItem>
+            <TrustMeGridItem>
+              <div className="icon">
+                <i className="fas fa-hands-helping" />
+              </div>
+              <p>Dbam o dobrą opinię swoich klientów</p>
+            </TrustMeGridItem>
+            <TrustMeGridItem>
+              <div className="icon">
+                <i className="fas fa-headset" />
+              </div>
+              <p>Oferuje wsparcie techniczne</p>
+            </TrustMeGridItem>
+            <TrustMeGridItem>
+              <div className="icon">
+                <i className="fas fa-laptop-code" />
+              </div>
+              <p>Posiadam praktyczne doświadczenie</p>
+            </TrustMeGridItem>
+            <TrustMeGridItem>
+              <div className="icon">
+                <i className="fas fa-cubes" />
+              </div>
+              <p>Oferuje kompleksowy zakres usług</p>
+            </TrustMeGridItem>
+            <TrustMeGridItem>
+              <div className="icon">
+                <i className="fas fa-dollar-sign" />
+              </div>
+              <p>Oferuje produkty w przystępnej cenie</p>
+            </TrustMeGridItem>
+          </TrustMeGrid>
+        </ContentWrapper>
+      </TrustMeSection>
     </Layout>
   );
 };
