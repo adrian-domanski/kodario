@@ -41,7 +41,7 @@ export default styled.h2<IProps>`
 
   @media screen and (min-width: 998px) {
     margin: 0 auto 3.5rem auto;
-    font-size: ${(props) => (props.subTitle ? "1.4rem" : "2.2rem")};
+    font-size: ${(props) => (props.subTitle ? "1.6rem" : "2.2rem")};
 
     :before {
       width: 65px;

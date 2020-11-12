@@ -53,9 +53,8 @@ const OfferPage: React.FC = () => {
             <div className="content">
               <Title subTitle>Tworzenie stron i aplikacji internetowych</Title>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
-                eim expedita numquam ullam repellat aspernatur officia tempora
-                ex maiores consequuntur.
+                Stworzę dla Ciebię nowoczesną stronę, lub aplikację internetową.
+                Zadbam o poprawne wyświetlanie treści na każdym urządzeniu.
               </p>
             </div>
           </WhatWeDoItem>
@@ -67,9 +66,9 @@ const OfferPage: React.FC = () => {
             <div className="content">
               <Title subTitle>Projektowanie graficzne</Title>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
-                enim expedita numquam ullam repellat aspernatur officia tempora
-                ex maiores consequuntur.
+                Zaprojektuję stronę internetową, logo, baner, lub inną grafikę
+                na twoje potrzeby. Zadbam o odpowiednie dopasowanie kolorów,
+                czcionek oraz pozostałych elementów.
               </p>
             </div>
           </WhatWeDoItem>
@@ -81,9 +80,9 @@ const OfferPage: React.FC = () => {
             <div className="content">
               <Title subTitle>Budowa marki</Title>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
-                enim expedita numquam ullam repellat aspernatur officia tempora
-                ex maiores consequuntur.
+                Zaprojektuję logo, które zapadnie w pamięć oraz pomogę Ci w
+                przeniesieniu twojej działalności do odpowiednich mediów
+                społecznościowych.
               </p>
             </div>
           </WhatWeDoItem>
@@ -95,9 +94,9 @@ const OfferPage: React.FC = () => {
             <div className="content">
               <Title subTitle>Wsparcie techniczne</Title>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
-                enim expedita numquam ullam repellat aspernatur officia tempora
-                ex maiores consequuntur.
+                Zajmę się wszystkimi sprawami technicznymi związanymi z
+                projektem. Możesz liczyć na moją pomoc również po wykonanym
+                zadaniu!
               </p>
             </div>
           </WhatWeDoItem>
@@ -109,9 +108,9 @@ const OfferPage: React.FC = () => {
             <div className="content">
               <Title subTitle>Kompleksowa oferta</Title>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
-                enim expedita numquam ullam repellat aspernatur officia tempora
-                ex maiores consequuntur.
+                Staram się zapewnić szeroki zakres usług, abyś mógł powierzyć mi
+                cały projekt. Nie musisz szukać osobno grafika, programisty i
+                osoby, która zadba o pozycjonowanie twojej strony!
               </p>
             </div>
           </WhatWeDoItem>
@@ -119,12 +118,10 @@ const OfferPage: React.FC = () => {
       </WhatWeDoSection>
       <GoToContact darker footerSpace>
         <ContentWrapper>
-          <Title>Masz pytanie do naszych usług?</Title>
+          <Title>Masz pytanie do moich usług?</Title>
           <Paragraph blueColor fontWeight="500" isCentered>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident
-            alias culpa tempora veniam eligendi, dolore, rem quod earum
-            asperiores laudantium dolorum voluptatem iure vel quaerat placeat?
-            Reprehenderit eos eveniet molestias?
+            Chętnie odpowiem na Twoje pytania i rozwieje wszelkie wątpliwości.
+            Jeżeli nie jesteś pewien, czego potrzebujesz skontaktuj się ze mną!
           </Paragraph>
           <Link href="/kontakt">
             <Button centered as="a">

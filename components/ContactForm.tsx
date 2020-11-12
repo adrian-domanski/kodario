@@ -24,12 +24,15 @@ const FormControl = styled.div`
 
   input,
   textarea {
-    padding: 0.9rem 1rem;
+    padding: 0.9rem 1.5rem;
     border-radius: 50px;
     border: none;
     outline: none;
     background: #e5ebef;
     color: ${({ theme }) => theme.colors.darkBlue};
+    font-family: ${({ theme }) => theme.fontFamily};
+    font-size: 1.1rem;
+    transition: background-color 0.15s ease-in;
 
     :focus,
     :active {
@@ -90,6 +93,7 @@ const ContactListItem = styled.li`
 
   i {
     color: ${({ theme }) => theme.colors.darkerBlue};
+    padding-right: 8px;
   }
 `;
 
@@ -130,12 +134,7 @@ const ContactForm: React.FC<IProps> = ({ contactInformation, showImage }) => {
   return (
     <PageWrapper>
       <ContactFormWrapper>
-        <Title>Masz pomysł na projekt?</Title>
-        <Paragraph isCentered blueColor>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, dolor.
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. A nobis
-          nihil
-        </Paragraph>
+        <Title>Formularz kontaktowy</Title>
         <Form>
           <FormControl>
             <label htmlFor="name">Twoje imie:</label>
@@ -158,13 +157,16 @@ const ContactForm: React.FC<IProps> = ({ contactInformation, showImage }) => {
           <Title>Dane kontaktowe</Title>
           <ContactList>
             <ContactListItem>
-              <i className="fas fa-map-marker-alt" /> Mosina, Śrem, Poznań
+              <i className="fas fa-map-marker-alt" />
+              Mosina, Śrem, Poznań
             </ContactListItem>
             <ContactListItem>
-              <i className="fas fa-envelope" /> adrian.domanski.dev@gmail.com
+              <i className="fas fa-envelope" />
+              adrian.domanski.dev@gmail.com
             </ContactListItem>
             <ContactListItem>
-              <i className="fas fa-mobile-alt" /> 667 458 654
+              <i className="fas fa-mobile-alt" />
+              (+48) 667 458 654
             </ContactListItem>
           </ContactList>
           <Button>Napisz na Facebooku</Button>

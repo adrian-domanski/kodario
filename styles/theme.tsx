@@ -8,4 +8,5 @@ export const theme: DefaultTheme = {
     darkerSection: "#EFF4F8",
     backgroundColor: "#F8F8F8",
   },
+  fontFamily: "'Montserrat', sans-serif",
 };

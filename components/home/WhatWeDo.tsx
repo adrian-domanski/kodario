@@ -49,6 +49,8 @@ export const WhatWeDoItem = styled.div<{ number: string }>`
 
   p {
     color: ${({ theme }) => theme.colors.darkerBlue};
+    line-height: 1.5;
+    font-size: 1.1rem;
   }
 
   ${Title} {
@@ -109,9 +111,8 @@ const WhatWeDo = () => {
           <div className="content">
             <Title subTitle>Tworzenie stron i aplikacji internetowych</Title>
             <p>
-              Stowrzę dla Ciebię nowoczesną stronę, lub aplikację internetową.
-              Zadbam o to, aby twoja strona wyświetlała się poprawnie na każdym
-              urządzeniu!
+              Stworzę dla Ciebię nowoczesną stronę, lub aplikację internetową.
+              Zadbam o poprawne wyświetlanie treści na każdym urządzeniu.
             </p>
           </div>
         </WhatWeDoItem>
@@ -137,9 +138,9 @@ const WhatWeDo = () => {
           <div className="content">
             <Title subTitle>Budowa marki</Title>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
-              enim expedita numquam ullam repellat aspernatur officia tempora ex
-              maiores consequuntur.
+              Zaprojektuję logo, które zapadnie w pamięć oraz pomogę Ci w
+              przeniesieniu twojej działalności do odpowiednich mediów
+              społecznościowych.
             </p>
           </div>
         </WhatWeDoItem>

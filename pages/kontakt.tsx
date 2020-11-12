@@ -29,7 +29,7 @@ const ContactPage = () => {
         }}
         button={{
           href: "https://www.facebook.com/kodariopl/",
-          value: "Zadaj pytanie na Facebooku",
+          value: "Szybkie pytanie na Facebooku",
           externalPage: true,
         }}
         scrollToId="contact-start"
@@ -38,8 +38,9 @@ const ContactPage = () => {
         <ContactWrapper>
           <Title>Jesteś zainteresowany współpracą?</Title>
           <Paragraph>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
-            sed distinctio, dolorem impedit natus tenetur omnis vel rerum quasi.
+            Masz pomysł na nowy projekt, potrzebujesz rady, lub sam nie wiesz co
+            pomogło by w rozwoju Twojej działalności? Skorzystaj z poniższych
+            metod i skontaktuj się ze mną, a ja zadbam o całą resztę!
           </Paragraph>
         </ContactWrapper>
       </TeamWorkSection>

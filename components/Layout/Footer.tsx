@@ -28,6 +28,7 @@ const StyledFooter = styled.footer`
 
   p.lead {
     margin-top: 1.5rem;
+    line-height: 1.5;
   }
 
   a.footer-link {
@@ -43,9 +44,9 @@ const StyledFooter = styled.footer`
     font-size: 2rem;
     display: flex;
     width: 50%;
-    max-width: 200px;
+    max-width: 135px;
     margin: 1.5rem auto;
-    justify-content: space-around;
+    justify-content: space-between;
 
     @media screen and (min-width: 998px) {
       margin: 2rem auto 0 0;
@@ -68,7 +69,8 @@ const FooterTitle = styled.h3`
 `;
 
 const FooterList = styled.ul`
-  margin-top: 1rem;
+  margin-top: 1.5rem;
+  line-height: 1.5;
 
   i {
     margin-right: 0.5rem;
@@ -127,22 +129,22 @@ const Footer = () => {
               </Link>
             </li>
             <li>
-              <Link href="/">
+              <Link href="/o-mnie">
                 <a className="footer-link">O mnie</a>
               </Link>
             </li>
             <li>
-              <Link href="/">
+              <Link href="/oferta">
                 <a className="footer-link">Oferta</a>
               </Link>
             </li>
             <li>
-              <Link href="/">
+              <Link href="/portfolio">
                 <a className="footer-link">Portfolio</a>
               </Link>
             </li>
             <li>
-              <Link href="/">
+              <Link href="/kontakt">
                 <a className="footer-link">Kontakt</a>
               </Link>
             </li>
@@ -166,8 +168,8 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <i className="fas fa-mobile-alt" aria-hidden="true"></i>667 458
-              654
+              <i className="fas fa-mobile-alt" aria-hidden="true"></i>(+48) 667
+              458 654
             </li>
           </FooterList>
         </FooterSection>

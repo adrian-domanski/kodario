@@ -177,6 +177,7 @@ const StyledImage = styled.img<{ maxWidth?: string }>`
 
 const StyledList = styled.ul`
   grid-area: list;
+  line-height: 1.5;
 
   li {
     font-size: 1.4rem;

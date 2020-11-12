@@ -12,5 +12,6 @@ declare module "styled-components" {
       darkerSection: string;
       backgroundColor: string;
     };
+    fontFamily: string;
   }
 }

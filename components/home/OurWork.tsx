@@ -3,7 +3,7 @@ import Section from "../../styles/components/Section";
 import Title from "../../styles/components/Title";
 import styled from "styled-components";
 import Button from "../../styles/components/Button";
-import { PortfolioGrid, PortfolioGridItem } from "../../pages/portfolio";
+import { PortfolioGrid, PortfolioImage } from "../../pages/portfolio";
 import ContentWrapper from "../../styles/components/ContentWrapper";
 import SideText from "../../styles/components/SideText";
 
@@ -15,18 +15,24 @@ const CustomSection = styled(Section)`
   }
 `;
 
+const CustomPortfolioGrid = styled(PortfolioGrid)`
+  @media screen and (min-width: 998px) {
+    grid-template-columns: 1fr 1fr;
+  }
+`;
+
 const OurWork = () => {
   return (
     <CustomSection darker>
       <SideText side="RIGHT" text="portfolio" />
       <ContentWrapper>
         <Title>Przykładowe realizacje</Title>
-        <PortfolioGrid>
-          <PortfolioGridItem src="/img/portfolio/portfolio-1.jpg" alt="#" />
-          <PortfolioGridItem src="/img/portfolio/portfolio-1.jpg" alt="#" />
-          <PortfolioGridItem src="/img/portfolio/portfolio-1.jpg" alt="#" />
-          <PortfolioGridItem src="/img/portfolio/portfolio-1.jpg" alt="#" />
-        </PortfolioGrid>
+        <CustomPortfolioGrid>
+          <PortfolioImage src="/img/portfolio/portfolio-1.jpg" alt="#" />
+          <PortfolioImage src="/img/portfolio/portfolio-1.jpg" alt="#" />
+          <PortfolioImage src="/img/portfolio/portfolio-1.jpg" alt="#" />
+          <PortfolioImage src="/img/portfolio/portfolio-1.jpg" alt="#" />
+        </CustomPortfolioGrid>
         <Button centered>Zobacz więcej</Button>
       </ContentWrapper>
     </CustomSection>
