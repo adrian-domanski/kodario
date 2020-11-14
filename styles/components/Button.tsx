@@ -26,8 +26,7 @@ export default styled.button.attrs({ className: "button" })<IProps>`
   :focus {
     outline: none;
     box-shadow: 0 0 0 2px red;
-    background-color: 
-  }
+    background-color: ${({ theme }) => theme.colors.darkBlue}; 
   }
 
   ${({ centered }) => centered && "margin: 0 auto"};

@@ -13,21 +13,113 @@ import styled from "styled-components";
 import "react-image-gallery/styles/css/image-gallery.css";
 import ImageGallery from "react-image-gallery";
 import SideText from "../../styles/components/SideText";
+import Button from "../../styles/components/Button";
+import Link from "next/link";
 
-const TechList = styled.ul``;
+const TechList = styled.ul`
+  display: grid;
+  line-height: 1.5;
+  justify-content: center;
 
-const TechListItem = styled.li``;
+  @media screen and (min-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+  }
 
-const OtherList = styled.div``;
+  @media screen and (min-width: 998px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+`;
 
-const OtherListItem = styled.img``;
+const TechListItem = styled.li`
+  color: ${({ theme }) => theme.colors.darkBlue};
+  font-size: 1.2rem;
+
+  @media screen and (min-width: 768px) {
+    font-size: 1.4rem;
+  }
+
+  @media screen and (min-width: 998px) {
+    font-size: 1.5rem;
+  }
+
+  :before {
+    content: "\f105";
+    font-family: "Font Awesome 5 Free";
+    font-weight: bold;
+    padding-right: 8px;
+  }
+`;
+
+const OtherList = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  @media screen and (min-width: 998px) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+`;
+
+const OtherPostsSection = styled(Section)`
+  ${Button} {
+    margin-top: 1.5rem;
+
+    @media screen and (min-width: 998px) {
+      margin-top: 2rem;
+    }
+  }
+
+  a.link {
+    transform: scale(0.98);
+    transition: transform 0.15s ease-in;
+
+    @media screen and (max-width: 997px) {
+      max-width: 500px;
+      :not(:last-child) {
+        margin-bottom: 1rem;
+      }
+    }
+
+    :hover {
+      transform: scale(1);
+    }
+
+    display: block;
+    width: 100%;
+    cursor: pointer;
+  }
+
+  ${Button}
+`;
+
+const OtherListItem = styled.img`
+  display: block;
+  width: 100%;
+
+  @media screen and (min-width: 998px) {
+    width: 98%;
+  }
+`;
 
 const InformationSection = styled(Section)`
   position: relative;
 
-  ${Title} {
+  .subtitle {
     text-align: left;
     margin-bottom: 2rem;
+    font-size: 1.5rem;
+
+    @media screen and (min-width: 998px) {
+      font-size: 1.6rem;
+    }
+  }
+
+  ${Button} {
+    margin-top: 2rem;
   }
 `;
 
@@ -44,20 +136,10 @@ const PortfolioDetails: NextPage<IProps> = ({
   markdown,
   otherPosts: otherProducts,
 }) => {
-  const images = [
-    {
-      original: "https://picsum.photos/id/1018/1000/600/",
-      thumbnail: "https://picsum.photos/id/1018/250/150/",
-    },
-    {
-      original: "https://picsum.photos/id/1015/1000/600/",
-      thumbnail: "https://picsum.photos/id/1015/250/150/",
-    },
-    {
-      original: "https://picsum.photos/id/1019/1000/600/",
-      thumbnail: "https://picsum.photos/id/1019/250/150/",
-    },
-  ];
+  const images = markdown.images.map((image) => ({
+    original: `/content/${markdown.data.slug}/${image}`,
+    thumbnail: `/content/${markdown.data.slug}/${image}`,
+  }));
 
   return (
     <>
@@ -66,7 +148,7 @@ const PortfolioDetails: NextPage<IProps> = ({
         <Header
           title={markdown.data.title}
           img={{
-            src: `/content/${markdown.data.slug}/${markdown.data.slug}-1.jpg`,
+            src: `/content/${markdown.data.slug}/${markdown.images[0]}`,
             alt: "",
           }}
           paragraph={{
@@ -87,8 +169,11 @@ const PortfolioDetails: NextPage<IProps> = ({
             <GalleryWrapper>
               <ImageGallery items={images} />
             </GalleryWrapper>
-            <Title subTitle>Krótki opis projektu</Title>
-            <Paragraph blueColor>{markdown.content}</Paragraph>
+            <Title subTitle className="subtitle">
+              Krótki opis projektu
+            </Title>
+            <Paragraph>{markdown.content}</Paragraph>
+            {markdown.data.pageCode && <Button>Zobacz kod</Button>}
           </ContentWrapper>
         </InformationSection>
         <Section darker>
@@ -101,18 +186,32 @@ const PortfolioDetails: NextPage<IProps> = ({
             </TechList>
           </ContentWrapper>
         </Section>
-        <Section footerSpace>
-          <Title>Zobacz również</Title>
-          <OtherList>
-            {otherProducts.map((product, index) => (
-              <OtherListItem
-                key={index}
-                src={`/content/${product.slug}/${product.image}`}
-                alt={`Zdjęcie przedstawiające projekt ${product.title}`}
-              />
-            ))}
-          </OtherList>
-        </Section>
+        <OtherPostsSection footerSpace>
+          <ContentWrapper maxWidth={1100}>
+            <Title>Zobacz również</Title>
+            <OtherList>
+              {otherProducts.map((product, index) => (
+                <Link
+                  href="/portfolio/[slug]"
+                  as={`/portfolio/${product.slug}`}
+                >
+                  <a className="link">
+                    <OtherListItem
+                      key={index}
+                      src={`/content/${product.slug}/${product.image}`}
+                      alt={`Zdjęcie przedstawiające projekt ${product.title}`}
+                    />
+                  </a>
+                </Link>
+              ))}
+            </OtherList>
+            <Link href="/portfolio">
+              <Button as="a" centered>
+                Zobacz więcej
+              </Button>
+            </Link>
+          </ContentWrapper>
+        </OtherPostsSection>
       </Layout>
     </>
   );
