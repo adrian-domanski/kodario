@@ -26,11 +26,11 @@ const StyledText = styled.h3<{ side: string; minWidthDisplay?: number }>`
   ${({ side }) => {
     if (side === "LEFT") {
       return `
-      left: -10%;
+      left: -80%;
       `;
     } else if (side === "RIGHT") {
       return `
-      right: 10%;
+      right: -40%;
       `;
     }
   }}

@@ -12,22 +12,20 @@ interface StyledHomeHeaderProps {
 const StyledHomeHeader = styled.header<StyledHomeHeaderProps>`
   text-align: center;
   color: ${({ theme }) => theme.colors.darkBlue};
-  padding: 3.5rem 2rem 3rem;
   position: relative;
   margin-top: -70px;
+  padding: 3.5rem 2rem;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 998px) {
     padding: 4.5rem 2rem 10rem;
   }
 
   .content-wrapper {
     max-width: 1100px;
-    height: 100vh;
-    max-height: 600px;
     margin: 0 auto;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
     flex-direction: column;
 
     @media screen and (min-width: 998px) {
@@ -102,7 +100,7 @@ const StyledHomeHeader = styled.header<StyledHomeHeaderProps>`
     font-weight: 700;
     font-size: 2rem;
     max-width: 500px;
-    margin: 3rem auto 0;
+    margin: 4rem auto 0;
     grid-area: title;
 
     @media screen and (min-width: 800px) {
@@ -119,11 +117,6 @@ const StyledHomeHeader = styled.header<StyledHomeHeaderProps>`
     @media screen and (min-width: 1200px) {
       font-size: 2.5rem;
     }
-  }
-
-  a {
-    display: table;
-    margin-top: 1rem;
   }
 
   ${Paragraph} {
@@ -165,7 +158,7 @@ const StyledImage = styled.img<{ maxWidth?: string }>`
   }
 
   @media screen and (min-width: 768px) {
-    max-width: 65%;
+    max-width: 50%;
     margin: 3rem auto 2rem auto;
   }
 

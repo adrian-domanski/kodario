@@ -24,6 +24,7 @@ const StyledNavbar = styled.nav<{ isSticky: boolean }>`
     max-width: 1400px;
     width: 100%;
     display: flex;
+    align-items: center;
     margin: 0 auto;
 
     @media screen and (max-width: 998px) {
@@ -41,11 +42,15 @@ const StyledNavbar = styled.nav<{ isSticky: boolean }>`
     right: 0;
     top: 0;
     background: url("/img/background.svg");
-    background-size: 400%;
+    background-size: 500%;
     background-repeat: no-repeat;
     background-position: 80px -20px;
     transition: transform 0.3s ease;
     transform-origin: top right;
+
+    @media screen and (max-width: 997px) {
+      transform: scaleY(0.7) scaleX(1.1);
+    }
 
     @media screen and (min-width: 998px) {
       background-size: 100%;
@@ -64,18 +69,6 @@ const StyledNavbar = styled.nav<{ isSticky: boolean }>`
     @media screen and (min-width: 2700px) {
       width: 53%;
     }
-
-    ${({ isSticky }) =>
-      isSticky &&
-      `
-      @media screen and (max-width: 997px) {
-        transform: scaleY(0.7) scaleX(1.1);
-      }
-      
-      @media screen and (min-width: 998px) {
-        transform: scaleX(1.03);
-    }
-    `}
   }
 
   .navbar-burger {
@@ -208,8 +201,14 @@ const Navbar = () => {
     return () => document.removeEventListener("scroll", checkScrollTop);
   }, []);
 
-  const toggleMobileMenu = () => setIsMobileActive(!isMobileActive);
+  useEffect(() => {
+    if (isMobileActive) {
+      document.addEventListener("click", toggleMobileMenu);
+      return () => document.removeEventListener("click", toggleMobileMenu);
+    }
+  }, [isMobileActive]);
 
+  const toggleMobileMenu = () => setIsMobileActive(!isMobileActive);
   return (
     <StyledNavbar
       role="navigation"
@@ -240,27 +239,27 @@ const Navbar = () => {
         <NavbarList isActive={isMobileActive}>
           <ListItem>
             <Link href="/">
-              <a onClick={toggleMobileMenu}>Strona Główna</a>
+              <a>Strona Główna</a>
             </Link>
           </ListItem>
           <ListItem>
             <Link href="/oferta">
-              <a onClick={toggleMobileMenu}>Oferta</a>
+              <a>Oferta</a>
             </Link>
           </ListItem>
           <ListItem>
             <Link href="/portfolio">
-              <a onClick={toggleMobileMenu}>Portfolio</a>
+              <a>Portfolio</a>
             </Link>
           </ListItem>
           <ListItem>
             <Link href="/o-mnie">
-              <a onClick={toggleMobileMenu}>O mnie</a>
+              <a>O mnie</a>
             </Link>
           </ListItem>
           <ListItem>
             <Link href="/kontakt">
-              <a onClick={toggleMobileMenu}>Kontakt</a>
+              <a>Kontakt</a>
             </Link>
           </ListItem>
         </NavbarList>

@@ -42,8 +42,8 @@ const OfferPage: React.FC = () => {
         scrollToId="offer-start"
       />
       <WhatWeDoSection id="offer-start">
-        <SideText text="Oferta" side="LEFT" />
         <ContentWrapper>
+          <SideText text="Oferta" side="LEFT" />
           <Title>Czym się zajmuję?</Title>
           <WhatWeDoItem number="1">
             <img
@@ -121,7 +121,7 @@ const OfferPage: React.FC = () => {
           <Title>Masz pytanie do moich usług?</Title>
           <Paragraph blueColor fontWeight="500" isCentered>
             Chętnie odpowiem na Twoje pytania i rozwieje wszelkie wątpliwości.
-            Jeżeli nie jesteś pewien, czego potrzebujesz skontaktuj się ze mną!
+            Jeżeli nie jesteś pewien, czego potrzebujesz, skontaktuj się ze mną!
           </Paragraph>
           <Link href="/kontakt">
             <Button centered as="a">

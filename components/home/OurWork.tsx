@@ -24,8 +24,8 @@ const CustomPortfolioGrid = styled(PortfolioGrid)`
 const OurWork = () => {
   return (
     <CustomSection darker>
-      <SideText side="RIGHT" text="portfolio" />
       <ContentWrapper>
+        <SideText side="RIGHT" text="portfolio" />
         <Title>Przykładowe realizacje</Title>
         <CustomPortfolioGrid>
           <PortfolioImage src="/img/portfolio/portfolio-1.jpg" alt="#" />

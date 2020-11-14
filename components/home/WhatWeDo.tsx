@@ -100,8 +100,8 @@ export const WhatWeDoSection = styled(Section)`
 const WhatWeDo = () => {
   return (
     <WhatWeDoSection id="home-start">
-      <SideText text="Oferta" side="LEFT" />
       <ContentWrapper>
+        <SideText text="Oferta" side="LEFT" />
         <Title>Czym się zajmuję?</Title>
         <WhatWeDoItem number="1">
           <img

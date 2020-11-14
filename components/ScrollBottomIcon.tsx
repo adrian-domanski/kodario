@@ -14,11 +14,10 @@ const StyledMouse = styled.a`
   cursor: pointer;
   transition: opacity 0.2s ease-in, background-color 0.2s ease-in,
     transform 0.2s ease-in;
-  display: none;
   transform-origin: left;
 
-  @media screen and (min-width: 998px) {
-    display: block;
+  @media screen and (max-width: 997px) {
+    display: none;
   }
 
   :hover {

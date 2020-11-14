@@ -73,7 +73,7 @@ const TrustMeGridItem = styled.div`
   }
 
   p {
-    margin-top: 1rem;
+    margin-top: 1.5rem;
     font-weight: 500;
     font-size: 1.2rem;
     color: ${({ theme }) => theme.colors.darkerBlue};
@@ -98,7 +98,7 @@ const AboutMeSection = styled(Section)`
 
   ${Paragraph} {
     text-align: center;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
 
     @media screen and (min-width: 998px) {
       text-align: left;

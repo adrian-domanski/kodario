@@ -11,7 +11,7 @@ const StyledHamburger = styled.button<{
   flex-direction: column;
   justify-content: space-between;
   width: 50px;
-  height: 49px;
+  height: 45px;
   padding: 10px 8px;
   color: #fff;
   margin-right: 1rem;
@@ -64,21 +64,21 @@ const StyledHamburger = styled.button<{
     }
 
     50% {
-      transform: translateY(12px) rotate(0);
+      transform: translateY(10px) rotate(0);
     }
 
     100% {
-      transform: translateY(12px) rotate(45deg);
+      transform: translateY(10px) rotate(45deg);
     }
   }
 
   @keyframes topBarReverse {
     0% {
-      transform: translateY(12px) rotate(45deg);
+      transform: translateY(10px) rotate(45deg);
     }
 
     50% {
-      transform: translateY(12px) rotate(0);
+      transform: translateY(10px) rotate(0);
     }
 
     100% {
@@ -92,21 +92,21 @@ const StyledHamburger = styled.button<{
     }
 
     50% {
-      transform: translateY(-12px) rotate(0);
+      transform: translateY(-10px) rotate(0);
     }
 
     100% {
-      transform: translateY(-12px) rotate(-45deg);
+      transform: translateY(-10px) rotate(-45deg);
     }
   }
 
   @keyframes bottomBarReverse {
     0% {
-      transform: translateY(-12px) rotate(-45deg);
+      transform: translateY(-10px) rotate(-45deg);
     }
 
     50% {
-      transform: translateY(-12px) rotate(0);
+      transform: translateY(-10px) rotate(0);
     }
 
     100% {
@@ -157,9 +157,13 @@ const Hamburger: React.FC<IProps> = ({
   className,
   isActive,
 }) => {
+  const handleClick = () => {
+    if (!isActive) toggleMobileMenu();
+  };
+
   return (
     <StyledHamburger
-      onClick={toggleMobileMenu}
+      onClick={handleClick}
       isActive={isActive}
       className={className}
     >

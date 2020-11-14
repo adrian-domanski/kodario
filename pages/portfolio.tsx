@@ -5,6 +5,7 @@ import Title from "../styles/components/Title";
 import styled from "styled-components";
 import ContentWrapper from "../styles/components/ContentWrapper";
 import Link from "next/link";
+import SideText from "../styles/components/SideText";
 
 export const PortfolioImage = styled.img`
   display: block;
@@ -63,7 +64,7 @@ const PortfolioPage = () => {
           <Title>Realizacje</Title>
           <PortfolioGrid>
             <PortfolioGridItem>
-              <Link href="/portfolio/[slug]" as={`/portfolio/${123}`}>
+              <Link href="/portfolio/[slug]" as={`/portfolio/plan-szkolny`}>
                 <a>
                   <PortfolioImage
                     src="/img/portfolio/portfolio-1.jpg"
