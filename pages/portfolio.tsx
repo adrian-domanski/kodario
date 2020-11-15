@@ -5,7 +5,7 @@ import Title from "../styles/components/Title";
 import styled from "styled-components";
 import ContentWrapper from "../styles/components/ContentWrapper";
 import Link from "next/link";
-import SideText from "../styles/components/SideText";
+import { getOtherPosts } from "./portfolio/[slug]";
 
 export const PortfolioImage = styled.img`
   display: block;
@@ -44,7 +44,11 @@ export const PortfolioGridItem = styled.div`
   }
 `;
 
-const PortfolioPage = () => {
+interface IProps {
+  portfolioList: [any];
+}
+
+const PortfolioPage: React.FC<IProps> = ({ portfolioList }) => {
   return (
     <Layout>
       <Header
@@ -63,71 +67,36 @@ const PortfolioPage = () => {
         <CustomContentWrapper>
           <Title>Realizacje</Title>
           <PortfolioGrid>
-            <PortfolioGridItem>
-              <Link href="/portfolio/[slug]" as={`/portfolio/plan-szkolny`}>
-                <a>
-                  <PortfolioImage
-                    src="/img/portfolio/portfolio-1.jpg"
-                    alt="#"
-                  />
-                </a>
-              </Link>
-            </PortfolioGridItem>
-            <PortfolioGridItem>
-              <Link href="/portfolio/[slug]" as={`/portfolio/${123}`}>
-                <a>
-                  <PortfolioImage
-                    src="/img/portfolio/portfolio-1.jpg"
-                    alt="#"
-                  />
-                </a>
-              </Link>
-            </PortfolioGridItem>
-            <PortfolioGridItem>
-              <Link href="/portfolio/[slug]" as={`/portfolio/${123}`}>
-                <a>
-                  <PortfolioImage
-                    src="/img/portfolio/portfolio-1.jpg"
-                    alt="#"
-                  />
-                </a>
-              </Link>
-            </PortfolioGridItem>
-            <PortfolioGridItem>
-              <Link href="/portfolio/[slug]" as={`/portfolio/${123}`}>
-                <a>
-                  <PortfolioImage
-                    src="/img/portfolio/portfolio-1.jpg"
-                    alt="#"
-                  />
-                </a>
-              </Link>
-            </PortfolioGridItem>
-            <PortfolioGridItem>
-              <Link href="/portfolio/[slug]" as={`/portfolio/${123}`}>
-                <a>
-                  <PortfolioImage
-                    src="/img/portfolio/portfolio-1.jpg"
-                    alt="#"
-                  />
-                </a>
-              </Link>
-            </PortfolioGridItem>
-            <PortfolioGridItem>
-              <Link href="/portfolio/[slug]" as={`/portfolio/${123}`}>
-                <a>
-                  <PortfolioImage
-                    src="/img/portfolio/portfolio-1.jpg"
-                    alt="#"
-                  />
-                </a>
-              </Link>
-            </PortfolioGridItem>
+            {portfolioList.map((product, index) => (
+              <PortfolioGridItem key={index}>
+                <Link
+                  href="/portfolio/[slug]"
+                  as={`/portfolio/${product.slug}`}
+                >
+                  <a>
+                    <PortfolioImage
+                      src={`/content/${product.slug}/${product.image}`}
+                      alt="#"
+                    />
+                  </a>
+                </Link>
+              </PortfolioGridItem>
+            ))}
           </PortfolioGrid>
         </CustomContentWrapper>
       </Section>
     </Layout>
   );
 };
+
+export async function getStaticProps() {
+  const portfolioList = await getOtherPosts();
+
+  return {
+    props: {
+      portfolioList,
+    },
+  };
+}
 
 export default PortfolioPage;

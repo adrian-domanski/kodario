@@ -10,6 +10,7 @@ export default styled.button.attrs({ className: "button" })<IProps>`
   color: ${({ theme }) => theme.colors.lightWhite};
   border-radius: 100px;
   padding: 0.7rem 2.5rem;
+  font-family: ${({ theme }) => theme.fontFamily};
   font-size: 1rem;
   height: auto;
   display: ${({ as }) => (as ? "table" : "block")};

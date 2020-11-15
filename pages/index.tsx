@@ -6,8 +6,13 @@ import Layout from "../components/Layout/Layout";
 import Parallax from "../components/Parallax";
 import SEO from "../components/SEO";
 import Section from "../styles/components/Section";
+import { getOtherPosts } from "./portfolio/[slug]";
 
-export default function Home() {
+interface IProps {
+  portfolioList: [any];
+}
+
+export default function Hom({ portfolioList }: IProps) {
   return (
     <>
       <SEO />
@@ -26,7 +31,7 @@ export default function Home() {
           scrollToId="home-start"
         />
         <WhatWeDo />
-        <OurWork />
+        <OurWork portfolioList={portfolioList} />
         <Parallax />
         <Section footerSpace>
           <ContactForm showImage />
@@ -34,4 +39,17 @@ export default function Home() {
       </Layout>
     </>
   );
+}
+
+export async function getStaticProps() {
+  const portfolioList = await getOtherPosts({
+    amount: 4,
+    slugs: ["plan-szkolny", "parafia", "memstock", "twwworzenie"],
+  });
+
+  return {
+    props: {
+      portfolioList,
+    },
+  };
 }

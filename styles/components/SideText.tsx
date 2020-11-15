@@ -11,7 +11,7 @@ const StyledText = styled.h3<{ side: string; minWidthDisplay?: number }>`
   transform: rotate(90deg) translate(50%, 50%);
   transform-origin: 100% 50%;
 
-  @media screen and (max-width: 1500px) {
+  @media screen and (max-width: 1700px) {
     display: none;
   }
 

@@ -230,7 +230,7 @@ const Header: React.FC<IProps> = ({
         {showList && (
           <StyledList>
             <li>Strony internetowe</li>
-            <li>Projekty graficzen</li>
+            <li>Projekty graficzne</li>
             <li>Budowa marki</li>
           </StyledList>
         )}

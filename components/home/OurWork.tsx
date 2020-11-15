@@ -3,9 +3,14 @@ import Section from "../../styles/components/Section";
 import Title from "../../styles/components/Title";
 import styled from "styled-components";
 import Button from "../../styles/components/Button";
-import { PortfolioGrid, PortfolioImage } from "../../pages/portfolio";
+import {
+  PortfolioGrid,
+  PortfolioGridItem,
+  PortfolioImage,
+} from "../../pages/portfolio";
 import ContentWrapper from "../../styles/components/ContentWrapper";
 import SideText from "../../styles/components/SideText";
+import Link from "next/link";
 
 const CustomSection = styled(Section)`
   position: relative;
@@ -21,19 +26,35 @@ const CustomPortfolioGrid = styled(PortfolioGrid)`
   }
 `;
 
-const OurWork = () => {
+interface IProps {
+  portfolioList: [any];
+}
+
+const OurWork: React.FC<IProps> = ({ portfolioList }) => {
   return (
     <CustomSection darker>
       <ContentWrapper>
         <SideText side="RIGHT" text="portfolio" />
         <Title>Przykładowe realizacje</Title>
         <CustomPortfolioGrid>
-          <PortfolioImage src="/img/portfolio/portfolio-1.jpg" alt="#" />
-          <PortfolioImage src="/img/portfolio/portfolio-1.jpg" alt="#" />
-          <PortfolioImage src="/img/portfolio/portfolio-1.jpg" alt="#" />
-          <PortfolioImage src="/img/portfolio/portfolio-1.jpg" alt="#" />
+          {portfolioList.map((product, index) => (
+            <PortfolioGridItem key={index}>
+              <Link href="/portfolio/[slug]" as={`/portfolio/${product.slug}`}>
+                <a>
+                  <PortfolioImage
+                    src={`/content/${product.slug}/${product.image}`}
+                    alt="#"
+                  />
+                </a>
+              </Link>
+            </PortfolioGridItem>
+          ))}
         </CustomPortfolioGrid>
-        <Button centered>Zobacz więcej</Button>
+        <Link href="/portfolio">
+          <Button centered as="a">
+            Zobacz więcej
+          </Button>
+        </Link>
       </ContentWrapper>
     </CustomSection>
   );

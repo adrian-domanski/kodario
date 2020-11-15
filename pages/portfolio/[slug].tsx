@@ -192,12 +192,12 @@ const PortfolioDetails: NextPage<IProps> = ({
             <OtherList>
               {otherProducts.map((product, index) => (
                 <Link
+                  key={index}
                   href="/portfolio/[slug]"
                   as={`/portfolio/${product.slug}`}
                 >
                   <a className="link">
                     <OtherListItem
-                      key={index}
                       src={`/content/${product.slug}/${product.image}`}
                       alt={`Zdjęcie przedstawiające projekt ${product.title}`}
                     />
@@ -240,22 +240,33 @@ const getPostFromMarkdown = async (
   };
 };
 
-const getOtherPosts = async (options?: { exclude?: string }) => {
+export const getOtherPosts = async (options?: {
+  exclude?: string;
+  amount?: number;
+  slugs?: string[];
+}) => {
   let availableSlugs = getFileNames("./content");
-  const randomSlugs = [];
+  const amount = options?.amount ?? availableSlugs.length;
+  let selectedSlugs = [];
 
-  if (options && options.exclude) {
+  if (options?.exclude) {
     availableSlugs = availableSlugs.filter((slug) => slug !== options.exclude);
   }
 
-  for (let i = 0; i < 3; i++) {
-    const random = Math.floor(Math.random() * availableSlugs.length);
-    randomSlugs.push(availableSlugs[random]);
-    availableSlugs.splice(random, 1);
+  if (options?.slugs) {
+    selectedSlugs = availableSlugs.filter((slug) =>
+      options.slugs.includes(slug)
+    );
+  } else {
+    for (let i = 0; i < amount; i++) {
+      const random = Math.floor(Math.random() * availableSlugs.length);
+      selectedSlugs.push(availableSlugs[random]);
+      availableSlugs.splice(random, 1);
+    }
   }
 
   return Promise.all(
-    randomSlugs.map((post) => getPostFromMarkdown(post, { basicData: true }))
+    selectedSlugs.map((post) => getPostFromMarkdown(post, { basicData: true }))
   );
 };
 
@@ -277,7 +288,7 @@ export async function getStaticPaths() {
 export async function getStaticProps(ctx) {
   const { slug } = ctx.params;
 
-  const otherPosts = await getOtherPosts({ exclude: slug });
+  const otherPosts = await getOtherPosts({ exclude: slug, amount: 3 });
   const post = await getPostFromMarkdown(slug);
 
   return {
