@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Link from "next/link";
 import Hamburger from "../Hamburger";
+import { SingletonRouter, withRouter } from "next/router";
+import { NextPage } from "next";
 
 const StyledNavbar = styled.nav<{ isSticky: boolean }>`
   margin: 0 auto;
@@ -135,7 +137,8 @@ const ListItem = styled.li`
 
       :hover,
       :focus,
-      :active {
+      :active,
+      &.active {
         outline: none;
         transform: translateY(-3px);
         :before {
@@ -180,7 +183,12 @@ const ListItem = styled.li`
   }
 `;
 
-const Navbar = () => {
+interface IProps {
+  router: SingletonRouter;
+}
+
+const Navbar: React.FC<IProps> = ({ router }) => {
+  const path = router.pathname;
   const [isMobileActive, setIsMobileActive] = useState(null);
   const [isSticky, setIsSticky] = useState(false);
 
@@ -239,27 +247,31 @@ const Navbar = () => {
         <NavbarList isActive={isMobileActive}>
           <ListItem>
             <Link href="/">
-              <a>Strona Główna</a>
+              <a className={`${path === "/" ? "active" : ""}`}>Strona Główna</a>
             </Link>
           </ListItem>
           <ListItem>
             <Link href="/oferta">
-              <a>Oferta</a>
+              <a className={`${path === "/oferta" ? "active" : ""}`}>Oferta</a>
             </Link>
           </ListItem>
           <ListItem>
             <Link href="/portfolio">
-              <a>Portfolio</a>
+              <a className={`${path === "/portfolio" ? "active" : ""}`}>
+                Portfolio
+              </a>
             </Link>
           </ListItem>
           <ListItem>
             <Link href="/o-mnie">
-              <a>O mnie</a>
+              <a className={`${path === "/o-mnie" ? "active" : ""}`}>O mnie</a>
             </Link>
           </ListItem>
           <ListItem>
             <Link href="/kontakt">
-              <a>Kontakt</a>
+              <a className={`${path === "/kontakt" ? "active" : ""}`}>
+                Kontakt
+              </a>
             </Link>
           </ListItem>
         </NavbarList>
@@ -268,4 +280,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default withRouter(Navbar);

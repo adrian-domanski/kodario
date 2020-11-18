@@ -31,7 +31,7 @@ const ParallaxWrapper = styled.div`
   }
 
   h2 {
-    margin-bottom: 2.5rem;
+    margin-bottom: 3.5rem;
     margin-top: 0;
 
     :before {
@@ -41,11 +41,16 @@ const ParallaxWrapper = styled.div`
 `;
 
 const ParallaxFlex = styled.div`
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  margin: 0 auto;
+
+  @media screen and (min-width: 768px) {
+    max-width: 600px;
+    grid-template-columns: 1fr 1fr;
+  }
 
   @media screen and (min-width: 998px) {
-    flex-direction: row;
+    grid-template-columns: repeat(4, 1fr);
     max-width: 1200px;
     margin: 5rem auto 2rem;
   }

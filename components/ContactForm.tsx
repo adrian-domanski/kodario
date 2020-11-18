@@ -169,7 +169,13 @@ const ContactForm: React.FC<IProps> = ({ contactInformation, showImage }) => {
               (+48) 667 458 654
             </ContactListItem>
           </ContactList>
-          <Button>Napisz na Facebooku</Button>
+          <Button
+            as="a"
+            href="https://www.facebook.com/kodariopl/"
+            target="_blank"
+          >
+            Napisz na Facebooku
+          </Button>
         </ContactInformation>
       )}
 

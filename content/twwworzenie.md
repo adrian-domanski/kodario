@@ -1,10 +1,8 @@
 ---
-title: "Twwwworzenie"
-date: "2020-10-01"
+title: "Twwworzenie"
 slug: "twwworzenie"
-tech: ["SCSS", "React"]
-pageLive: "https://www.plan-szkolny.pl"
-pageCode: "https://github.com"
+tech: ["WordPress"]
+pageLive: "https://twwworzenie.pl"
 ---
 
-Hej to jest treść z markdown file!
+Przykładowa strona wykonana w popularnym systemie (CMS) Wordpress.

@@ -1,10 +1,24 @@
 ---
 title: "Plan Szkolny"
-date: "2020-10-01"
 slug: "plan-szkolny"
-tech: ["SCSS", "React"]
+tech:
+  [
+    "React",
+    "Next.js",
+    "PWA",
+    "SCSS",
+    "GraphQL",
+    "MongoDB",
+    "Node.js",
+    "Express.js",
+    "WebSockets",
+    "JWT",
+    "AWS S3",
+    "Nodemailer",
+    "Adobe XD",
+  ]
 pageLive: "https://www.plan-szkolny.pl"
-pageCode: "https://github.com"
+pageCode: "https://github.com/adrian-domanski/plan-szkolny"
 ---
 
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+Plan szkolny to miejsce, w którym możesz zapisywać terminy swoich zadań domowych, kartkówek, sprawdzianów lub innych wydarzeń. Załóż grupę klasową, w której każdy uczeń sprawdzi terminy swoich zadań na kolejne dni. Jeżeli jesteś uczniem i chcesz wiedzieć co masz do zrobienia na jutro, to nasz plan szkolny będzie doskonałym rozwiązaniem.

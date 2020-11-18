@@ -150,6 +150,7 @@ const StyledImage = styled.img<{ maxWidth?: string }>`
   max-width: ${({ maxWidth }) => (maxWidth ? maxWidth : "90%")};
   width: 100%;
   display: block;
+  border-radius: 5px;
   grid-area: img;
 
   @media screen and (min-width: 600px) {

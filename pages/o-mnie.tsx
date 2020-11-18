@@ -137,6 +137,11 @@ const AboutMePage = () => {
         img={{ src: "/img/header/about-me.svg", alt: "Niewielka grupa ludzi" }}
         title="O mnie"
         paragraph={{ value: "Dowiedz się więcej o mojej osobie", isBlue: true }}
+        button={{
+          href: "https://adrian-domanski.pl",
+          value: "Moja strona",
+          externalPage: true,
+        }}
         scrollToId="about-me-start"
       />
       <AboutMeSection id="about-me-start">
@@ -153,7 +158,7 @@ const AboutMePage = () => {
                 sieci.
               </Paragraph>
               <Button as="a" href="https://adrian-domanski.pl" target="_blank">
-                Moja strona
+                Dowiedz się więcej
               </Button>
             </div>
           </div>

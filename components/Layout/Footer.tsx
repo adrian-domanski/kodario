@@ -55,6 +55,7 @@ const StyledFooter = styled.footer`
     i {
       transition: color 0.2s ease-in-out;
       cursor: pointer;
+      color: ${({ theme }) => theme.colors.lightWhite};
 
       &:hover {
         color: #dadada;
@@ -114,9 +115,18 @@ const Footer = () => {
             Tworzenie nowoczesnych stron internetowych w przystępnej cenie.
           </p>
           <div className="social-icons">
-            <i className="fab fa-facebook" aria-hidden="true"></i>
-            <i className="fab fa-github" aria-hidden="true"></i>
-            <i className="fab fa-linkedin" aria-hidden="true"></i>
+            <a href="https://www.facebook.com/kodariopl" target="_blank">
+              <i className="fab fa-facebook" aria-hidden="true"></i>
+            </a>
+            <a href="https://github.com/adrian-domanski" target="_blank">
+              <i className="fab fa-github" aria-hidden="true"></i>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/adrian-domański-dev"
+              target="_blank"
+            >
+              <i className="fab fa-linkedin" aria-hidden="true"></i>
+            </a>
           </div>
         </FooterSection>
 
@@ -163,7 +173,11 @@ const Footer = () => {
             </li>
             <li>
               <i className="fab fa-facebook-f" aria-hidden="true"></i>
-              <a className="footer-link" href="#">
+              <a
+                className="footer-link"
+                href="https://www.facebook.com/kodariopl"
+                target="_blank"
+              >
                 Napisz do nas na Facebooku
               </a>
             </li>

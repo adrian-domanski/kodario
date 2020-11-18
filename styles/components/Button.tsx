@@ -26,12 +26,13 @@ export default styled.button.attrs({ className: "button" })<IProps>`
   :active,
   :focus {
     outline: none;
-    box-shadow: 0 0 0 2px red;
-    background-color: ${({ theme }) => theme.colors.darkBlue}; 
+    box-shadow: none;
+    background-color: ${({ theme }) => theme.colors.darkBlue};
   }
 
   ${({ centered }) => centered && "margin: 0 auto"};
 
   @media screen and (min-width: 700px) {
     font-size: 1.1rem;
+  }
 `;

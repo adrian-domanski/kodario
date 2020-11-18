@@ -1,10 +1,19 @@
 ---
 title: "Parafia"
-date: "2020-10-01"
 slug: "parafia"
-tech: ["SCSS", "React"]
-pageLive: "https://www.plan-szkolny.pl"
-pageCode: "https://github.com"
+tech:
+  [
+    "React",
+    "Next.js",
+    "Bulma",
+    "Styled components",
+    "MongoDB",
+    "Strapi (CMS)",
+    "GraphQL",
+    "Adobe XD",
+  ]
+pageLive: "http://parafia.adrian-domanski.pl"
+pageCode: "https://github.com/adrian-domanski/projekt-parafi"
 ---
 
-Hej to jest treść z markdown file!
+Strona wykonana dla lokalnej parafii. Wykorzystuje prosty i intuicyjny system CMS, który umożliwia zarządzanie wszystkimi treściami bez znajomości kodu.

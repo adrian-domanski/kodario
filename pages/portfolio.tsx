@@ -10,6 +10,9 @@ import { getOtherPosts } from "./portfolio/[slug]";
 export const PortfolioImage = styled.img`
   display: block;
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
 
   :last-child {
     margin-bottom: 0;
@@ -36,11 +39,15 @@ export const PortfolioGrid = styled.div`
 `;
 
 export const PortfolioGridItem = styled.div`
-  transition: transform 0.2s ease-in;
-  transform: scale(0.95);
+  transition: transform 0.2s ease-in, filter 0.2s ease-in;
+  transform: scale(0.98);
+  border-radius: 5px;
+  filter: grayscale(10%);
+  overflow: hidden;
 
   :hover {
     transform: scale(1);
+    filter: grayscale(0%);
   }
 `;
 

@@ -18,7 +18,7 @@ import Link from "next/link";
 
 const TechList = styled.ul`
   display: grid;
-  line-height: 1.5;
+  line-height: 2;
   justify-content: center;
 
   @media screen and (min-width: 768px) {
@@ -51,16 +51,15 @@ const TechListItem = styled.li`
 `;
 
 const OtherList = styled.div`
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  width: 100%;
+  row-gap: 1rem;
   justify-content: center;
   align-items: center;
-  width: 100%;
 
   @media screen and (min-width: 998px) {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 0;
   }
 `;
 
@@ -76,12 +75,11 @@ const OtherPostsSection = styled(Section)`
   a.link {
     transform: scale(0.98);
     transition: transform 0.15s ease-in;
+    height: 100%;
+    display: block;
 
     @media screen and (max-width: 997px) {
       max-width: 500px;
-      :not(:last-child) {
-        margin-bottom: 1rem;
-      }
     }
 
     :hover {
@@ -92,13 +90,14 @@ const OtherPostsSection = styled(Section)`
     width: 100%;
     cursor: pointer;
   }
-
-  ${Button}
 `;
 
 const OtherListItem = styled.img`
   display: block;
+  border-radius: 5px;
   width: 100%;
+  height: 100%;
+  object-fit: cover;
 
   @media screen and (min-width: 998px) {
     width: 98%;
@@ -125,6 +124,10 @@ const InformationSection = styled(Section)`
 
 const GalleryWrapper = styled.div`
   margin-bottom: 3rem;
+
+  .image-gallery-image {
+    border-radius: 5px;
+  }
 `;
 
 interface IProps {
@@ -173,7 +176,11 @@ const PortfolioDetails: NextPage<IProps> = ({
               Krótki opis projektu
             </Title>
             <Paragraph>{markdown.content}</Paragraph>
-            {markdown.data.pageCode && <Button>Zobacz kod</Button>}
+            {markdown.data.pageCode && (
+              <Button as="a" href={markdown.data.pageCode} target="_blank">
+                Zobacz kod
+              </Button>
+            )}
           </ContentWrapper>
         </InformationSection>
         <Section darker>
@@ -254,8 +261,8 @@ export const getOtherPosts = async (options?: {
   }
 
   if (options?.slugs) {
-    selectedSlugs = availableSlugs.filter((slug) =>
-      options.slugs.includes(slug)
+    selectedSlugs = options.slugs.map((slug) =>
+      availableSlugs.find((availableSlug) => availableSlug === slug)
     );
   } else {
     for (let i = 0; i < amount; i++) {
