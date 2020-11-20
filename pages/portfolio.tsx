@@ -6,6 +6,7 @@ import styled from "styled-components";
 import ContentWrapper from "../styles/components/ContentWrapper";
 import Link from "next/link";
 import { getOtherPosts } from "./portfolio/[slug]";
+import PortfolioSVG from "../components/svg-animations/PortfolioSVG";
 
 export const PortfolioImage = styled.img`
   display: block;
@@ -60,9 +61,8 @@ const PortfolioPage: React.FC<IProps> = ({ portfolioList }) => {
     <Layout>
       <Header
         title="Portoflio"
-        img={{
-          src: "/img/header/portfolio.svg",
-          alt: "Przedstawienie moich prac i umiejętności",
+        svg={{
+          component: <PortfolioSVG />,
         }}
         paragraph={{
           isBlue: true,

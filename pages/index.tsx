@@ -1,4 +1,5 @@
 import ContactForm from "../components/ContactForm";
+import HomeSVG from "../components/svg-animations/HomeSVG";
 import Header from "../components/home/Header";
 import OurWork from "../components/home/OurWork";
 import WhatWeDo from "../components/home/WhatWeDo";
@@ -19,9 +20,8 @@ export default function Hom({ portfolioList }: IProps) {
       <Layout>
         <Header
           title="Innowacyjne rozwiązania w nowoczesnym stylu"
-          img={{
-            src: "/img/header/home.svg",
-            alt: "Strona internetowa na urządzeniu mobilnym",
+          svg={{
+            component: <HomeSVG />,
           }}
           showList
           button={{

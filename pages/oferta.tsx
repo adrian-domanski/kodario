@@ -10,6 +10,7 @@ import Button from "../styles/components/Button";
 import SideText from "../styles/components/SideText";
 import ContentWrapper from "../styles/components/ContentWrapper";
 import Link from "next/link";
+import OfferSVG from "../components/svg-animations/OfferSVG";
 
 const GoToContact = styled(Section)`
   ${Button} {
@@ -26,9 +27,8 @@ const OfferPage: React.FC = () => {
     <Layout>
       <Header
         title="Moja oferta"
-        img={{
-          alt: "test",
-          src: "/img/offer-header.svg",
+        svg={{
+          component: <OfferSVG />,
           maxWidth: "70%",
         }}
         button={{

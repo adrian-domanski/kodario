@@ -6,6 +6,7 @@ import Section from "../styles/components/Section";
 import Title from "../styles/components/Title";
 import ContactWrapper from "../styles/components/ContentWrapper";
 import styled from "styled-components";
+import ContactSVG from "../components/svg-animations/ContactSVG";
 
 const TeamWorkSection = styled(Section)`
   ${Paragraph} {
@@ -23,9 +24,8 @@ const ContactPage = () => {
       <Header
         title="Kontakt"
         paragraph={{ value: "Masz pomysł na nowy projekt?", isBlue: true }}
-        img={{
-          src: "/img/header/contact.svg",
-          alt: "Skontaktuj się z nami",
+        svg={{
+          component: <ContactSVG />,
         }}
         button={{
           href: "https://www.facebook.com/kodariopl/",

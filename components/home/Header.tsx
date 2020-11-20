@@ -145,10 +145,14 @@ const StyledHomeHeader = styled.header<StyledHomeHeaderProps>`
   }
 `;
 
-const StyledImage = styled.img<{ maxWidth?: string }>`
+const SVGWrapper = styled.div<{ maxWidth?: string }>`
+  svg {
+    display: block;
+  }
+
   margin: 2rem auto 0 auto;
-  max-width: ${({ maxWidth }) => (maxWidth ? maxWidth : "90%")};
   width: 100%;
+  max-width: ${(props) => (props.maxWidth ? props.maxWidth : "90%")};
   display: block;
   border-radius: 5px;
   grid-area: img;
@@ -195,11 +199,6 @@ const StyledList = styled.ul`
 
 interface IProps {
   title: string;
-  img: {
-    src: string;
-    alt: string;
-    maxWidth?: string;
-  };
   button?: {
     href: string;
     value: string;
@@ -211,15 +210,19 @@ interface IProps {
   };
   showList?: boolean;
   scrollToId?: string;
+  svg?: {
+    component: React.FunctionComponent<React.SVGProps<SVGSVGElement>> | any;
+    maxWidth?: string;
+  };
 }
 
 const Header: React.FC<IProps> = ({
   title,
   button,
-  img,
   paragraph,
   showList,
   scrollToId,
+  svg,
 }) => {
   return (
     <StyledHomeHeader paragraph={!!paragraph} showList={showList}>
@@ -235,7 +238,9 @@ const Header: React.FC<IProps> = ({
             <li>Budowa marki</li>
           </StyledList>
         )}
-        <StyledImage src={img.src} alt={img.alt} maxWidth={img.maxWidth} />
+
+        <SVGWrapper maxWidth={svg?.maxWidth}>{svg.component}</SVGWrapper>
+
         {button &&
           (button.externalPage ? (
             <Button as="a" href={button.href} target="_blank" centered>

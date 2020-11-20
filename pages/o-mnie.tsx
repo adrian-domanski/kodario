@@ -6,6 +6,7 @@ import Title from "../styles/components/Title";
 import { Paragraph } from "../styles/components/Paragraph";
 import Button from "../styles/components/Button";
 import ContentWrapper from "../styles/components/ContentWrapper";
+import AboutMe from "../components/svg-animations/AboutMeSVG";
 
 const TrustMeGrid = styled.div`
   display: grid;
@@ -134,7 +135,7 @@ const AboutMePage = () => {
   return (
     <Layout>
       <Header
-        img={{ src: "/img/header/about-me.svg", alt: "Niewielka grupa ludzi" }}
+        svg={{ component: <AboutMe /> }}
         title="O mnie"
         paragraph={{ value: "Dowiedz się więcej o mojej osobie", isBlue: true }}
         button={{
