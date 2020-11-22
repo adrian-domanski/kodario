@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Title from "../styles/components/Title";
 
 const ParallaxWrapper = styled.div`
-  background: url("/img/parallax.jpg") no-repeat;
+  background: url("/img/parallax-mobile.jpg") no-repeat;
   background-position: center;
   background-size: cover;
   padding: 5rem 2rem 6rem;
@@ -15,6 +15,10 @@ const ParallaxWrapper = styled.div`
   @media screen and (min-width: 998px) {
     padding: 6rem 2rem 4rem;
     background-attachment: fixed;
+  }
+
+  @media screen and (min-width: 1201px) {
+    background-image: url("/img/parallax-desktop.jpg");
   }
 
   :before {

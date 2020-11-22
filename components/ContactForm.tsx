@@ -3,6 +3,7 @@ import { Paragraph } from "../styles/components/Paragraph";
 import Title from "../styles/components/Title";
 import styled from "styled-components";
 import Button from "../styles/components/Button";
+import ContactChatSVG from "./svg-animations/ContactChatSVG";
 
 const Form = styled.form`
   margin-top: 2rem;
@@ -97,7 +98,7 @@ const ContactListItem = styled.li`
   }
 `;
 
-const StyledImage = styled.img`
+const ContactChatSVGWrapper = styled.div`
   display: none;
 
   @media screen and (min-width: 998px) {
@@ -107,6 +108,11 @@ const StyledImage = styled.img`
     width: 40%;
     position: relative;
     left: 8%;
+  }
+
+  svg {
+    width: 100%;
+    height: 100%;
   }
 `;
 
@@ -133,7 +139,7 @@ interface IProps {
 const ContactForm: React.FC<IProps> = ({ contactInformation, showImage }) => {
   return (
     <PageWrapper>
-      <ContactFormWrapper>
+      <ContactFormWrapper id="contact-form">
         <Title>Formularz kontaktowy</Title>
         <Form>
           <FormControl>
@@ -180,10 +186,9 @@ const ContactForm: React.FC<IProps> = ({ contactInformation, showImage }) => {
       )}
 
       {showImage && (
-        <StyledImage
-          src="/img/contact.svg"
-          alt="Czat grupowy, komunikacja, formularz kontaktowy"
-        />
+        <ContactChatSVGWrapper>
+          <ContactChatSVG />
+        </ContactChatSVGWrapper>
       )}
     </PageWrapper>
   );

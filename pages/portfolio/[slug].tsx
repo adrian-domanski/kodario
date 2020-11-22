@@ -146,13 +146,16 @@ const PortfolioDetails: NextPage<IProps> = ({
 
   return (
     <>
-      <SEO />
+      <SEO
+        title="Portfolio - informacje o projekcie"
+        description={`Dowiedz się więcej o projekcie ${markdown.data.title}. Poznaj wykorzystanie rozwiązania i technologie. Odwiedź stronę i przekonaj się, że tworzę nowoczesne strony i aplikacje internetowe.`}
+      />
       <Layout>
         <Header
           title={markdown.data.title}
           img={{
             src: `/content/${markdown.data.slug}/${markdown.images[0]}`,
-            alt: "",
+            alt: `Zdjęcie prezentujące projekt strony internetowej ${markdown.data.title}`,
           }}
           paragraph={{
             isBlue: true,

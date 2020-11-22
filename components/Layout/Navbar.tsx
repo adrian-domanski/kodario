@@ -227,7 +227,10 @@ const Navbar: React.FC<IProps> = ({ router }) => {
         <div className="navbar-brand">
           <Link href="/">
             <a className="navbar-item">
-              <img src="/img/logo.svg" />
+              <img
+                src="/img/logo.svg"
+                alt="Kodario - Tworzenie stron i aplikacji internetowych oraz grafika"
+              />
             </a>
           </Link>
         </div>

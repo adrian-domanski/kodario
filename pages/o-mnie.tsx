@@ -7,6 +7,7 @@ import { Paragraph } from "../styles/components/Paragraph";
 import Button from "../styles/components/Button";
 import ContentWrapper from "../styles/components/ContentWrapper";
 import AboutMe from "../components/svg-animations/AboutMeSVG";
+import SEO from "../components/SEO";
 
 const TrustMeGrid = styled.div`
   display: grid;
@@ -30,7 +31,7 @@ const TrustMeGridItem = styled.div`
   text-align: center;
   background: #fff;
   padding: 2rem;
-  border-radius: 25px;
+  border-radius: 12px;
   box-shadow: 0 0 10px -8px #808080;
 
   @media screen and (min-width: 998px) {
@@ -133,82 +134,95 @@ const TrustMeSection = styled(Section)`
 
 const AboutMePage = () => {
   return (
-    <Layout>
-      <Header
-        svg={{ component: <AboutMe /> }}
-        title="O mnie"
-        paragraph={{ value: "Dowiedz się więcej o mojej osobie", isBlue: true }}
-        button={{
-          href: "https://adrian-domanski.pl",
-          value: "Moja strona",
-          externalPage: true,
-        }}
-        scrollToId="about-me-start"
+    <>
+      <SEO
+        pageTitle="O mnie - dowiedz się więcej"
+        description="Dowiedz się więcej o mnie, oraz dlaczego warto mi zaufać. Tworzę strony internetowe od kilku lat i posiadam bogate doświadczenie."
       />
-      <AboutMeSection id="about-me-start">
-        <ContentWrapper>
-          <Title>Kilka słów o mnie</Title>
-          <div className="content-flex">
-            <img src="/img/me.png" alt="Moje zdjęcie w Hiszpani" />
-            <div className="content-right">
-              <Paragraph>
-                Nazywam się <b>Adrian Domański</b> i mieszkam pod Poznaniem.
-                Tworzeniem stron i aplikacji internetowych zajmuje się od 3 lat.
-                Łączę swoją pasję do programowania z grafiką i staram się
-                tworzyć nowoczesne produkty, które spełniają swoje zadania w
-                sieci.
-              </Paragraph>
-              <Button as="a" href="https://adrian-domanski.pl" target="_blank">
-                Dowiedz się więcej
-              </Button>
+      <Layout>
+        <Header
+          svg={{ component: <AboutMe /> }}
+          title="O mnie"
+          paragraph={{
+            value: "Dowiedz się więcej o mojej osobie",
+            isBlue: true,
+          }}
+          button={{
+            href: "https://adrian-domanski.pl",
+            value: "Moja strona",
+            externalPage: true,
+          }}
+          scrollToId="about-me-start"
+        />
+        <AboutMeSection id="about-me-start">
+          <ContentWrapper>
+            <Title>Kilka słów o mnie</Title>
+            <div className="content-flex">
+              <img src="/img/me.png" alt="Moje zdjęcie w Hiszpani" />
+              <div className="content-right">
+                <Paragraph>
+                  Nazywam się <b>Adrian Domański</b> i mieszkam pod Poznaniem.
+                  Tworzeniem stron i aplikacji internetowych zajmuje się od 3
+                  lat. Łączę swoją pasję do programowania z grafiką i staram się
+                  tworzyć nowoczesne produkty, które spełniają swoje zadania w
+                  sieci.
+                </Paragraph>
+                <Button
+                  as="a"
+                  href="https://adrian-domanski.pl"
+                  target="_blank"
+                >
+                  Dowiedz się więcej
+                </Button>
+              </div>
             </div>
-          </div>
-        </ContentWrapper>
-      </AboutMeSection>
-      <TrustMeSection footerSpace darker>
-        <ContentWrapper>
-          <Title>Dlaczego warto mi zaufać?</Title>
-          <TrustMeGrid>
-            <TrustMeGridItem>
-              <div className="icon">
-                <i className="fas fa-tasks" />
-              </div>
-              <p>Odpowiedznialnie wykonuje swoje zadania</p>
-            </TrustMeGridItem>
-            <TrustMeGridItem>
-              <div className="icon">
-                <i className="fas fa-hands-helping" />
-              </div>
-              <p>Dbam o dobrą opinię swoich klientów</p>
-            </TrustMeGridItem>
-            <TrustMeGridItem>
-              <div className="icon">
-                <i className="fas fa-headset" />
-              </div>
-              <p>Oferuje wsparcie techniczne</p>
-            </TrustMeGridItem>
-            <TrustMeGridItem>
-              <div className="icon">
-                <i className="fas fa-laptop-code" />
-              </div>
-              <p>Posiadam praktyczne doświadczenie</p>
-            </TrustMeGridItem>
-            <TrustMeGridItem>
-              <div className="icon">
-                <i className="fas fa-cubes" />
-              </div>
-              <p>Oferuje kompleksowy zakres usług</p>
-            </TrustMeGridItem>
-            <TrustMeGridItem>
-              <div className="icon">
-                <i className="fas fa-dollar-sign" />
-              </div>
-              <p>Oferuje produkty w przystępnej cenie</p>
-            </TrustMeGridItem>
-          </TrustMeGrid>
-        </ContentWrapper>
-      </TrustMeSection>
-    </Layout>
+          </ContentWrapper>
+        </AboutMeSection>
+        <TrustMeSection footerSpace darker>
+          <ContentWrapper>
+            <Title>Dlaczego warto mi zaufać?</Title>
+            <TrustMeGrid>
+              <TrustMeGridItem>
+                <div className="icon">
+                  <i className="fas fa-tasks" />
+                </div>
+                <p>Odpowiedznialnie wykonuje swoje zadania</p>
+              </TrustMeGridItem>
+              <TrustMeGridItem>
+                <div className="icon">
+                  <i className="fas fa-hands-helping" />
+                </div>
+                <p>Dbam o dobrą opinię swoich klientów</p>
+              </TrustMeGridItem>
+              <TrustMeGridItem>
+                <div className="icon">
+                  <i className="fas fa-headset" />
+                </div>
+                <p>Oferuje wsparcie techniczne</p>
+              </TrustMeGridItem>
+              <TrustMeGridItem>
+                <div className="icon">
+                  <i className="fas fa-laptop-code" />
+                </div>
+                <p>Posiadam praktyczne doświadczenie</p>
+              </TrustMeGridItem>
+              <TrustMeGridItem>
+                <div className="icon">
+                  <i className="fas fa-cubes" />
+                </div>
+                <p>Oferuje kompleksowy zakres usług</p>
+              </TrustMeGridItem>
+              <TrustMeGridItem>
+                <div className="icon">
+                  <i className="fas fa-dollar-sign" />
+                </div>
+                <p>Oferuje produkty w przystępnej cenie</p>
+              </TrustMeGridItem>
+            </TrustMeGrid>
+          </ContentWrapper>
+        </TrustMeSection>
+      </Layout>
+    </>
   );
 };
 

@@ -43,7 +43,7 @@ const OurWork: React.FC<IProps> = ({ portfolioList }) => {
                 <a>
                   <PortfolioImage
                     src={`/content/${product.slug}/${product.image}`}
-                    alt="#"
+                    alt={`Zdjęcie projektu ${product.title} na urządzeniu.`}
                   />
                 </a>
               </Link>

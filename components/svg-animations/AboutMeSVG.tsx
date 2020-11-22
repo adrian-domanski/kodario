@@ -4,7 +4,7 @@ import gsap from "gsap";
 const AboutMe = () => {
   useEffect(() => {
     const tl = gsap.timeline({
-      defaults: { diration: 0.5, ease: "power3.out" },
+      defaults: { duration: 0.5, ease: "power3.out" },
     });
 
     tl.from(["#guy-1", "#guy-2", "#guy-3"], {

@@ -7,6 +7,7 @@ import ContentWrapper from "../styles/components/ContentWrapper";
 import Link from "next/link";
 import { getOtherPosts } from "./portfolio/[slug]";
 import PortfolioSVG from "../components/svg-animations/PortfolioSVG";
+import SEO from "../components/SEO";
 
 export const PortfolioImage = styled.img`
   display: block;
@@ -58,41 +59,49 @@ interface IProps {
 
 const PortfolioPage: React.FC<IProps> = ({ portfolioList }) => {
   return (
-    <Layout>
-      <Header
-        title="Portoflio"
-        svg={{
-          component: <PortfolioSVG />,
-        }}
-        paragraph={{
-          isBlue: true,
-          value: "Zapoznaj się z moimi dotychczasowymi projektami",
-        }}
-        scrollToId="portfolio-start"
-      />
-      <Section footerSpace id="portfolio-start">
-        <CustomContentWrapper>
-          <Title>Realizacje</Title>
-          <PortfolioGrid>
-            {portfolioList.map((product, index) => (
-              <PortfolioGridItem key={index}>
-                <Link
-                  href="/portfolio/[slug]"
-                  as={`/portfolio/${product.slug}`}
-                >
-                  <a>
-                    <PortfolioImage
-                      src={`/content/${product.slug}/${product.image}`}
-                      alt="#"
-                    />
-                  </a>
-                </Link>
-              </PortfolioGridItem>
-            ))}
-          </PortfolioGrid>
-        </CustomContentWrapper>
-      </Section>
-    </Layout>
+    <>
+      <SEO pageTitle="Portfolio - moje prace" />
+      <Layout>
+        <Header
+          title="Portoflio"
+          svg={{
+            component: <PortfolioSVG />,
+          }}
+          paragraph={{
+            isBlue: true,
+            value: "Zapoznaj się z moimi dotychczasowymi projektami",
+          }}
+          button={{
+            href: "https://adrian-domanski.pl",
+            value: "Moja strona",
+            externalPage: true,
+          }}
+          scrollToId="portfolio-start"
+        />
+        <Section footerSpace id="portfolio-start">
+          <CustomContentWrapper>
+            <Title>Realizacje</Title>
+            <PortfolioGrid>
+              {portfolioList.map((product, index) => (
+                <PortfolioGridItem key={index}>
+                  <Link
+                    href="/portfolio/[slug]"
+                    as={`/portfolio/${product.slug}`}
+                  >
+                    <a>
+                      <PortfolioImage
+                        src={`/content/${product.slug}/${product.image}`}
+                        alt="#"
+                      />
+                    </a>
+                  </Link>
+                </PortfolioGridItem>
+              ))}
+            </PortfolioGrid>
+          </CustomContentWrapper>
+        </Section>
+      </Layout>
+    </>
   );
 };
 

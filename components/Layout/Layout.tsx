@@ -26,6 +26,7 @@ const GlobalStyles = createGlobalStyle`
   body {
     font-family: 'Montserrat', sans-serif;
     background-color: ${({ theme }) => theme.colors.backgroundColor};
+    overflow-x: hidden;
   }
 `;
 

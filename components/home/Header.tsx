@@ -126,7 +126,7 @@ const StyledHomeHeader = styled.header<StyledHomeHeaderProps>`
     grid-area: paragraph;
 
     @media screen and (min-width: 998px) {
-      margin: 0 0 2rem 0;
+      margin: 0 0 1rem 0;
     }
   }
 
@@ -145,31 +145,32 @@ const StyledHomeHeader = styled.header<StyledHomeHeaderProps>`
   }
 `;
 
-const SVGWrapper = styled.div<{ maxWidth?: string }>`
-  svg {
-    display: block;
-  }
-
+const StyledImage = styled.img<{ maxWidth?: string }>`
   margin: 2rem auto 0 auto;
+  max-width: ${({ maxWidth }) => (maxWidth ? maxWidth : "90%")};
   width: 100%;
-  max-width: ${(props) => (props.maxWidth ? props.maxWidth : "90%")};
   display: block;
   border-radius: 5px;
   grid-area: img;
-
   @media screen and (min-width: 600px) {
     max-width: 70%;
     margin: 3rem auto 2rem auto;
   }
-
   @media screen and (min-width: 768px) {
     max-width: 50%;
     margin: 3rem auto 2rem auto;
   }
-
   @media screen and (min-width: 998px) {
     max-width: unset;
     margin: 0;
+  }
+`;
+
+const SVGWrapper = styled(StyledImage).attrs({ as: "div" })<{
+  maxWidth?: string;
+}>`
+  svg {
+    display: block;
   }
 `;
 
@@ -214,6 +215,10 @@ interface IProps {
     component: React.FunctionComponent<React.SVGProps<SVGSVGElement>> | any;
     maxWidth?: string;
   };
+  img?: {
+    src: string;
+    alt: string;
+  };
 }
 
 const Header: React.FC<IProps> = ({
@@ -223,6 +228,7 @@ const Header: React.FC<IProps> = ({
   showList,
   scrollToId,
   svg,
+  img,
 }) => {
   return (
     <StyledHomeHeader paragraph={!!paragraph} showList={showList}>
@@ -239,7 +245,13 @@ const Header: React.FC<IProps> = ({
           </StyledList>
         )}
 
-        <SVGWrapper maxWidth={svg?.maxWidth}>{svg.component}</SVGWrapper>
+        {svg && (
+          <SVGWrapper maxWidth={svg?.maxWidth}>{svg.component}</SVGWrapper>
+        )}
+
+        {img && (
+          <StyledImage src={img.src} alt={img.alt} maxWidth={svg?.maxWidth} />
+        )}
 
         {button &&
           (button.externalPage ? (

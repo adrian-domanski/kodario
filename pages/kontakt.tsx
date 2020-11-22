@@ -7,6 +7,7 @@ import Title from "../styles/components/Title";
 import ContactWrapper from "../styles/components/ContentWrapper";
 import styled from "styled-components";
 import ContactSVG from "../components/svg-animations/ContactSVG";
+import SEO from "../components/SEO";
 
 const TeamWorkSection = styled(Section)`
   ${Paragraph} {
@@ -20,34 +21,41 @@ const TeamWorkSection = styled(Section)`
 
 const ContactPage = () => {
   return (
-    <Layout>
-      <Header
-        title="Kontakt"
-        paragraph={{ value: "Masz pomysł na nowy projekt?", isBlue: true }}
-        svg={{
-          component: <ContactSVG />,
-        }}
-        button={{
-          href: "https://www.facebook.com/kodariopl/",
-          value: "Szybkie pytanie na Facebooku",
-          externalPage: true,
-        }}
-        scrollToId="contact-start"
+    <>
+      <SEO
+        pageTitle="Kontakt"
+        description="Jesteś zainteresowany współpracą? Poniżej znajdziesz informacje kontaktowe. Skorzystaj z jednej z metod i skontaktuj się ze mną, ja stworzę dla Ciebie profesjonalny produkt."
       />
-      <TeamWorkSection darker id="contact-start">
-        <ContactWrapper>
-          <Title>Jesteś zainteresowany współpracą?</Title>
-          <Paragraph>
-            Masz pomysł na nowy projekt, potrzebujesz rady, lub sam nie wiesz co
-            pomogło by w rozwoju Twojej działalności? Skorzystaj z poniższych
-            metod i skontaktuj się ze mną, a ja zadbam o całą resztę!
-          </Paragraph>
-        </ContactWrapper>
-      </TeamWorkSection>
-      <Section footerSpace>
-        <ContactForm contactInformation />
-      </Section>
-    </Layout>
+      <Layout>
+        <Header
+          title="Kontakt"
+          paragraph={{ value: "Masz pomysł na nowy projekt?", isBlue: true }}
+          svg={{
+            component: <ContactSVG />,
+          }}
+          button={{
+            href: "https://www.facebook.com/kodariopl/",
+            value: "Szybkie pytanie na Facebooku",
+            externalPage: true,
+          }}
+          scrollToId="contact-start"
+        />
+        <TeamWorkSection darker id="contact-start">
+          <ContactWrapper>
+            <Title>Jesteś zainteresowany współpracą?</Title>
+            <Paragraph>
+              Masz pomysł na nowy projekt, potrzebujesz rady, lub sam nie wiesz
+              co pomogło by w rozwoju Twojej działalności? Skorzystaj z
+              poniższych metod i skontaktuj się ze mną, a ja zadbam o całą
+              resztę!
+            </Paragraph>
+          </ContactWrapper>
+        </TeamWorkSection>
+        <Section footerSpace>
+          <ContactForm contactInformation />
+        </Section>
+      </Layout>
+    </>
   );
 };
 
