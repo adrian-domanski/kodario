@@ -141,7 +141,7 @@ const ContactForm: React.FC<IProps> = ({ contactInformation, showImage }) => {
     <PageWrapper>
       <ContactFormWrapper id="contact-form">
         <Title>Formularz kontaktowy</Title>
-        <Form>
+        <Form action="https://formspree.io/f/mvovqere" method="POST">
           <FormControl>
             <label htmlFor="name">Twoje imie:</label>
             <input type="text" name="name" id="name" />

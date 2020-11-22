@@ -20,6 +20,10 @@ const StyledHomeHeader = styled.header<StyledHomeHeaderProps>`
     padding: 4.5rem 2rem 10rem;
   }
 
+  @media screen and (min-width: 1200px) {
+    min-height: 100vh;
+  }
+
   .content-wrapper {
     max-width: 1100px;
     margin: 0 auto;
