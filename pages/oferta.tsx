@@ -12,6 +12,11 @@ import ContentWrapper from "../styles/components/ContentWrapper";
 import Link from "next/link";
 import OfferSVG from "../components/svg-animations/OfferSVG";
 import SEO from "../components/SEO";
+import CodeSVG from "../components/svg-animations/offer/CodeSVG";
+import DesignSVG from "../components/svg-animations/offer/DesignSVG";
+import SocialsSVG from "../components/svg-animations/offer/SocialsSVG";
+import SupportSVG from "../components/svg-animations/offer/SupportSVG";
+import ComplexSVG from "../components/svg-animations/offer/ComplexSVG";
 
 const GoToContact = styled(Section)`
   ${Button} {
@@ -52,10 +57,11 @@ const OfferPage: React.FC = () => {
             <SideText text="Oferta" side="LEFT" />
             <Title>Czym się zajmuję?</Title>
             <WhatWeDoItem number="1">
-              <img
+              <CodeSVG />
+              {/* <img
                 src="/img/we-do-code.svg"
                 alt="Tworzenie stron oraz aplikacji internetowych, programowanie"
-              />
+              /> */}
               <div className="content">
                 <Title subTitle>
                   Tworzenie stron i aplikacji internetowych
@@ -68,10 +74,11 @@ const OfferPage: React.FC = () => {
               </div>
             </WhatWeDoItem>
             <WhatWeDoItem number="2">
-              <img
+              {/* <img
                 src="/img/we-do-design.svg"
                 alt="Projektowanie graficzne - tworzenie logotypów, banerów projektów stron internetowych"
-              />
+              /> */}
+              <DesignSVG />
               <div className="content">
                 <Title subTitle>Projektowanie graficzne</Title>
                 <p>
@@ -82,10 +89,11 @@ const OfferPage: React.FC = () => {
               </div>
             </WhatWeDoItem>
             <WhatWeDoItem number="3">
-              <img
+              <SocialsSVG />
+              {/* <img
                 src="/img/we-do-marketing.svg"
                 alt="Tworzenie mediów społecznościowych w celu zwiększenia zasięgów i pozyskaniu nowych klientów"
-              />
+              /> */}
               <div className="content">
                 <Title subTitle>Budowa marki</Title>
                 <p>
@@ -96,10 +104,11 @@ const OfferPage: React.FC = () => {
               </div>
             </WhatWeDoItem>
             <WhatWeDoItem number="4">
-              <img
+              {/* <img
                 src="/img/support.svg"
                 alt="Wsparcie techniczne, rozwiązywanie problemów, pomoc"
-              />
+              /> */}
+              <SupportSVG />
               <div className="content">
                 <Title subTitle>Wsparcie techniczne</Title>
                 <p>
@@ -110,10 +119,11 @@ const OfferPage: React.FC = () => {
               </div>
             </WhatWeDoItem>
             <WhatWeDoItem number="5">
-              <img
+              {/* <img
                 src="/img/complex.svg"
                 alt="Kompleksowy zakres usług, zajmę się wszystkim - nie musisz szukać kilku osób do jednego projektu."
-              />
+              /> */}
+              <ComplexSVG />
               <div className="content">
                 <Title subTitle>Kompleksowa oferta</Title>
                 <p>

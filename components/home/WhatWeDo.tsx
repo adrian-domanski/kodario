@@ -6,6 +6,9 @@ import Button from "../../styles/components/Button";
 import Link from "next/link";
 import ContentWrapper from "../../styles/components/ContentWrapper";
 import SideText from "../../styles/components/SideText";
+import CodeSVG from "../svg-animations/offer/CodeSVG";
+import DesignSVG from "../svg-animations/offer/DesignSVG";
+import SocialsSVG from "../svg-animations/offer/SocialsSVG";
 
 export const WhatWeDoItem = styled.div<{ number: string }>`
   text-align: center;
@@ -37,13 +40,23 @@ export const WhatWeDoItem = styled.div<{ number: string }>`
     margin-bottom: 4rem;
   }
 
-  img {
+  svg {
     width: 60%;
     margin: 0 auto;
     display: block;
 
+    @media screen and (max-width: 767px) {
+      margin-bottom: 2rem;
+    }
+
     @media screen and (min-width: 768px) {
       width: 40%;
+    }
+  }
+
+  & {
+    svg {
+      width: 100%;
     }
   }
 
@@ -66,19 +79,15 @@ export const WhatWeDoItem = styled.div<{ number: string }>`
       content: "${(props) => props.number}";
       color: ${({ theme }) => theme.colors.darkerBlue};
       font-size: 7rem;
-      display: block;
+      display: none;
       position: absolute;
       top: -90px;
       z-index: 1;
       opacity: 0.04;
       font-weight: bold;
 
-      @media screen and (max-width: 768px) {
-        ${(props) =>
-          parseFloat(props.number) % 2 == 0 ? "right: 0" : "left: 0"};
-      }
-
       @media screen and (min-width: 768px) {
+        display: block;
         top: -60px;
         left: -20px;
         font-size: 8rem;
@@ -104,10 +113,7 @@ const WhatWeDo = () => {
         <SideText text="Oferta" side="LEFT" />
         <Title>Czym się zajmuję?</Title>
         <WhatWeDoItem number="1">
-          <img
-            src="/img/we-do-code.svg"
-            alt="Tworzenie stron oraz aplikacji internetowych, programowanie"
-          />
+          <CodeSVG />
           <div className="content">
             <Title subTitle>Tworzenie stron i aplikacji internetowych</Title>
             <p>
@@ -117,10 +123,7 @@ const WhatWeDo = () => {
           </div>
         </WhatWeDoItem>
         <WhatWeDoItem number="2">
-          <img
-            src="/img/we-do-design.svg"
-            alt="Projektowanie graficzne - tworzenie logotypów, banerów projektów stron internetowych"
-          />
+          <DesignSVG />
           <div className="content">
             <Title subTitle>Projektowanie graficzne</Title>
             <p>
@@ -131,10 +134,7 @@ const WhatWeDo = () => {
           </div>
         </WhatWeDoItem>
         <WhatWeDoItem number="3">
-          <img
-            src="/img/we-do-marketing.svg"
-            alt="Tworzenie mediów społecznościowych w celu zwiększenia zasięgów i pozyskaniu nowych klientów"
-          />
+          <SocialsSVG />
           <div className="content">
             <Title subTitle>Budowa marki</Title>
             <p>

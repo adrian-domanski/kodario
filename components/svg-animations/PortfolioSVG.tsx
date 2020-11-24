@@ -267,8 +267,8 @@ const PortfolioSVG = () => {
             transform="translate(-28.884 -23.73)"
             fill="none"
             stroke="#3f3d56"
-            stroke-miterlimit="10"
-            stroke-width="1"
+            strokeMiterlimit="10"
+            strokeWidth="1"
           />
           <ellipse
             id="Ellipse_35"

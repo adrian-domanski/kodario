@@ -1661,8 +1661,8 @@ const AboutMe = () => {
             transform="translate(-130.811 -179.056)"
             fill="none"
             stroke="#3f2b3b"
-            stroke-miterlimit="10"
-            stroke-width="1"
+            strokeMiterlimit="10"
+            strokeWidth="1"
           />
           <path
             id="Path_1853"
@@ -1671,8 +1671,8 @@ const AboutMe = () => {
             transform="translate(-132.165 -179.492)"
             fill="none"
             stroke="#3f2b3b"
-            stroke-miterlimit="10"
-            stroke-width="1"
+            strokeMiterlimit="10"
+            strokeWidth="1"
           />
           <path
             id="Path_1854"
@@ -1731,8 +1731,8 @@ const AboutMe = () => {
             transform="translate(-140.192 -179.056)"
             fill="none"
             stroke="#3f2b3b"
-            stroke-miterlimit="10"
-            stroke-width="1"
+            strokeMiterlimit="10"
+            strokeWidth="1"
           />
           <path
             id="Path_1862"
@@ -1741,8 +1741,8 @@ const AboutMe = () => {
             transform="translate(-139.677 -179.492)"
             fill="none"
             stroke="#3f2b3b"
-            stroke-miterlimit="10"
-            stroke-width="1"
+            strokeMiterlimit="10"
+            strokeWidth="1"
           />
           <path
             id="Path_1863"
@@ -1772,8 +1772,8 @@ const AboutMe = () => {
             transform="translate(-128.907 -185.591)"
             fill="none"
             stroke="#3f2b3b"
-            stroke-miterlimit="10"
-            stroke-width="1"
+            strokeMiterlimit="10"
+            strokeWidth="1"
           />
           <path
             id="Path_1867"
@@ -1782,8 +1782,8 @@ const AboutMe = () => {
             transform="translate(-127.737 -186.053)"
             fill="none"
             stroke="#3f2b3b"
-            stroke-miterlimit="10"
-            stroke-width="1"
+            strokeMiterlimit="10"
+            strokeWidth="1"
           />
           <path
             id="Path_1868"
@@ -1806,8 +1806,8 @@ const AboutMe = () => {
             transform="translate(-143.443 -185.591)"
             fill="none"
             stroke="#3f2b3b"
-            stroke-miterlimit="10"
-            stroke-width="1"
+            strokeMiterlimit="10"
+            strokeWidth="1"
           />
           <path
             id="Path_1871"
@@ -1816,8 +1816,8 @@ const AboutMe = () => {
             transform="translate(-144.565 -186.053)"
             fill="none"
             stroke="#3f2b3b"
-            stroke-miterlimit="10"
-            stroke-width="1"
+            strokeMiterlimit="10"
+            strokeWidth="1"
           />
           <path
             id="Path_1872"
@@ -1840,8 +1840,8 @@ const AboutMe = () => {
             transform="translate(-131.921 -188.525)"
             fill="none"
             stroke="#3f2b3b"
-            stroke-miterlimit="10"
-            stroke-width="1"
+            strokeMiterlimit="10"
+            strokeWidth="1"
           />
           <path
             id="Path_1875"
@@ -1850,8 +1850,8 @@ const AboutMe = () => {
             transform="translate(-131.461 -188.146)"
             fill="none"
             stroke="#3f2b3b"
-            stroke-miterlimit="10"
-            stroke-width="1"
+            strokeMiterlimit="10"
+            strokeWidth="1"
           />
           <path
             id="Path_1876"
@@ -1874,8 +1874,8 @@ const AboutMe = () => {
             transform="translate(-141.209 -188.525)"
             fill="none"
             stroke="#3f2b3b"
-            stroke-miterlimit="10"
-            stroke-width="1"
+            strokeMiterlimit="10"
+            strokeWidth="1"
           />
           <path
             id="Path_1879"
@@ -1884,8 +1884,8 @@ const AboutMe = () => {
             transform="translate(-141.486 -188.146)"
             fill="none"
             stroke="#3f2b3b"
-            stroke-miterlimit="10"
-            stroke-width="1"
+            strokeMiterlimit="10"
+            strokeWidth="1"
           />
           <path
             id="Path_1880"
