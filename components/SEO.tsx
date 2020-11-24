@@ -9,8 +9,8 @@ interface IProps {
 
 const META_DEFAULT = {
   description:
-    "Zajmuję się tworzeniem nowoczesnych i wydajnych stron internetowych. Chętnie zaprojektuję i zrealizuję stronę, która pomożę Ci w rozwoju twojej działalności.",
-  title: "Kodario | Nowoczesne strony internetowe",
+    "Zajmuję się tworzeniem nowoczesnych stron oraz aplikacji internetowych. Chętnie zaprojektuję i zrealizuję stronę, która pomożę Ci w rozwoju twojej działalności.",
+  title: "Kodario - Nowoczesne strony internetowe",
   titeTemplate: "| Kodario",
 };
 

@@ -17,6 +17,17 @@ class MyApp extends App {
             href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap"
             rel="stylesheet"
           ></link>
+          <meta property="og:type" content="website" />
+          <meta
+            property="og:title"
+            content="Kodario - Nowoczesne strony internetowe"
+          />
+          <meta
+            property="og:description"
+            content="Zajmuję się tworzeniem nowoczesnych stron oraz aplikacji internetowych. Chętnie zaprojektuję i zrealizuję stronę, która pomożę Ci w rozwoju twojej działalności."
+          />
+          <meta property="og:image" content="https://kodario.pl/og-image.jpg" />
+          <meta property="og:url" content="https://kodario.pl" />
         </Head>
         <ThemeProvider theme={theme}>
           <Component {...pageProps} />

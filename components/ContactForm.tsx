@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Paragraph } from "../styles/components/Paragraph";
 import Title from "../styles/components/Title";
 import styled from "styled-components";
@@ -131,30 +131,156 @@ const PageWrapper = styled.div`
   }
 `;
 
+const StyledFormMessage = styled.div<{ status: string }>`
+  background-color: ${(props) =>
+    props.status === "SUCCESS" ? "#239c8f" : "red"};
+  color: ${({ theme }) => theme.colors.lightWhite};
+  padding: 1rem;
+  display: ${(props) => (props.status === "NOT SENT" ? "none" : "flex")};
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+  border-radius: 5px;
+
+  button {
+    border: 0;
+    background: transparent;
+    color: #fff;
+    font-size: 1.4rem;
+    transition: transform 0.1s ease-in;
+    transform-origin: center;
+    cursor: pointer;
+
+    :focus,
+    :active {
+      border: none;
+      outline: none;
+    }
+
+    :active,
+    :focus,
+    :hover {
+      transform: scale(1.1);
+    }
+  }
+`;
+
 interface IProps {
   contactInformation?: boolean;
   showImage?: boolean;
 }
 
 const ContactForm: React.FC<IProps> = ({ contactInformation, showImage }) => {
+  const [status, setStatus] = useState<
+    "SUCCESS" | "FAILURE" | "NOT FILLED" | "NOT SENT"
+  >("NOT SENT");
+  const [formState, setFormState] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { value, name } = e.target;
+    setFormState({ ...formState, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const { name, email, message } = formState;
+
+    if (!name || !email || !message) {
+      return setStatus("NOT FILLED");
+    }
+
+    const form = e.target;
+    const data = new FormData(form);
+    const xhr = new XMLHttpRequest();
+    xhr.open(form.method, form.action);
+    xhr.setRequestHeader("Accept", "application/json");
+    xhr.onreadystatechange = () => {
+      if (xhr.readyState !== XMLHttpRequest.DONE) return;
+      if (xhr.status === 200) {
+        setStatus("SUCCESS");
+        setFormState({
+          email: "",
+          name: "",
+          message: "",
+        });
+      } else {
+        setStatus("FAILURE");
+      }
+    };
+    xhr.send(data);
+  };
+
+  const handleCloseMessage = () => setStatus("NOT SENT");
+
   return (
     <PageWrapper>
       <ContactFormWrapper id="contact-form">
         <Title>Formularz kontaktowy</Title>
-        <Form action="https://formspree.io/f/mvovqere" method="POST">
+        <StyledFormMessage status={status}>
+          {status === "FAILURE" ? (
+            <span>Nie udało się wysłać wiadomości</span>
+          ) : (
+            ""
+          )}
+          {status === "SUCCESS" ? (
+            <span>Wiadomość została pomyślnie wysłana</span>
+          ) : (
+            ""
+          )}
+          {status === "NOT FILLED" ? (
+            <span>Proszę wypełnić wszystkie pola</span>
+          ) : (
+            ""
+          )}
+          {status !== "NOT SENT" ? (
+            <button onClick={handleCloseMessage}>
+              <i className="fas fa-times"></i>
+            </button>
+          ) : (
+            ""
+          )}
+        </StyledFormMessage>
+        <Form
+          onSubmit={handleSubmit}
+          action="https://formspree.io/f/mvovqere"
+          method="POST"
+        >
           <FormControl>
             <label htmlFor="name">Twoje imie:</label>
-            <input type="text" name="name" id="name" />
+            <input
+              onChange={handleChange}
+              type="text"
+              value={formState.name}
+              name="name"
+              id="name"
+            />
           </FormControl>
           <FormControl>
             <label htmlFor="email">Twój adres email:</label>
-            <input type="email" name="email" id="email" />
+            <input
+              type="email"
+              onChange={handleChange}
+              name="email"
+              value={formState.email}
+              id="email"
+            />
           </FormControl>
           <FormControl>
             <label htmlFor="message">Treść wiadomości:</label>
-            <textarea name="message" id="message" />
+            <textarea
+              name="message"
+              onChange={handleChange}
+              value={formState.message}
+              id="message"
+            />
           </FormControl>
-          <Button>Wyślij</Button>
+          <Button type="submit">Wyślij</Button>
         </Form>
       </ContactFormWrapper>
 
