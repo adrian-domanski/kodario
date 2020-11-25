@@ -66,55 +66,55 @@ const OfferPage: React.FC = () => {
                 <Title subTitle>
                   Tworzenie stron i aplikacji internetowych
                 </Title>
-                <p>
+                <Paragraph>
                   Stworzę dla Ciebię nowoczesną stronę, lub aplikację
                   internetową. Zadbam o poprawne wyświetlanie treści na każdym
                   urządzeniu.
-                </p>
+                </Paragraph>
               </div>
             </WhatWeDoItem>
             <WhatWeDoItem number="2">
               <DesignSVG />
               <div className="content">
                 <Title subTitle>Projektowanie graficzne</Title>
-                <p>
+                <Paragraph>
                   Zaprojektuję stronę internetową, logo, baner, lub inną grafikę
                   na twoje potrzeby. Zadbam o odpowiednie dopasowanie kolorów,
                   czcionek oraz pozostałych elementów.
-                </p>
+                </Paragraph>
               </div>
             </WhatWeDoItem>
             <WhatWeDoItem number="3">
               <SocialsSVG />
               <div className="content">
                 <Title subTitle>Budowa marki</Title>
-                <p>
+                <Paragraph>
                   Zaprojektuję logo, które zapadnie w pamięć oraz pomogę Ci w
                   przeniesieniu twojej działalności do odpowiednich mediów
                   społecznościowych.
-                </p>
+                </Paragraph>
               </div>
             </WhatWeDoItem>
             <WhatWeDoItem number="4">
               <SupportSVG />
               <div className="content">
                 <Title subTitle>Wsparcie techniczne</Title>
-                <p>
+                <Paragraph>
                   Zajmę się wszystkimi sprawami technicznymi związanymi z
                   projektem. Na moją pomoc możesz liczyć również po wykonanym
                   zadaniu - dopilnuje, abyś był zadowolony z moich usług.
-                </p>
+                </Paragraph>
               </div>
             </WhatWeDoItem>
             <WhatWeDoItem number="5">
               <ComplexSVG />
               <div className="content">
                 <Title subTitle>Kompleksowa oferta</Title>
-                <p>
+                <Paragraph>
                   Staram się zapewnić szeroki zakres usług, abyś mógł powierzyć
                   mi cały projekt. Nie musisz szukać osobno grafika, programisty
                   i osoby, która zadba o pozycjonowanie twojej strony.
-                </p>
+                </Paragraph>
               </div>
             </WhatWeDoItem>
           </ContentWrapper>

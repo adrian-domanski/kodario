@@ -9,6 +9,7 @@ import SideText from "../../styles/components/SideText";
 import CodeSVG from "../svg-animations/offer/CodeSVG";
 import DesignSVG from "../svg-animations/offer/DesignSVG";
 import SocialsSVG from "../svg-animations/offer/SocialsSVG";
+import { Paragraph } from "../../styles/components/Paragraph";
 
 export const WhatWeDoItem = styled.div<{ number: string }>`
   text-align: center;
@@ -60,10 +61,8 @@ export const WhatWeDoItem = styled.div<{ number: string }>`
     }
   }
 
-  p {
-    color: ${({ theme }) => theme.colors.darkerBlue};
-    line-height: 1.5;
-    font-size: 1.1rem;
+  ${Paragraph} {
+    font-size: 1.2rem;
   }
 
   ${Title} {
@@ -116,32 +115,32 @@ const WhatWeDo = () => {
           <CodeSVG />
           <div className="content">
             <Title subTitle>Tworzenie stron i aplikacji internetowych</Title>
-            <p>
+            <Paragraph>
               Stworzę dla Ciebię nowoczesną stronę, lub aplikację internetową.
               Zadbam o poprawne wyświetlanie treści na każdym urządzeniu.
-            </p>
+            </Paragraph>
           </div>
         </WhatWeDoItem>
         <WhatWeDoItem number="2">
           <DesignSVG />
           <div className="content">
             <Title subTitle>Projektowanie graficzne</Title>
-            <p>
+            <Paragraph>
               Zaprojektuję stronę internetową, logo, baner, lub inną grafikę na
               twoje potrzeby. Zadbam o odpowiednie dopasowanie kolorów, czcionek
               oraz pozostałych elementów.
-            </p>
+            </Paragraph>
           </div>
         </WhatWeDoItem>
         <WhatWeDoItem number="3">
           <SocialsSVG />
           <div className="content">
             <Title subTitle>Budowa marki</Title>
-            <p>
+            <Paragraph>
               Zaprojektuję logo, które zapadnie w pamięć oraz pomogę Ci w
               przeniesieniu twojej działalności do odpowiednich mediów
               społecznościowych.
-            </p>
+            </Paragraph>
           </div>
         </WhatWeDoItem>
         <Link href="/oferta">

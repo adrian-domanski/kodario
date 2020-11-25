@@ -178,7 +178,7 @@ const Footer = () => {
                 href="https://www.facebook.com/kodariopl"
                 target="_blank"
               >
-                Napisz do nas na Facebooku
+                Napisz do mnie na Facebooku
               </a>
             </li>
             <li>
