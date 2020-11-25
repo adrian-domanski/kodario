@@ -166,6 +166,8 @@ const Hamburger: React.FC<IProps> = ({
       onClick={handleClick}
       isActive={isActive}
       className={className}
+      aria-label="menu"
+      role="button"
     >
       <span></span>
       <span></span>

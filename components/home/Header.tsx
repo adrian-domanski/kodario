@@ -1,5 +1,6 @@
+import gsap from "gsap";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import Button from "../../styles/components/Button";
 import { Paragraph } from "../../styles/components/Paragraph";
@@ -245,6 +246,14 @@ const Header: React.FC<IProps> = ({
   svg,
   img,
 }) => {
+  useEffect(() => {
+    if (img) {
+      gsap.from("#header-image", {
+        scale: 0.8,
+        duration: 0.5,
+      });
+    }
+  }, []);
   return (
     <StyledHomeHeader paragraph={!!paragraph} showList={showList}>
       <div className="content-wrapper">
@@ -265,7 +274,12 @@ const Header: React.FC<IProps> = ({
         )}
 
         {img && (
-          <StyledImage src={img.src} alt={img.alt} maxWidth={svg?.maxWidth} />
+          <StyledImage
+            id="header-image"
+            src={img.src}
+            alt={img.alt}
+            maxWidth={svg?.maxWidth}
+          />
         )}
 
         {button &&
