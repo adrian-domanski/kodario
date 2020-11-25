@@ -42,7 +42,9 @@ const OurWork: React.FC<IProps> = ({ portfolioList }) => {
               <Link href="/portfolio/[slug]" as={`/portfolio/${product.slug}`}>
                 <a>
                   <PortfolioImage
-                    src={`/content/${product.slug}/${product.image}`}
+                    className="lazy"
+                    src="/img/lazy-load.jpg"
+                    data-src={`/content/${product.slug}/${product.image}`}
                     alt={`Zdjęcie projektu ${product.title} na urządzeniu.`}
                   />
                 </a>

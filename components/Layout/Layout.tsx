@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 import styled, { createGlobalStyle } from "styled-components";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 declare const window: any;
 declare const unfocus: any;
@@ -48,6 +50,45 @@ const Layout = ({ children }) => {
           behavior: "smooth",
         });
       });
+    });
+  }, []);
+
+  useEffect(() => {
+    // Lazy load images
+    gsap.registerPlugin(ScrollTrigger);
+    ScrollTrigger.config({ limitCallbacks: true });
+
+    gsap.utils.toArray(".lazy").forEach((image: HTMLImageElement) => {
+      let newSRC = image.dataset.src,
+        newImage = document.createElement("img"),
+        loadImage = () => {
+          newImage.onload = () => {
+            newImage.onload = null; // avoid recursion
+            newImage.src = image.src; // swap the src
+            image.src = newSRC;
+            // place the low-res version on TOP and then fade it out.
+            gsap.set(newImage, {
+              position: "absolute",
+              top: image.offsetTop,
+              left: image.offsetLeft,
+              width: image.offsetWidth,
+              height: image.offsetHeight,
+            });
+            image.parentNode.appendChild(newImage);
+            gsap.to(newImage, {
+              opacity: 0,
+              onComplete: () => newImage.parentNode.removeChild(newImage),
+            });
+            st && st.kill();
+          };
+          newImage.src = newSRC;
+        },
+        st = ScrollTrigger.create({
+          trigger: image,
+          start: "-50% bottom",
+          onEnter: loadImage,
+          onEnterBack: loadImage, // make sure it works in either direction
+        });
     });
   }, []);
 
