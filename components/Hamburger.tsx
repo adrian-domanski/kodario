@@ -5,7 +5,6 @@ const StyledHamburger = styled.button<{
 }>`
   background: ${({ isActive }) => (isActive ? "#0d222e" : "transparent")};
   border: none;
-  outline: none;
   box-shadow: none;
   display: flex;
   flex-direction: column;
@@ -14,6 +13,7 @@ const StyledHamburger = styled.button<{
   height: 45px;
   padding: 10px 8px;
   color: #fff;
+  cursor: pointer;
   margin-right: 1rem;
   transition: background-color 0.5s ease-in-out;
 

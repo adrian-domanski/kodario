@@ -144,7 +144,9 @@ const WhatWeDo = () => {
           </div>
         </WhatWeDoItem>
         <Link href="/oferta">
-          <Button as="a">Zobacz więcej</Button>
+          <Button as="a" href="/oferta">
+            Zobacz więcej
+          </Button>
         </Link>
       </ContentWrapper>
     </WhatWeDoSection>

@@ -44,6 +44,10 @@ export const PortfolioGridItem = styled.div`
   border-radius: 5px;
   overflow: hidden;
 
+  a {
+    outline-offset: -3px;
+  }
+
   img {
     transition: transform 0.2s ease-in;
   }

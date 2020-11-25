@@ -139,7 +139,6 @@ const ListItem = styled.li`
       :focus,
       :active,
       &.active {
-        outline: none;
         transform: translateY(-3px);
         :before {
           transform: translateX(5%) scaleX(1);

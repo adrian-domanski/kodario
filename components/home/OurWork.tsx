@@ -51,7 +51,7 @@ const OurWork: React.FC<IProps> = ({ portfolioList }) => {
           ))}
         </CustomPortfolioGrid>
         <Link href="/portfolio">
-          <Button centered as="a">
+          <Button centered as="a" href="/portfolio">
             Zobacz więcej
           </Button>
         </Link>

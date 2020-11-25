@@ -25,8 +25,8 @@ export default styled.button.attrs({ className: "button" })<IProps>`
 
   :active,
   :focus {
-    outline: none;
-    box-shadow: none;
+    /* box-shadow: 0 0 0 2px red; */
+    /* outline: none; */
     background-color: ${({ theme }) => theme.colors.darkBlue};
   }
 

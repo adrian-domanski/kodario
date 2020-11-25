@@ -28,7 +28,6 @@ const FormControl = styled.div`
     padding: 0.9rem 1.5rem;
     border-radius: 50px;
     border: none;
-    outline: none;
     background: #e5ebef;
     color: ${({ theme }) => theme.colors.darkBlue};
     font-family: ${({ theme }) => theme.fontFamily};
@@ -154,7 +153,6 @@ const StyledFormMessage = styled.div<{ status: string }>`
     :focus,
     :active {
       border: none;
-      outline: none;
     }
 
     :active,

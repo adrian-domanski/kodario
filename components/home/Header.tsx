@@ -289,7 +289,7 @@ const Header: React.FC<IProps> = ({
             </Button>
           ) : (
             <Link href={button.href}>
-              <Button as="a" centered>
+              <Button as="a" href={button.href} centered>
                 {button.value}
               </Button>
             </Link>

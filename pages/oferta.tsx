@@ -128,7 +128,7 @@ const OfferPage: React.FC = () => {
               mną!
             </Paragraph>
             <Link href="/kontakt">
-              <Button centered as="a">
+              <Button centered href="/kontakt" as="a">
                 Kontakt
               </Button>
             </Link>
