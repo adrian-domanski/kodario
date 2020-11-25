@@ -12,6 +12,7 @@ const ComplexSVG = () => {
       },
       scrollTrigger: {
         trigger: "#undraw_features_overview_jg7a",
+        start: "center bottom",
       },
     });
 

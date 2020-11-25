@@ -169,7 +169,7 @@ const Footer = () => {
             </li>
             <li>
               <i className="fas fa-envelope" aria-hidden="true"></i>
-              adrian.domanski.dev@gmail.com
+              kontakt@kodario.pl
             </li>
             <li>
               <i className="fab fa-facebook-f" aria-hidden="true"></i>

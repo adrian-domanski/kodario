@@ -14,7 +14,6 @@ const TeamWorkSection = styled(Section)`
     text-align: center;
     color: ${({ theme }) => theme.colors.darkBlue};
     font-weight: 500;
-    font-size: 1.2rem;
     margin-top: -1rem;
   }
 `;

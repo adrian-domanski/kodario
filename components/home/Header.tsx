@@ -184,12 +184,23 @@ const StyledList = styled.ul`
 
   li {
     font-size: 1.4rem;
+    position: relative;
+    padding-left: 25px;
 
     :before {
-      content: "\f105";
-      font-weight: bold;
-      margin-right: 5px;
-      font-family: "Font Awesome 5 Free";
+      content: "";
+      width: 8px;
+      height: 8px;
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 30%;
+      transform-origin: center;
+      transform: rotate(-45deg);
+      border-right: 5px solid ${({ theme }) => theme.colors.darkBlue};
+      border-bottom: 5px solid ${({ theme }) => theme.colors.darkBlue};
+      border-top-right-radius: 3px;
+      border-bottom-left-radius: 3px;
     }
 
     @media screen and (min-width: 1200px) {

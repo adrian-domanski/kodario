@@ -294,7 +294,7 @@ const ContactForm: React.FC<IProps> = ({ contactInformation, showImage }) => {
             </ContactListItem>
             <ContactListItem>
               <i className="fas fa-envelope" />
-              adrian.domanski.dev@gmail.com
+              kontakt@kodario.pl
             </ContactListItem>
             <ContactListItem>
               <i className="fas fa-mobile-alt" />

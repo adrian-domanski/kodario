@@ -12,6 +12,7 @@ const SupportSVG = () => {
       },
       scrollTrigger: {
         trigger: "#undraw_elements_cipa",
+        start: "center bottom",
       },
     });
 

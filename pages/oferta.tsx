@@ -26,6 +26,10 @@ const GoToContact = styled(Section)`
       margin-top: 2rem;
     }
   }
+
+  ${Paragraph} {
+    margin-top: -1rem;
+  }
 `;
 
 const OfferPage: React.FC = () => {
@@ -58,10 +62,6 @@ const OfferPage: React.FC = () => {
             <Title>Czym się zajmuję?</Title>
             <WhatWeDoItem number="1">
               <CodeSVG />
-              {/* <img
-                src="/img/we-do-code.svg"
-                alt="Tworzenie stron oraz aplikacji internetowych, programowanie"
-              /> */}
               <div className="content">
                 <Title subTitle>
                   Tworzenie stron i aplikacji internetowych
@@ -74,10 +74,6 @@ const OfferPage: React.FC = () => {
               </div>
             </WhatWeDoItem>
             <WhatWeDoItem number="2">
-              {/* <img
-                src="/img/we-do-design.svg"
-                alt="Projektowanie graficzne - tworzenie logotypów, banerów projektów stron internetowych"
-              /> */}
               <DesignSVG />
               <div className="content">
                 <Title subTitle>Projektowanie graficzne</Title>
@@ -90,10 +86,6 @@ const OfferPage: React.FC = () => {
             </WhatWeDoItem>
             <WhatWeDoItem number="3">
               <SocialsSVG />
-              {/* <img
-                src="/img/we-do-marketing.svg"
-                alt="Tworzenie mediów społecznościowych w celu zwiększenia zasięgów i pozyskaniu nowych klientów"
-              /> */}
               <div className="content">
                 <Title subTitle>Budowa marki</Title>
                 <p>
@@ -104,32 +96,24 @@ const OfferPage: React.FC = () => {
               </div>
             </WhatWeDoItem>
             <WhatWeDoItem number="4">
-              {/* <img
-                src="/img/support.svg"
-                alt="Wsparcie techniczne, rozwiązywanie problemów, pomoc"
-              /> */}
               <SupportSVG />
               <div className="content">
                 <Title subTitle>Wsparcie techniczne</Title>
                 <p>
                   Zajmę się wszystkimi sprawami technicznymi związanymi z
-                  projektem. Możesz liczyć na moją pomoc również po wykonanym
-                  zadaniu!
+                  projektem. Na moją pomoc możesz liczyć również po wykonanym
+                  zadaniu - dopilnuje, abyś był zadowolony z moich usług.
                 </p>
               </div>
             </WhatWeDoItem>
             <WhatWeDoItem number="5">
-              {/* <img
-                src="/img/complex.svg"
-                alt="Kompleksowy zakres usług, zajmę się wszystkim - nie musisz szukać kilku osób do jednego projektu."
-              /> */}
               <ComplexSVG />
               <div className="content">
                 <Title subTitle>Kompleksowa oferta</Title>
                 <p>
                   Staram się zapewnić szeroki zakres usług, abyś mógł powierzyć
                   mi cały projekt. Nie musisz szukać osobno grafika, programisty
-                  i osoby, która zadba o pozycjonowanie twojej strony!
+                  i osoby, która zadba o pozycjonowanie twojej strony.
                 </p>
               </div>
             </WhatWeDoItem>

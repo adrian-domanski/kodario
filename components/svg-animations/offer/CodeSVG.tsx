@@ -12,6 +12,7 @@ const CodeSVG = () => {
       },
       scrollTrigger: {
         trigger: "#undraw_code_typing_7jnv",
+        start: "center bottom",
       },
     });
 

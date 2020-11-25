@@ -12,6 +12,7 @@ const DesignSVG = () => {
       },
       scrollTrigger: {
         trigger: "#undraw_Design_thinking_re_644h",
+        start: "center bottom",
       },
     });
 

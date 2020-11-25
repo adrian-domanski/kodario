@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 import styled, { createGlobalStyle } from "styled-components";
@@ -8,10 +8,6 @@ const GlobalStyles = createGlobalStyle`
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-  }
-  
-  html {
-    scroll-behavior: smooth;
   }
   
   ul {
@@ -41,6 +37,17 @@ const StyledContent = styled.div`
 `;
 
 const Layout = ({ children }) => {
+  useEffect(() => {
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute("href")).scrollIntoView({
+          behavior: "smooth",
+        });
+      });
+    });
+  }, []);
+
   return (
     <>
       <GlobalStyles />

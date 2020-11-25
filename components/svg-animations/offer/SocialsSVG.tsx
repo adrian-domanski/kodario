@@ -12,6 +12,7 @@ const SocialsSVG = () => {
       },
       scrollTrigger: {
         trigger: "#undraw_Social_media_re_w12q",
+        start: "center bottom",
       },
     });
 
