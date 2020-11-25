@@ -16,7 +16,7 @@ const StyledFooter = styled.footer`
     bottom: 100%;
     background-image: url("/img/footer-wave.svg");
     background-repeat: no-repeat;
-    width: 100%;
+    width: 100vw;
     height: 7vw;
     background-size: cover;
   }

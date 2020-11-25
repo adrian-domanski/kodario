@@ -41,15 +41,17 @@ export const PortfolioGrid = styled.div`
 `;
 
 export const PortfolioGridItem = styled.div`
-  transition: transform 0.2s ease-in, filter 0.2s ease-in;
-  transform: scale(0.98);
   border-radius: 5px;
-  filter: grayscale(10%);
   overflow: hidden;
 
+  img {
+    transition: transform 0.2s ease-in;
+  }
+
   :hover {
-    transform: scale(1);
-    filter: grayscale(0%);
+    img {
+      transform: scale(1.03);
+    }
   }
 `;
 
