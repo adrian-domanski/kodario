@@ -1,8 +1,10 @@
 import styled from "styled-components";
 
-const StyledHamburger = styled.button<{
+interface StyledHamburgerProps {
   isActive: boolean;
-}>`
+}
+
+const StyledHamburger = styled.button<StyledHamburgerProps>`
   background: ${({ isActive }) => (isActive ? "#0d222e" : "transparent")};
   border: none;
   box-shadow: none;
@@ -18,7 +20,7 @@ const StyledHamburger = styled.button<{
   transition: background-color 0.5s ease-in-out;
 
   span {
-    width: 90%;
+    width: 30px;
     margin: 0 auto;
     height: 5px;
     border-radius: 1px;
@@ -158,7 +160,7 @@ const Hamburger: React.FC<IProps> = ({
   isActive,
 }) => {
   const handleClick = () => {
-    if (!isActive) toggleMobileMenu();
+    if (!isActive) return toggleMobileMenu();
   };
 
   return (
@@ -166,7 +168,7 @@ const Hamburger: React.FC<IProps> = ({
       onClick={handleClick}
       isActive={isActive}
       className={className}
-      aria-label="menu"
+      aria-label="Menu"
       role="button"
     >
       <span></span>
