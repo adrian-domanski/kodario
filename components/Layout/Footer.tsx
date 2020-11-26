@@ -112,7 +112,7 @@ const Footer = () => {
         <FooterSection>
           <FooterTitle>Kodario.pl</FooterTitle>
           <p className="lead">
-            Tworzenie nowoczesnych stron internetowych w przystępnej cenie.
+            Tworzę nowoczesne strony internetowe w przystępnej cenie.
           </p>
           <div className="social-icons">
             <a href="https://www.facebook.com/kodariopl" target="_blank">

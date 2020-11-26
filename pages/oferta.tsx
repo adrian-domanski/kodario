@@ -59,7 +59,7 @@ const OfferPage: React.FC = () => {
         <WhatWeDoSection id="offer-start">
           <ContentWrapper>
             <SideText text="Oferta" side="LEFT" />
-            <Title>Czym się zajmuję?</Title>
+            <Title>Jakie usługi oferuję?</Title>
             <WhatWeDoItem number="1">
               <CodeSVG />
               <div className="content">
