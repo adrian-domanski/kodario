@@ -44,7 +44,14 @@ export default function Hom({ portfolioList }: IProps) {
 export async function getStaticProps() {
   const portfolioList = await getOtherPosts({
     amount: 4,
-    slugs: ["portfolio", "twwworzenie", "psd-to-html", "plan-szkolny"],
+    slugs: [
+      "martmeble",
+      "stomatolog",
+      "estock",
+      "blog-o-podrozach",
+      "portfolio",
+      "twwworzenie",
+    ],
   });
 
   return {
