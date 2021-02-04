@@ -227,7 +227,7 @@ const ContactForm: React.FC<IProps> = ({ contactInformation, showImage }) => {
             ""
           )}
           {status === "SUCCESS" ? (
-            <span>Wiadomość została pomyślnie wysłana</span>
+            <span>Wiadomość została wysłana pomyślnie!</span>
           ) : (
             ""
           )}

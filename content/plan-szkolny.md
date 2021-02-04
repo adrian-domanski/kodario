@@ -1,6 +1,7 @@
 ---
 title: "Plan Szkolny"
 slug: "plan-szkolny"
+date: "01-04-2020"
 tech:
   [
     "React",

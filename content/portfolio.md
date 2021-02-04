@@ -1,6 +1,7 @@
 ---
 title: "Portfolio"
 slug: "portfolio"
+date: "01-05-2020"
 tech:
   [
     "React",

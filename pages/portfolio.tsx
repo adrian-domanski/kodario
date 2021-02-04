@@ -99,7 +99,7 @@ const PortfolioPage: React.FC<IProps> = ({ portfolioList }) => {
                         className="lazy"
                         src="/img/lazy-load.jpg"
                         data-src={`/content/${product.slug}/${product.image}`}
-                        alt="#"
+                        alt={`Przedstawienie projektu ${product.title} na urzędzeniu mobilnym.`}
                       />
                     </a>
                   </Link>
@@ -114,7 +114,7 @@ const PortfolioPage: React.FC<IProps> = ({ portfolioList }) => {
 };
 
 export async function getStaticProps() {
-  const portfolioList = await getOtherPosts();
+  const portfolioList = await getOtherPosts({ order: "date:desc" });
 
   return {
     props: {

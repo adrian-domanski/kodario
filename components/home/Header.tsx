@@ -283,6 +283,7 @@ const Header: React.FC<IProps> = ({
         )}
 
         {button &&
+          button.href &&
           (button.externalPage ? (
             <Button as="a" href={button.href} target="_blank" centered>
               {button.value}

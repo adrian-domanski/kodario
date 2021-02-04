@@ -16,17 +16,18 @@ import SideText from "../../styles/components/SideText";
 import Button from "../../styles/components/Button";
 import Link from "next/link";
 
-const TechList = styled.ul`
+const TechList = styled.ul<{ centered?: boolean }>`
   display: grid;
   line-height: 2;
   justify-content: center;
 
   @media screen and (min-width: 768px) {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: ${(props) => (props.centered ? "1fr" : "1fr 1fr")};
   }
 
   @media screen and (min-width: 998px) {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: ${(props) =>
+      props.centered ? "1fr" : "1fr 1fr 1fr"};
   }
 `;
 
@@ -184,12 +185,17 @@ const PortfolioDetails: NextPage<IProps> = ({
                 Zobacz kod
               </Button>
             )}
+            {!markdown.data.pageCode && markdown.data.pageLive && (
+              <Button as="a" href={markdown.data.pageLive} target="_blank">
+                Odwiedź stronę
+              </Button>
+            )}
           </ContentWrapper>
         </InformationSection>
         <Section darker>
           <ContentWrapper>
             <Title>Wykorzystane rozwiązania</Title>
-            <TechList>
+            <TechList centered={markdown.data?.techCenter}>
               {markdown.data.tech.map((item, index) => (
                 <TechListItem key={index}>{item}</TechListItem>
               ))}
@@ -240,6 +246,7 @@ const getPostFromMarkdown = async (
       title: data.title,
       image: images[0],
       slug: data.slug,
+      date: data.date,
     };
   }
 
@@ -254,6 +261,7 @@ export const getOtherPosts = async (options?: {
   exclude?: string;
   amount?: number;
   slugs?: string[];
+  order?: "random" | "date:desc";
 }) => {
   let availableSlugs = getFileNames("./content");
   const amount = options?.amount ?? availableSlugs.length;
@@ -275,9 +283,17 @@ export const getOtherPosts = async (options?: {
     }
   }
 
-  return Promise.all(
+  let result = await Promise.all(
     selectedSlugs.map((post) => getPostFromMarkdown(post, { basicData: true }))
   );
+
+  if (options?.order === "date:desc") {
+    result = result.sort((a: any, b: any) => {
+      return new Date(b.date).getTime() - new Date(a.date).getTime();
+    });
+  }
+
+  return result;
 };
 
 export async function getStaticPaths() {

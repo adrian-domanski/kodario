@@ -1,5 +1,6 @@
 ---
 title: "!st Agency"
+date: "01-03-2020"
 slug: "psd-to-html"
 tech: ["HTML", "SASS", "RWD", "JavaScript", "Photoshop"]
 pageLive: "https://adrian-domanski.github.io/psd-to-html"

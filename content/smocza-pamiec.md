@@ -1,5 +1,6 @@
 ---
 title: "Smocze Pamięć"
+date: "01-01-2020"
 slug: "smocza-pamiec"
 tech: ["React", "Sass", "Bootstrap", "React"]
 pageLive: "https://smocza-pamiec.herokuapp.com"

@@ -1,6 +1,7 @@
 ---
 title: "Parafia"
 slug: "parafia"
+date: "01-02-2020"
 tech:
   [
     "React",
