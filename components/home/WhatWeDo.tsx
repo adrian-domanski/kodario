@@ -1,15 +1,68 @@
-import React from "react";
-import Section from "../../styles/components/Section";
-import Title from "../../styles/components/Title";
-import styled from "styled-components";
-import Button from "../../styles/components/Button";
-import Link from "next/link";
-import ContentWrapper from "../../styles/components/ContentWrapper";
-import SideText from "../../styles/components/SideText";
-import CodeSVG from "../svg-animations/offer/CodeSVG";
-import DesignSVG from "../svg-animations/offer/DesignSVG";
-import SocialsSVG from "../svg-animations/offer/SocialsSVG";
-import { Paragraph } from "../../styles/components/Paragraph";
+import React from 'react';
+import Section from '../../styles/components/Section';
+import Title from '../../styles/components/Title';
+import styled from 'styled-components';
+import Button from '../../styles/components/Button';
+import Link from 'next/link';
+import ContentWrapper from '../../styles/components/ContentWrapper';
+import SideText from '../../styles/components/SideText';
+import CodeSVG from '../svg-animations/offer/CodeSVG';
+import DesignSVG from '../svg-animations/offer/DesignSVG';
+import SocialsSVG from '../svg-animations/offer/SocialsSVG';
+import { Paragraph } from '../../styles/components/Paragraph';
+
+const WhatWeDo = () => {
+  return (
+    <WhatWeDoSection id='home-start'>
+      <ContentWrapper>
+        <SideText text='Oferta' side='LEFT' />
+        <Title>Czym się zajmujemy?</Title>
+        <WhatWeDoItem number='1'>
+          <CodeSVG />
+          <div className='content'>
+            <Title subTitle>Tworzenie stron i aplikacji internetowych</Title>
+            <Paragraph>
+              Zajmujemy się tworzeniem <b>nowoczesnych</b> stron i aplikacji
+              internetowych. Projektując nasze witryny zwracamy uwagę na
+              popularne <b>trendy</b>, aby zwrócić uwagę odwiedzających i
+              wyróżnić się z tłumu.
+            </Paragraph>
+          </div>
+        </WhatWeDoItem>
+        <WhatWeDoItem number='2'>
+          <DesignSVG />
+          <div className='content'>
+            <Title subTitle>Projekty graficzne</Title>
+            <Paragraph>
+              Projektujemy <b>loga</b>, <b>banery</b> i inne grafiki potrzebne
+              do przedstawienia Twojego biznesu w sieci. W naszej pracy stawiamy
+              na <b>oryginalność</b>, która zapadnie w pamięć Twoim przyszłym
+              klientom.
+            </Paragraph>
+          </div>
+        </WhatWeDoItem>
+        <WhatWeDoItem number='3'>
+          <SocialsSVG />
+          <div className='content'>
+            <Title subTitle>Budowa marki</Title>
+            <Paragraph>
+              Pomożemy Ci w przeniesieniu Twojej działalności do mediów
+              społecznościowych. Stworzymy odpowiednie grafiki i znajdziemy
+              sposób na <b>zbudowanie stałego grona odbiorców</b>.
+            </Paragraph>
+          </div>
+        </WhatWeDoItem>
+        <Link href='/oferta'>
+          <Button as='a' href='/oferta'>
+            Zobacz więcej
+          </Button>
+        </Link>
+      </ContentWrapper>
+    </WhatWeDoSection>
+  );
+};
+
+// Styles
 
 export const WhatWeDoItem = styled.div<{ number: string }>`
   text-align: center;
@@ -38,7 +91,7 @@ export const WhatWeDoItem = styled.div<{ number: string }>`
   }
 
   :not(:last-of-type) {
-    margin-bottom: 4rem;
+    margin-bottom: 7rem;
   }
 
   svg {
@@ -66,16 +119,18 @@ export const WhatWeDoItem = styled.div<{ number: string }>`
   }
 
   ${Title} {
-    margin: 1rem 0;
+    margin: 4rem 0 2rem 0;
     z-index: 1;
     position: relative;
+    font-weight: 600;
 
     @media screen and (min-width: 768px) {
       text-align: left;
+      margin: 1rem 0;
     }
 
     :before {
-      content: "${(props) => props.number}";
+      content: '${(props) => props.number}';
       color: ${({ theme }) => theme.colors.darkerBlue};
       font-size: 7rem;
       display: none;
@@ -104,53 +159,5 @@ export const WhatWeDoSection = styled(Section)`
     }
   }
 `;
-
-const WhatWeDo = () => {
-  return (
-    <WhatWeDoSection id="home-start">
-      <ContentWrapper>
-        <SideText text="Oferta" side="LEFT" />
-        <Title>Czym się zajmuję?</Title>
-        <WhatWeDoItem number="1">
-          <CodeSVG />
-          <div className="content">
-            <Title subTitle>Tworzenie stron i aplikacji internetowych</Title>
-            <Paragraph>
-              Stworzę dla Ciebię nowoczesną stronę, lub aplikację internetową.
-              Zadbam o poprawne wyświetlanie treści na każdym urządzeniu.
-            </Paragraph>
-          </div>
-        </WhatWeDoItem>
-        <WhatWeDoItem number="2">
-          <DesignSVG />
-          <div className="content">
-            <Title subTitle>Projektowanie graficzne</Title>
-            <Paragraph>
-              Zaprojektuję stronę internetową, logo, baner, lub inną grafikę na
-              twoje potrzeby. Zadbam o odpowiednie dopasowanie kolorów, czcionek
-              oraz pozostałych elementów.
-            </Paragraph>
-          </div>
-        </WhatWeDoItem>
-        <WhatWeDoItem number="3">
-          <SocialsSVG />
-          <div className="content">
-            <Title subTitle>Budowa marki</Title>
-            <Paragraph>
-              Zaprojektuję logo, które zapadnie w pamięć oraz pomogę Ci w
-              przeniesieniu twojej działalności do odpowiednich mediów
-              społecznościowych.
-            </Paragraph>
-          </div>
-        </WhatWeDoItem>
-        <Link href="/oferta">
-          <Button as="a" href="/oferta">
-            Zobacz więcej
-          </Button>
-        </Link>
-      </ContentWrapper>
-    </WhatWeDoSection>
-  );
-};
 
 export default WhatWeDo;

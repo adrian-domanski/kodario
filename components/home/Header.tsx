@@ -1,15 +1,112 @@
-import gsap from "gsap";
-import Link from "next/link";
-import React, { useEffect } from "react";
-import styled from "styled-components";
-import Button from "../../styles/components/Button";
-import { Paragraph } from "../../styles/components/Paragraph";
-import ScrollBottomIcon from "../ScrollBottomIcon";
+import gsap from 'gsap';
+import Link from 'next/link';
+import React, { useEffect } from 'react';
+import styled from 'styled-components';
+import Button from '../../styles/components/Button';
+import { Paragraph } from '../../styles/components/Paragraph';
+import ScrollBottomIcon from '../ScrollBottomIcon';
 
 interface StyledHomeHeaderProps {
   paragraph?: boolean;
   showList?: boolean;
 }
+
+interface IProps {
+  title: string;
+  button?: {
+    href: string;
+    value: string;
+    externalPage?: boolean;
+  };
+  paragraph?: {
+    value: string;
+    isBlue?: boolean;
+  };
+  showList?: boolean;
+  scrollToId?: string;
+  svg?: {
+    component: React.FunctionComponent<React.SVGProps<SVGSVGElement>> | any;
+    maxWidth?: string;
+  };
+  img?: {
+    src: string;
+    alt: string;
+  };
+}
+
+const Header: React.FC<IProps> = ({
+  title,
+  button,
+  paragraph,
+  showList,
+  scrollToId,
+  svg,
+  img,
+}) => {
+  useEffect(() => {
+    if (img) {
+      gsap.from('#header-image', {
+        scale: 0.8,
+        duration: 0.5,
+      });
+    }
+  }, []);
+
+  return (
+    <StyledHomeHeader paragraph={!!paragraph} showList={showList}>
+      <div className='content-wrapper'>
+        <h1>{title}</h1>
+        {paragraph && (
+          <Paragraph blueColor={paragraph.isBlue}>{paragraph.value}</Paragraph>
+        )}
+        {showList && (
+          <StyledList>
+            <li>Strony internetowe</li>
+            <li>Projekty graficzne</li>
+            <li>Budowa marki</li>
+          </StyledList>
+        )}
+
+        {svg && (
+          <SVGWrapper maxWidth={svg?.maxWidth}>{svg.component}</SVGWrapper>
+        )}
+
+        {img && (
+          <StyledImage
+            id='header-image'
+            src={img.src}
+            alt={img.alt}
+            maxWidth={svg?.maxWidth}
+          />
+        )}
+
+        {button &&
+          button.href &&
+          (button.externalPage ? (
+            <Button
+              as='a'
+              href={button.href}
+              target='_blank'
+              rel='noopener'
+              centered
+            >
+              {button.value}
+            </Button>
+          ) : (
+            <Link href={button.href}>
+              <Button as='a' href={button.href} centered>
+                {button.value}
+              </Button>
+            </Link>
+          ))}
+      </div>
+      {scrollToId && <ScrollBottomIcon scrollToId={scrollToId} />}
+    </StyledHomeHeader>
+  );
+};
+
+// Styles
+
 const StyledHomeHeader = styled.header<StyledHomeHeaderProps>`
   text-align: center;
   color: ${({ theme }) => theme.colors.darkBlue};
@@ -29,8 +126,9 @@ const StyledHomeHeader = styled.header<StyledHomeHeaderProps>`
     max-width: 1100px;
     margin: 0 auto;
     display: flex;
+    gap: 2rem;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     flex-direction: column;
 
     @media screen and (min-width: 998px) {
@@ -41,45 +139,49 @@ const StyledHomeHeader = styled.header<StyledHomeHeaderProps>`
       grid-template-columns: 55% 45%;
       ${({ paragraph, showList }) => {
         return `
-          grid-auto-rows: 1fr ${paragraph ? "auto" : ""} ${
-          showList ? "auto" : ""
+          grid-auto-rows: 1fr ${paragraph ? 'auto' : ''} ${
+          showList ? 'auto' : ''
         } 1fr;
         `;
       }}
       align-items: center;
       grid-template-areas:
-        "title img"
+        'title img'
         ${({ paragraph }) => paragraph && '"paragraph img"'}
         ${({ showList }) => showList && '"list img"'}
-        "button img";
+        'button img';
 
       :before {
-        content: "";
+        content: '';
         display: block;
-        width: 80%;
+        width: 85%;
         height: 100%;
         position: absolute;
         z-index: -1;
         right: 0;
         top: 0px;
-        background: url("/img/background.svg");
+        background: url('/img/background.svg');
         background-size: 100%;
         background-repeat: no-repeat;
-        background-position: 80px -20px;
+        background-position: 80px -46px;
         transition: transform 0.3s ease;
         transform-origin: top right;
+
+        @media screen and (min-width: 998px) {
+          padding: 4rem 0;
+        }
       }
     }
 
     @media screen and (min-width: 1200px) {
       :before {
-        width: 70%;
+        width: 80%;
       }
     }
 
     @media screen and (min-width: 1400px) {
       :before {
-        width: 60%;
+        width: 70%;
       }
     }
 
@@ -91,7 +193,7 @@ const StyledHomeHeader = styled.header<StyledHomeHeaderProps>`
   }
 
   :after {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
@@ -107,6 +209,8 @@ const StyledHomeHeader = styled.header<StyledHomeHeaderProps>`
     max-width: 500px;
     margin: 4rem auto 0;
     grid-area: title;
+    letter-spacing: 1px;
+    line-height: 1.5;
 
     @media screen and (min-width: 800px) {
       font-size: 2.2rem;
@@ -152,7 +256,7 @@ const StyledHomeHeader = styled.header<StyledHomeHeaderProps>`
 
 const StyledImage = styled.img<{ maxWidth?: string }>`
   margin: 2rem auto 0 auto;
-  max-width: ${({ maxWidth }) => (maxWidth ? maxWidth : "90%")};
+  max-width: ${({ maxWidth }) => (maxWidth ? maxWidth : '90%')};
   width: 100%;
   display: block;
   border-radius: 5px;
@@ -171,7 +275,7 @@ const StyledImage = styled.img<{ maxWidth?: string }>`
   }
 `;
 
-const SVGWrapper = styled(StyledImage).attrs({ as: "div" })<{
+const SVGWrapper = styled(StyledImage).attrs({ as: 'div' })<{
   maxWidth?: string;
 }>`
   svg {
@@ -181,7 +285,7 @@ const SVGWrapper = styled(StyledImage).attrs({ as: "div" })<{
 
 const StyledList = styled.ul`
   grid-area: list;
-  line-height: 1.5;
+  line-height: 1.75;
 
   li {
     font-size: 1.4rem;
@@ -189,7 +293,7 @@ const StyledList = styled.ul`
     padding-left: 25px;
 
     :before {
-      content: "";
+      content: '';
       width: 8px;
       height: 8px;
       display: block;
@@ -213,92 +317,5 @@ const StyledList = styled.ul`
     display: none;
   }
 `;
-
-interface IProps {
-  title: string;
-  button?: {
-    href: string;
-    value: string;
-    externalPage?: boolean;
-  };
-  paragraph?: {
-    value: string;
-    isBlue?: boolean;
-  };
-  showList?: boolean;
-  scrollToId?: string;
-  svg?: {
-    component: React.FunctionComponent<React.SVGProps<SVGSVGElement>> | any;
-    maxWidth?: string;
-  };
-  img?: {
-    src: string;
-    alt: string;
-  };
-}
-
-const Header: React.FC<IProps> = ({
-  title,
-  button,
-  paragraph,
-  showList,
-  scrollToId,
-  svg,
-  img,
-}) => {
-  useEffect(() => {
-    if (img) {
-      gsap.from("#header-image", {
-        scale: 0.8,
-        duration: 0.5,
-      });
-    }
-  }, []);
-  return (
-    <StyledHomeHeader paragraph={!!paragraph} showList={showList}>
-      <div className="content-wrapper">
-        <h1>{title}</h1>
-        {paragraph && (
-          <Paragraph blueColor={paragraph.isBlue}>{paragraph.value}</Paragraph>
-        )}
-        {showList && (
-          <StyledList>
-            <li>Strony internetowe</li>
-            <li>Projekty graficzne</li>
-            <li>Budowa marki</li>
-          </StyledList>
-        )}
-
-        {svg && (
-          <SVGWrapper maxWidth={svg?.maxWidth}>{svg.component}</SVGWrapper>
-        )}
-
-        {img && (
-          <StyledImage
-            id="header-image"
-            src={img.src}
-            alt={img.alt}
-            maxWidth={svg?.maxWidth}
-          />
-        )}
-
-        {button &&
-          button.href &&
-          (button.externalPage ? (
-            <Button as="a" href={button.href} target="_blank" centered>
-              {button.value}
-            </Button>
-          ) : (
-            <Link href={button.href}>
-              <Button as="a" href={button.href} centered>
-                {button.value}
-              </Button>
-            </Link>
-          ))}
-      </div>
-      {scrollToId && <ScrollBottomIcon scrollToId={scrollToId} />}
-    </StyledHomeHeader>
-  );
-};
 
 export default Header;

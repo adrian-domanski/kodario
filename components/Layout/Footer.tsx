@@ -1,6 +1,126 @@
-import React from "react";
-import styled from "styled-components";
-import Link from "next/link";
+import React from 'react';
+import styled from 'styled-components';
+import Link from 'next/link';
+
+const Footer = () => {
+  return (
+    <StyledFooter>
+      <FooterContentWrapper>
+        <FooterSection>
+          <FooterTitle>Kodario.pl</FooterTitle>
+          <p className='lead'>
+            Tworzymy nowoczesne i oryginalne strony internetowe.
+          </p>
+          <div className='social-icons'>
+            <a
+              href='https://www.facebook.com/kodariopl'
+              target='_blank'
+              rel='noopener'
+            >
+              <i className='fab fa-facebook' aria-hidden='true'></i>
+            </a>
+            <a
+              href='https://github.com/adrian-domanski'
+              target='_blank'
+              rel='noopener'
+            >
+              <i className='fab fa-github' aria-hidden='true'></i>
+            </a>
+            <a
+              href='https://www.linkedin.com/in/adrian-domański-dev'
+              target='_blank'
+              rel='noopener'
+            >
+              <i className='fab fa-linkedin' aria-hidden='true'></i>
+            </a>
+          </div>
+        </FooterSection>
+
+        <FooterSection>
+          <FooterTitle>Nawigacja</FooterTitle>
+          <FooterList>
+            <li>
+              <Link href='/'>
+                <a className='footer-link'>
+                  <i className='fas fa-angle-right' />
+                  Strona Główna
+                </a>
+              </Link>
+            </li>
+            <li>
+              <Link href='/o-mnie'>
+                <a className='footer-link'>
+                  <i className='fas fa-angle-right' />O mnie
+                </a>
+              </Link>
+            </li>
+            <li>
+              <Link href='/oferta'>
+                <a className='footer-link'>
+                  <i className='fas fa-angle-right' />
+                  Oferta
+                </a>
+              </Link>
+            </li>
+            <li>
+              <Link href='/portfolio'>
+                <a className='footer-link'>
+                  <i className='fas fa-angle-right' />
+                  Portfolio
+                </a>
+              </Link>
+            </li>
+            <li>
+              <Link href='/kontakt'>
+                <a className='footer-link'>
+                  <i className='fas fa-angle-right' />
+                  Kontakt
+                </a>
+              </Link>
+            </li>
+          </FooterList>
+        </FooterSection>
+        <FooterSection>
+          <FooterTitle>Kontakt</FooterTitle>
+          <FooterList>
+            <li>
+              <i className='fas fa-map-marker-alt' aria-hidden='true'></i>
+              Mosina, Śrem, Poznań
+            </li>
+            <li>
+              <i className='fas fa-envelope' aria-hidden='true'></i>
+              kontakt@kodario.pl
+            </li>
+            <li>
+              <i className='fab fa-facebook-f' aria-hidden='true'></i>
+              <a
+                className='footer-link'
+                rel='noopener'
+                href='https://www.facebook.com/kodariopl'
+                target='_blank'
+              >
+                Napisz do nas na Facebooku
+              </a>
+            </li>
+            <li>
+              <i className='fas fa-mobile-alt' aria-hidden='true'></i>(+48) 667
+              458 654
+            </li>
+          </FooterList>
+        </FooterSection>
+        <FooterSection>
+          <hr className='divider' />
+          <p>
+            Wszelkie prawa zastrzeżone &copy; {new Date().getFullYear()} |{' '}
+            <Link href='/'>
+              <a className='footer-link '>Kodario.pl</a>
+            </Link>
+          </p>
+        </FooterSection>
+      </FooterContentWrapper>
+    </StyledFooter>
+  );
+};
 
 const StyledFooter = styled.footer`
   background: ${({ theme }) => theme.colors.darkBlue};
@@ -10,11 +130,11 @@ const StyledFooter = styled.footer`
   padding: 1rem;
 
   :before {
-    content: "";
+    content: '';
     position: absolute;
     left: 0;
     bottom: 100%;
-    background-image: url("/img/footer-wave.svg");
+    background-image: url('/img/footer-wave.svg');
     background-repeat: no-repeat;
     width: 100vw;
     height: 7vw;
@@ -104,101 +224,5 @@ const FooterContentWrapper = styled.div`
     text-align: left;
   }
 `;
-
-const Footer = () => {
-  return (
-    <StyledFooter>
-      <FooterContentWrapper>
-        <FooterSection>
-          <FooterTitle>Kodario.pl</FooterTitle>
-          <p className="lead">
-            Tworzę nowoczesne strony internetowe w przystępnej cenie.
-          </p>
-          <div className="social-icons">
-            <a href="https://www.facebook.com/kodariopl" target="_blank">
-              <i className="fab fa-facebook" aria-hidden="true"></i>
-            </a>
-            <a href="https://github.com/adrian-domanski" target="_blank">
-              <i className="fab fa-github" aria-hidden="true"></i>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/adrian-domański-dev"
-              target="_blank"
-            >
-              <i className="fab fa-linkedin" aria-hidden="true"></i>
-            </a>
-          </div>
-        </FooterSection>
-
-        <FooterSection>
-          <FooterTitle>Nawigacja</FooterTitle>
-          <FooterList>
-            <li>
-              <Link href="/">
-                <a className="footer-link">Strona Główna</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/o-mnie">
-                <a className="footer-link">O mnie</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/oferta">
-                <a className="footer-link">Oferta</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/portfolio">
-                <a className="footer-link">Portfolio</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/kontakt">
-                <a className="footer-link">Kontakt</a>
-              </Link>
-            </li>
-          </FooterList>
-        </FooterSection>
-        <FooterSection>
-          <FooterTitle>Kontakt</FooterTitle>
-          <FooterList>
-            <li>
-              <i className="fas fa-map-marker-alt" aria-hidden="true"></i>
-              Mosina, Śrem, Poznań
-            </li>
-            <li>
-              <i className="fas fa-envelope" aria-hidden="true"></i>
-              kontakt@kodario.pl
-            </li>
-            <li>
-              <i className="fab fa-facebook-f" aria-hidden="true"></i>
-              <a
-                className="footer-link"
-                href="https://www.facebook.com/kodariopl"
-                target="_blank"
-              >
-                Napisz do mnie na Facebooku
-              </a>
-            </li>
-            <li>
-              <i className="fas fa-mobile-alt" aria-hidden="true"></i>(+48) 667
-              458 654
-            </li>
-          </FooterList>
-        </FooterSection>
-        <FooterSection>
-          <hr className="divider" />
-          <p>
-            Wszelkie prawa zastrzeżone &copy; 2020 |{" "}
-            <Link href="/">
-              <a className="footer-link ">Kodario.pl</a>
-            </Link>
-          </p>
-        </FooterSection>
-      </FooterContentWrapper>
-    </StyledFooter>
-  );
-};
 
 export default Footer;

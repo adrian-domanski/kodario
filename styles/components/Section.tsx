@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 interface IProps {
   className?: string;
@@ -22,9 +22,9 @@ export default styled.section.attrs(({ className }: IProps) => ({
   }
 
   @media screen and (min-width: 998px) {
-    padding: 5rem 2rem 6rem;
+    padding: 6rem 2rem 7rem;
   }
 
   ${({ footerSpace }) =>
-    footerSpace && "padding-bottom: calc(2rem + 13vw) !important;"}
+    footerSpace && 'padding-bottom: calc(2rem + 13vw) !important;'}
 `;

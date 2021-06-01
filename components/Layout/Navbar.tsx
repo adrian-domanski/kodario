@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
-import styled from "styled-components";
-import Link from "next/link";
-import Hamburger from "../Hamburger";
-import { SingletonRouter, withRouter } from "next/router";
-import { NextPage } from "next";
+import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
+import Link from 'next/link';
+import Hamburger from '../Hamburger';
+import { SingletonRouter, withRouter } from 'next/router';
 
 const StyledNavbar = styled.nav<{ isSticky: boolean }>`
   margin: 0 auto;
@@ -18,9 +17,13 @@ const StyledNavbar = styled.nav<{ isSticky: boolean }>`
   justify-content: space-between;
   z-index: 100;
   box-shadow: ${({ isSticky }) =>
-    isSticky ? "0 0 10px -8px #000000" : "none"};
-  transition: box-shadow 0.5s ease;
+    isSticky ? '0 0 10px -8px #000000' : 'none'};
+  transition: box-shadow 0.5s ease, padding 0.5s ease;
   transform: scaleY(1) scaleX(1);
+
+  @media screen and (min-width: 998px) {
+    padding: ${({ isSticky }) => (!isSticky ? '3rem 0' : '0')};
+  }
 
   .content-wrapper {
     max-width: 1400px;
@@ -35,7 +38,7 @@ const StyledNavbar = styled.nav<{ isSticky: boolean }>`
   }
 
   :before {
-    content: "";
+    content: '';
     display: block;
     width: 200px;
     height: 200px;
@@ -43,7 +46,7 @@ const StyledNavbar = styled.nav<{ isSticky: boolean }>`
     z-index: -2;
     right: 0;
     top: 0;
-    background: url("/img/background.svg");
+    background: url('/img/background.svg');
     background-size: 500%;
     background-repeat: no-repeat;
     background-position: 80px -20px;
@@ -56,16 +59,16 @@ const StyledNavbar = styled.nav<{ isSticky: boolean }>`
 
     @media screen and (min-width: 998px) {
       background-size: 100%;
-      width: 80%;
+      width: 85%;
       height: 100%;
     }
 
     @media screen and (min-width: 1200px) {
-      width: 70%;
+      width: 80%;
     }
 
     @media screen and (min-width: 1400px) {
-      width: 60%;
+      width: 70%;
     }
 
     @media screen and (min-width: 2700px) {
@@ -107,7 +110,7 @@ const StyledNavbar = styled.nav<{ isSticky: boolean }>`
 
 const NavbarList = styled.ul<{ isActive?: boolean }>`
   display: flex;
-  transform: ${({ isActive }) => (isActive ? "scaleY(1)" : "scaleY(0)")};
+  transform: ${({ isActive }) => (isActive ? 'scaleY(1)' : 'scaleY(0)')};
   transform-origin: top;
   transition: transform 0.2s ease-in-out;
   flex-direction: column;
@@ -146,7 +149,7 @@ const ListItem = styled.li`
       }
 
       :before {
-        content: "";
+        content: '';
         position: absolute;
         transition: transform 0.15s ease-in;
         bottom: 5px;
@@ -203,32 +206,32 @@ const Navbar: React.FC<IProps> = ({ router }) => {
       setIsSticky(isMenuSticky);
     };
 
-    document.addEventListener("scroll", checkScrollTop);
+    document.addEventListener('scroll', checkScrollTop);
 
-    return () => document.removeEventListener("scroll", checkScrollTop);
+    return () => document.removeEventListener('scroll', checkScrollTop);
   }, []);
 
   useEffect(() => {
     if (isMobileActive) {
-      document.addEventListener("click", toggleMobileMenu);
-      return () => document.removeEventListener("click", toggleMobileMenu);
+      document.addEventListener('click', toggleMobileMenu);
+      return () => document.removeEventListener('click', toggleMobileMenu);
     }
   }, [isMobileActive]);
 
   const toggleMobileMenu = () => setIsMobileActive(!isMobileActive);
   return (
     <StyledNavbar
-      role="navigation"
-      aria-label="main navigation"
+      role='navigation'
+      aria-label='main navigation'
       isSticky={isSticky}
     >
-      <div className="content-wrapper">
-        <div className="navbar-brand">
-          <Link href="/">
-            <a className="navbar-item">
+      <div className='content-wrapper'>
+        <div className='navbar-brand'>
+          <Link href='/'>
+            <a className='navbar-item'>
               <img
-                src="/img/logo.svg"
-                alt="Kodario - Tworzenie stron i aplikacji internetowych oraz grafika"
+                src='/img/logo.svg'
+                alt='Kodario - Tworzenie stron i aplikacji internetowych oraz grafika'
               />
             </a>
           </Link>
@@ -239,39 +242,39 @@ const Navbar: React.FC<IProps> = ({ router }) => {
           className={`${
             isMobileActive !== null
               ? isMobileActive
-                ? "fade-in"
-                : "fade-out"
-              : ""
+                ? 'fade-in'
+                : 'fade-out'
+              : ''
           }`}
           isActive={isMobileActive}
         ></Hamburger>
 
         <NavbarList isActive={isMobileActive}>
           <ListItem>
-            <Link href="/">
-              <a className={`${path === "/" ? "active" : ""}`}>Strona Główna</a>
+            <Link href='/'>
+              <a className={`${path === '/' ? 'active' : ''}`}>Strona Główna</a>
             </Link>
           </ListItem>
           <ListItem>
-            <Link href="/oferta">
-              <a className={`${path === "/oferta" ? "active" : ""}`}>Oferta</a>
+            <Link href='/oferta'>
+              <a className={`${path === '/oferta' ? 'active' : ''}`}>Oferta</a>
             </Link>
           </ListItem>
           <ListItem>
-            <Link href="/portfolio">
-              <a className={`${path === "/portfolio" ? "active" : ""}`}>
+            <Link href='/portfolio'>
+              <a className={`${path === '/portfolio' ? 'active' : ''}`}>
                 Portfolio
               </a>
             </Link>
           </ListItem>
           <ListItem>
-            <Link href="/o-mnie">
-              <a className={`${path === "/o-mnie" ? "active" : ""}`}>O mnie</a>
+            <Link href='/o-mnie'>
+              <a className={`${path === '/o-mnie' ? 'active' : ''}`}>O mnie</a>
             </Link>
           </ListItem>
           <ListItem>
-            <Link href="/kontakt">
-              <a className={`${path === "/kontakt" ? "active" : ""}`}>
+            <Link href='/kontakt'>
+              <a className={`${path === '/kontakt' ? 'active' : ''}`}>
                 Kontakt
               </a>
             </Link>

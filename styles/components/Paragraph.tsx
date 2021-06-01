@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 interface IProps {
   isCentered?: boolean;
@@ -11,9 +11,10 @@ export const Paragraph = styled.p<IProps>`
     blueColor ? theme.colors.darkBlue : theme.colors.darkerBlue};
   font-weight: ${({ fontWeight }) => (fontWeight ? fontWeight : 400)};
   font-size: 1.1rem;
-  line-height: 1.5;
+  line-height: 1.75;
+  letter-spacing: 1px;
 
-  ${({ isCentered }) => isCentered && "text-align: center;"};
+  ${({ isCentered }) => isCentered && 'text-align: center;'};
 
   @media screen and (min-width: 998px) {
     font-size: 1.3rem;

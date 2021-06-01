@@ -1,13 +1,81 @@
-import Header from "../components/home/Header";
-import Layout from "../components/Layout/Layout";
-import Section from "../styles/components/Section";
-import Title from "../styles/components/Title";
-import styled from "styled-components";
-import ContentWrapper from "../styles/components/ContentWrapper";
-import Link from "next/link";
-import { getOtherPosts } from "./portfolio/[slug]";
-import PortfolioSVG from "../components/svg-animations/PortfolioSVG";
-import SEO from "../components/SEO";
+import Header from '../components/home/Header';
+import Layout from '../components/Layout/Layout';
+import Section from '../styles/components/Section';
+import Title from '../styles/components/Title';
+import styled from 'styled-components';
+import ContentWrapper from '../styles/components/ContentWrapper';
+import Link from 'next/link';
+import { getOtherPosts } from './portfolio/[slug]';
+import PortfolioSVG from '../components/svg-animations/PortfolioSVG';
+import SEO from '../components/SEO';
+
+interface IProps {
+  portfolioList: [any];
+}
+
+const PortfolioPage: React.FC<IProps> = ({ portfolioList }) => {
+  return (
+    <>
+      <SEO pageTitle='Portfolio - moje prace' />
+      <Layout>
+        <Header
+          title='Portoflio'
+          svg={{
+            component: <PortfolioSVG />,
+          }}
+          paragraph={{
+            isBlue: true,
+            value: 'Zapoznaj się z moimi dotychczasowymi projektami',
+          }}
+          button={{
+            href: 'https://adrian-domanski.pl',
+            value: 'Moja strona',
+            externalPage: true,
+          }}
+          scrollToId='portfolio-start'
+        />
+        <Section footerSpace id='portfolio-start'>
+          <CustomContentWrapper>
+            <Title>Realizacje</Title>
+            <PortfolioGrid>
+              {portfolioList.map((product, index) => (
+                <PortfolioGridItem key={index}>
+                  <Link
+                    href='/portfolio/[slug]'
+                    as={`/portfolio/${product.slug}`}
+                  >
+                    <a>
+                      <PortfolioImage
+                        className='lazy'
+                        src='/img/lazy-load.jpg'
+                        data-src={`/content/${product.slug}/${product.image}`}
+                        alt={`Przedstawienie projektu ${product.title} na urzędzeniu mobilnym.`}
+                      />
+                    </a>
+                  </Link>
+                </PortfolioGridItem>
+              ))}
+            </PortfolioGrid>
+          </CustomContentWrapper>
+        </Section>
+      </Layout>
+    </>
+  );
+};
+
+// Get dynamic data
+
+export async function getStaticProps() {
+  const portfolioList = await getOtherPosts({ order: 'date:desc' });
+
+  return {
+    props: {
+      portfolioList,
+    },
+  };
+}
+
+// Styles
 
 export const PortfolioImage = styled.img`
   display: block;
@@ -58,69 +126,5 @@ export const PortfolioGridItem = styled.div`
     }
   }
 `;
-
-interface IProps {
-  portfolioList: [any];
-}
-
-const PortfolioPage: React.FC<IProps> = ({ portfolioList }) => {
-  return (
-    <>
-      <SEO pageTitle="Portfolio - moje prace" />
-      <Layout>
-        <Header
-          title="Portoflio"
-          svg={{
-            component: <PortfolioSVG />,
-          }}
-          paragraph={{
-            isBlue: true,
-            value: "Zapoznaj się z moimi dotychczasowymi projektami",
-          }}
-          button={{
-            href: "https://adrian-domanski.pl",
-            value: "Moja strona",
-            externalPage: true,
-          }}
-          scrollToId="portfolio-start"
-        />
-        <Section footerSpace id="portfolio-start">
-          <CustomContentWrapper>
-            <Title>Realizacje</Title>
-            <PortfolioGrid>
-              {portfolioList.map((product, index) => (
-                <PortfolioGridItem key={index}>
-                  <Link
-                    href="/portfolio/[slug]"
-                    as={`/portfolio/${product.slug}`}
-                  >
-                    <a>
-                      <PortfolioImage
-                        className="lazy"
-                        src="/img/lazy-load.jpg"
-                        data-src={`/content/${product.slug}/${product.image}`}
-                        alt={`Przedstawienie projektu ${product.title} na urzędzeniu mobilnym.`}
-                      />
-                    </a>
-                  </Link>
-                </PortfolioGridItem>
-              ))}
-            </PortfolioGrid>
-          </CustomContentWrapper>
-        </Section>
-      </Layout>
-    </>
-  );
-};
-
-export async function getStaticProps() {
-  const portfolioList = await getOtherPosts({ order: "date:desc" });
-
-  return {
-    props: {
-      portfolioList,
-    },
-  };
-}
 
 export default PortfolioPage;

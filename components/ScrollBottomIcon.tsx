@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const StyledMouse = styled.a`
   width: 3.5em;
@@ -126,7 +126,7 @@ const StyledMouse = styled.a`
     }
   }
   #text {
-    font-family: "Lato";
+    font-family: 'Lato';
     font-size: 1em;
     text-align: center;
     margin-top: 0.5em;
@@ -141,10 +141,10 @@ interface IProps {
 const ScrollBottomIcon: React.FC<IProps> = ({ scrollToId }) => {
   return (
     <StyledMouse href={`#${scrollToId}`}>
-      <div id="wheel"></div>
-      <div className="scroll"></div>
-      <div className="scroll2"></div>
-      <div className="scroll3"></div>
+      <div id='wheel'></div>
+      <div className='scroll'></div>
+      <div className='scroll2'></div>
+      <div className='scroll3'></div>
     </StyledMouse>
   );
 };
