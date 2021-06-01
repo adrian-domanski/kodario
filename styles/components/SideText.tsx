@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
-const StyledText = styled.h2<{ side: string; minWidthDisplay?: number }>`
+const StyledText = styled.span<{ side: string; minWidthDisplay?: number }>`
   font-size: 4rem;
+  font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 20px;
   position: absolute;
