@@ -16,6 +16,7 @@ const Footer = () => {
               href='https://www.facebook.com/kodariopl'
               target='_blank'
               rel='noopener'
+              aria-label='Facebook'
             >
               <i className='fab fa-facebook' aria-hidden='true'></i>
             </a>
@@ -23,12 +24,14 @@ const Footer = () => {
               href='https://github.com/adrian-domanski'
               target='_blank'
               rel='noopener'
+              aria-label='GitHub'
             >
               <i className='fab fa-github' aria-hidden='true'></i>
             </a>
             <a
               href='https://www.linkedin.com/in/adrian-domański-dev'
               target='_blank'
+              aria-label='Linkedin'
               rel='noopener'
             >
               <i className='fab fa-linkedin' aria-hidden='true'></i>

@@ -17,7 +17,7 @@ const HomeSVG = () => {
       .from('#logo-text', { scale: 0, transformOrigin: 'center' })
       .from('#boy', { opacity: 0, x: 100 })
       // Bushes
-      .from(['#Path_5', '#Path_6', '#Path_7', 'Path_8'], {
+      .from(['#Path_5', '#Path_6', '#Path_7', '#Path_8'], {
         scale: 0,
         transformOrigin: 'bottom',
         stagger: 0.1,

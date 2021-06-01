@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-const StyledText = styled.h3<{ side: string; minWidthDisplay?: number }>`
+const StyledText = styled.h2<{ side: string; minWidthDisplay?: number }>`
   font-size: 4rem;
   text-transform: uppercase;
   letter-spacing: 20px;
@@ -24,11 +24,11 @@ const StyledText = styled.h3<{ side: string; minWidthDisplay?: number }>`
   `}
 
   ${({ side }) => {
-    if (side === "LEFT") {
+    if (side === 'LEFT') {
       return `
       left: -80%;
       `;
-    } else if (side === "RIGHT") {
+    } else if (side === 'RIGHT') {
       return `
       right: -40%;
       `;
@@ -37,14 +37,18 @@ const StyledText = styled.h3<{ side: string; minWidthDisplay?: number }>`
 `;
 
 interface IProps {
-  side: "LEFT" | "RIGHT";
+  side: 'LEFT' | 'RIGHT';
   text: string;
   minWidthDisplay?: number;
 }
 
 const SideText: React.FC<IProps> = ({ side, text, minWidthDisplay }) => {
   return (
-    <StyledText side={side} minWidthDisplay={minWidthDisplay}>
+    <StyledText
+      side={side}
+      minWidthDisplay={minWidthDisplay}
+      aria-hidden='true'
+    >
       {text}
     </StyledText>
   );

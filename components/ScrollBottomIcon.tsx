@@ -140,7 +140,10 @@ interface IProps {
 
 const ScrollBottomIcon: React.FC<IProps> = ({ scrollToId }) => {
   return (
-    <StyledMouse href={`#${scrollToId}`}>
+    <StyledMouse
+      href={`#${scrollToId}`}
+      aria-label='Przycisk prowadzący do kolejnej sekcji'
+    >
       <div id='wheel'></div>
       <div className='scroll'></div>
       <div className='scroll2'></div>
