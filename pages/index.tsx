@@ -46,11 +46,11 @@ export async function getStaticProps() {
     amount: 4,
     slugs: [
       'martmeble',
-      'stomatolog',
-      'estock',
-      'blog-o-podrozach',
-      'portfolio',
-      'twwworzenie',
+      'meanslate',
+      'maciejkadladomu',
+      'krzyzancukiernia',
+      'toothease',
+      'goscinni',
     ],
   });
 
