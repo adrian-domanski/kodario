@@ -1,5 +1,5 @@
-import Document, { Html, Main, NextScript, Head } from "next/document";
-import { ServerStyleSheet } from "styled-components";
+import Document, { Html, Main, NextScript, Head } from 'next/document';
+import { ServerStyleSheet } from 'styled-components';
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -30,14 +30,14 @@ export default class MyDocument extends Document {
 
   render() {
     return (
-      <Html lang="pl">
+      <Html lang='pl'>
         <Head />
         <body>
           <Main />
           <script
             defer
-            src="https://kit.fontawesome.com/67491f19fa.js"
-            crossOrigin="anonymous"
+            src='https://kit.fontawesome.com/67491f19fa.js'
+            crossOrigin='anonymous'
           ></script>
           <NextScript />
         </body>
