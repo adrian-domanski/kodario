@@ -4,7 +4,6 @@ import Navbar from './Navbar';
 import styled, { createGlobalStyle } from 'styled-components';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import MessengerChat from '../MessengerChat';
 
 declare const window: any;
 declare const unfocus: any;
@@ -93,7 +92,6 @@ const Layout = ({ children }) => {
   return (
     <>
       <GlobalStyles />
-      <MessengerChat />
       <PageWrapper>
         <Navbar />
         <StyledContent>{children}</StyledContent>
