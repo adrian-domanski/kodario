@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Footer from './Footer';
 import Navbar from './Navbar';
-import styled, { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle, DefaultTheme } from 'styled-components';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
