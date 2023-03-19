@@ -1,16 +1,16 @@
-import React from "react";
-import Section from "../../styles/components/Section";
-import Title from "../../styles/components/Title";
-import styled from "styled-components";
-import Button from "../../styles/components/Button";
+import React from 'react';
+import Section from '../../styles/components/Section';
+import Title from '../../styles/components/Title';
+import styled from 'styled-components';
+import Button from '../../styles/components/Button';
 import {
   PortfolioGrid,
   PortfolioGridItem,
   PortfolioImage,
-} from "../../pages/portfolio";
-import ContentWrapper from "../../styles/components/ContentWrapper";
-import SideText from "../../styles/components/SideText";
-import Link from "next/link";
+} from '../../pages/portfolio';
+import ContentWrapper from '../../styles/components/ContentWrapper';
+import SideText from '../../styles/components/SideText';
+import Link from 'next/link';
 
 const CustomSection = styled(Section)`
   position: relative;
@@ -34,27 +34,27 @@ const OurWork: React.FC<IProps> = ({ portfolioList }) => {
   return (
     <CustomSection darker>
       <ContentWrapper>
-        <SideText side="RIGHT" text="portfolio" />
-        <Title>Przykładowe realizacje</Title>
+        <SideText side='RIGHT' text='portfolio' />
+        <Title>Recent realizations</Title>
         <CustomPortfolioGrid>
           {portfolioList.map((product, index) => (
             <PortfolioGridItem key={index}>
-              <Link href="/portfolio/[slug]" as={`/portfolio/${product.slug}`}>
+              <Link href='/portfolio/[slug]' as={`/portfolio/${product.slug}`}>
                 <a>
                   <PortfolioImage
-                    className="lazy"
-                    src="/img/lazy-load.jpg"
+                    className='lazy'
+                    src='/img/lazy-load.jpg'
                     data-src={`/content/${product.slug}/${product.image}`}
-                    alt={`Zdjęcie projektu ${product.title} na urządzeniu.`}
+                    alt={`Project ${product.title} showed on real device.`}
                   />
                 </a>
               </Link>
             </PortfolioGridItem>
           ))}
         </CustomPortfolioGrid>
-        <Link href="/portfolio">
-          <Button centered as="a" href="/portfolio">
-            Zobacz więcej
+        <Link href='/portfolio'>
+          <Button centered as='a'>
+            Show more
           </Button>
         </Link>
       </ContentWrapper>

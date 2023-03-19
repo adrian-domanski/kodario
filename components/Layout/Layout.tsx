@@ -111,7 +111,8 @@ const GlobalStyles = createGlobalStyle`
   }
 
   html {
-    scroll-padding-top: 30px;
+    scroll-padding-top: 80px;
+    scroll-behavior: smooth;
   }
   
   ul {

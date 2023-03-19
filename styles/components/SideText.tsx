@@ -27,7 +27,7 @@ const StyledText = styled.span<{ side: string; minWidthDisplay?: number }>`
   ${({ side }) => {
     if (side === 'LEFT') {
       return `
-      left: -80%;
+      left: -95%;
       `;
     } else if (side === 'RIGHT') {
       return `

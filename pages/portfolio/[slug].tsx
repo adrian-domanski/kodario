@@ -15,6 +15,7 @@ import ImageGallery from 'react-image-gallery';
 import SideText from '../../styles/components/SideText';
 import Button from '../../styles/components/Button';
 import Link from 'next/link';
+import ReactMarkdown from 'react-markdown';
 
 interface IProps {
   markdown?: any;
@@ -33,53 +34,57 @@ const PortfolioDetails: NextPage<IProps> = ({
   return (
     <>
       <SEO
-        title='Portfolio - informacje o projekcie'
-        description={`Dowiedz się więcej o projekcie ${markdown.data.title}. Poznaj wykorzystanie rozwiązania i technologie. Odwiedź stronę i przekonaj się, że tworzę nowoczesne strony i aplikacje internetowe.`}
+        title={`${markdown.data.title} - case study | Kodario`}
+        description={`Discover more about ${markdown.data.title} project. Learn about the solution and technologies used. Visit the website and see for yourself how I create modern websites and web applications.`}
       />
       <Layout>
         <Header
           title={markdown.data.title}
           img={{
             src: `/content/${markdown.data.slug}/${markdown.images[0]}`,
-            alt: `Zdjęcie prezentujące projekt strony internetowej ${markdown.data.title}`,
+            alt: `Picture showcasing my project - ${markdown.data.title}`,
           }}
           paragraph={{
             isBlue: true,
-            value: 'Dodatkowe informacje dotyczące projektu',
+            value: 'Learn more about this project.',
           }}
           button={{
-            href: markdown.data.pageLive,
-            value: 'Odwiedź stronę',
+            href: markdown.data.pageLive || markdown.data.pageCode,
+            value: markdown.data.pageLive ? 'Visit website' : 'Show code',
             externalPage: true,
           }}
           scrollToId='project-start'
         />
         <InformationSection id='project-start'>
           <ContentWrapper>
-            <SideText side='LEFT' text='PROJEKT' />
-            <Title>Informacje o projekcie</Title>
+            <SideText side='LEFT' text='CASE STUDY' />
+            <Title>About this project</Title>
             <GalleryWrapper>
               <ImageGallery items={images} />
             </GalleryWrapper>
             <Title subTitle className='subtitle'>
-              Krótki opis projektu
+              Description:
             </Title>
-            <Paragraph>{markdown.content}</Paragraph>
-            {markdown.data.pageCode && (
-              <Button as='a' href={markdown.data.pageCode} target='_blank'>
-                Zobacz kod
-              </Button>
-            )}
-            {!markdown.data.pageCode && markdown.data.pageLive && (
-              <Button as='a' href={markdown.data.pageLive} target='_blank'>
-                Odwiedź stronę
-              </Button>
-            )}
+            <Paragraph>
+              <ReactMarkdown>{markdown.content}</ReactMarkdown>
+            </Paragraph>
+            <ButtonsWrapper>
+              {markdown.data.pageLive && (
+                <Button as='a' href={markdown.data.pageLive} target='_blank'>
+                  Visit website
+                </Button>
+              )}
+              {markdown.data.pageCode && (
+                <Button as='a' href={markdown.data.pageCode} target='_blank'>
+                  Show code
+                </Button>
+              )}
+            </ButtonsWrapper>
           </ContentWrapper>
         </InformationSection>
         <Section darker>
           <ContentWrapper>
-            <Title>Wykorzystane rozwiązania</Title>
+            <Title>Features</Title>
             <TechList centered={markdown.data?.techCenter}>
               {markdown.data.tech.map((item, index) => (
                 <TechListItem key={index}>{item}</TechListItem>
@@ -89,7 +94,7 @@ const PortfolioDetails: NextPage<IProps> = ({
         </Section>
         <OtherPostsSection footerSpace>
           <ContentWrapper maxWidth={1100}>
-            <Title>Zobacz również</Title>
+            <Title>Other projects</Title>
             <OtherList>
               {otherProducts.map((product, index) => (
                 <Link
@@ -100,7 +105,7 @@ const PortfolioDetails: NextPage<IProps> = ({
                   <a className='link'>
                     <OtherListItem
                       src={`/content/${product.slug}/${product.image}`}
-                      alt={`Zdjęcie przedstawiające projekt ${product.title}`}
+                      alt={`Photo showing project ${product.title}`}
                     />
                   </a>
                 </Link>
@@ -108,7 +113,7 @@ const PortfolioDetails: NextPage<IProps> = ({
             </OtherList>
             <Link href='/portfolio'>
               <Button as='a' centered>
-                Zobacz więcej
+                Show more
               </Button>
             </Link>
           </ContentWrapper>
@@ -259,6 +264,28 @@ const OtherList = styled.div`
   @media screen and (min-width: 998px) {
     grid-template-columns: 1fr 1fr 1fr;
     row-gap: 0;
+  }
+`;
+export const ButtonsWrapper = styled.div`
+  a {
+    width: 100%;
+    text-align: center;
+    display: block;
+  }
+  a:nth-child(2) {
+    margin-top: 1rem;
+  }
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    a {
+      width: auto;
+    }
+
+    a:nth-child(2) {
+      margin-top: 2rem;
+      margin-left: 1rem;
+    }
   }
 `;
 

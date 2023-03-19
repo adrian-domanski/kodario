@@ -19,7 +19,7 @@ export default function Hom({ portfolioList }: IProps) {
       <SEO />
       <Layout>
         <Header
-          title='Tworzymy nowoczesne strony internetowe'
+          title='Elevate your web presence today.'
           svg={{
             component: <HomeSVG />,
           }}
@@ -44,14 +44,7 @@ export default function Hom({ portfolioList }: IProps) {
 export async function getStaticProps() {
   const portfolioList = await getOtherPosts({
     amount: 4,
-    slugs: [
-      'martmeble',
-      'meanslate',
-      'maciejkadladomu',
-      'krzyzancukiernia',
-      'toothease',
-      'goscinni',
-    ],
+    slugs: ['tc', 'netflix', 'prographers', 'amazon', 'meanslate', 'goscinni'],
   });
 
   return {

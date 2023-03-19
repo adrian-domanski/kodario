@@ -16,27 +16,26 @@ interface IProps {
 const PortfolioPage: React.FC<IProps> = ({ portfolioList }) => {
   return (
     <>
-      <SEO pageTitle='Portfolio - moje prace' />
+      <SEO pageTitle='Portfolio - our projects' />
       <Layout>
         <Header
-          title='Portoflio'
+          title='Portfolio'
           svg={{
             component: <PortfolioSVG />,
           }}
           paragraph={{
             isBlue: true,
-            value: 'Zapoznaj się z moimi dotychczasowymi projektami',
+            value: 'Take a look at our previous work.',
           }}
           button={{
-            href: 'https://adrian-domanski.pl',
-            value: 'Moja strona',
-            externalPage: true,
+            href: '/contact',
+            value: 'Contact us',
           }}
           scrollToId='portfolio-start'
         />
         <Section footerSpace id='portfolio-start'>
           <CustomContentWrapper>
-            <Title>Realizacje</Title>
+            <Title>Realizations</Title>
             <PortfolioGrid>
               {portfolioList.map((product, index) => (
                 <PortfolioGridItem key={index}>
@@ -49,7 +48,7 @@ const PortfolioPage: React.FC<IProps> = ({ portfolioList }) => {
                         className='lazy'
                         src='/img/lazy-load.jpg'
                         data-src={`/content/${product.slug}/${product.image}`}
-                        alt={`Przedstawienie projektu ${product.title} na urzędzeniu mobilnym.`}
+                        alt={`Showing project ${product.title} on a mobile device.`}
                       />
                     </a>
                   </Link>

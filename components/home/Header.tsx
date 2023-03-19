@@ -61,9 +61,9 @@ const Header: React.FC<IProps> = ({
         )}
         {showList && (
           <StyledList>
-            <li>Strony internetowe</li>
-            <li>Projekty graficzne</li>
-            <li>Budowa marki</li>
+            <li>Web Applications</li>
+            <li>Graphic Designs</li>
+            <li>Brand Growth</li>
           </StyledList>
         )}
 
@@ -210,7 +210,7 @@ const StyledHomeHeader = styled.header<StyledHomeHeaderProps>`
     margin: 4rem auto 0;
     grid-area: title;
     letter-spacing: 1px;
-    line-height: 1.5;
+    line-height: 1.2;
 
     @media screen and (min-width: 800px) {
       font-size: 2.2rem;
@@ -224,7 +224,7 @@ const StyledHomeHeader = styled.header<StyledHomeHeaderProps>`
     }
 
     @media screen and (min-width: 1200px) {
-      font-size: 2.5rem;
+      font-size: 3rem;
     }
   }
 
@@ -299,9 +299,9 @@ const StyledList = styled.ul`
       display: block;
       position: absolute;
       left: 0;
-      top: 30%;
+      top: 50%;
       transform-origin: center;
-      transform: rotate(-45deg);
+      transform: translateY(-50%) rotate(-45deg);
       border-right: 5px solid ${({ theme }) => theme.colors.darkBlue};
       border-bottom: 5px solid ${({ theme }) => theme.colors.darkBlue};
       border-top-right-radius: 3px;

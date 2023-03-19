@@ -1,6 +1,6 @@
 import Document, { Html, Main, NextScript, Head } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
-import MessengerChat from '../components/MessengerChat';
+// import MessengerChat from '../components/MessengerChat';
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -34,7 +34,7 @@ export default class MyDocument extends Document {
       <Html lang='pl'>
         <Head />
         <body>
-          <MessengerChat />
+          {/* <MessengerChat /> */}
           <Main />
           <script
             defer

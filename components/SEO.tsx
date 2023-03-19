@@ -9,8 +9,8 @@ interface IProps {
 
 const META_DEFAULT = {
   description:
-    'Zajmuję się tworzeniem nowoczesnych stron oraz aplikacji internetowych. Chętnie zaprojektuję i zrealizuję stronę, która pomożę Ci w rozwoju twojej działalności.',
-  title: 'Kodario - Tworzymy nowoczesne strony internetowe',
+    'Welcome to my portfolio website! As a skilled web developer, I specialize in creating modern, responsive websites and web applications that deliver an exceptional user experience. My portfolio showcases a wide range of projects, from simple brochure websites to complex web applications. With a focus on clean design, user-friendly functionality, and the latest web technologies, I am dedicated to delivering high-quality solutions that meet your unique needs. Browse my portfolio to see examples of my work, and contact me to discuss how I can help bring your web development project to life.',
+  title: 'Modern Web Development Solutions | Kodario',
   titeTemplate: '| Kodario',
 };
 

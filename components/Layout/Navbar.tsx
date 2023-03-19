@@ -194,6 +194,11 @@ const Navbar: React.FC<IProps> = ({ router }) => {
   const [isMobileActive, setIsMobileActive] = useState(null);
   const [isSticky, setIsSticky] = useState(false);
 
+  // scroll to top on route change - fix scroll position bug
+  useEffect(() => {
+    setTimeout(() => window.scrollTo(0, 0), 10);
+  }, [path]);
+
   useEffect(() => {
     let isMenuSticky = isSticky;
     const checkScrollTop = () => {
@@ -231,7 +236,7 @@ const Navbar: React.FC<IProps> = ({ router }) => {
             <a className='navbar-item'>
               <img
                 src='/img/logo.svg'
-                alt='Kodario - Tworzenie stron i aplikacji internetowych oraz grafika'
+                alt='Modern Web Development Solutions | Kodario'
               />
             </a>
           </Link>
@@ -252,30 +257,30 @@ const Navbar: React.FC<IProps> = ({ router }) => {
         <NavbarList isActive={isMobileActive}>
           <ListItem>
             <Link href='/'>
-              <a className={`${path === '/' ? 'active' : ''}`}>Strona Główna</a>
+              <a className={`${path === '/' ? 'active' : ''}`}>Home</a>
             </Link>
           </ListItem>
           <ListItem>
-            <Link href='/oferta'>
-              <a className={`${path === '/oferta' ? 'active' : ''}`}>Oferta</a>
+            <Link href='/offer'>
+              <a className={`${path === '/offer' ? 'active' : ''}`}>Offer</a>
             </Link>
           </ListItem>
           <ListItem>
             <Link href='/portfolio'>
-              <a className={`${path === '/portfolio' ? 'active' : ''}`}>
+              <a className={`${path.includes('/portfolio') ? 'active' : ''}`}>
                 Portfolio
               </a>
             </Link>
           </ListItem>
           <ListItem>
-            <Link href='/o-mnie'>
-              <a className={`${path === '/o-mnie' ? 'active' : ''}`}>O mnie</a>
+            <Link href='/about'>
+              <a className={`${path === '/about' ? 'active' : ''}`}>About</a>
             </Link>
           </ListItem>
           <ListItem>
-            <Link href='/kontakt'>
-              <a className={`${path === '/kontakt' ? 'active' : ''}`}>
-                Kontakt
+            <Link href='/contact'>
+              <a className={`${path === '/contact' ? 'active' : ''}`}>
+                Contact
               </a>
             </Link>
           </ListItem>

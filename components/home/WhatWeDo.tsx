@@ -15,47 +15,45 @@ const WhatWeDo = () => {
   return (
     <WhatWeDoSection id='home-start'>
       <ContentWrapper>
-        <SideText text='Oferta' side='LEFT' />
-        <Title>Czym się zajmujemy?</Title>
+        <SideText text='OUR OFFER' side='LEFT' />
+        <Title>How can we help?</Title>
         <WhatWeDoItem number='1'>
           <CodeSVG />
           <div className='content'>
-            <Title subTitle>Tworzenie stron i aplikacji internetowych</Title>
+            <Title subTitle>Modern Web Application</Title>
             <Paragraph>
-              Zajmujemy się tworzeniem <b>nowoczesnych</b> stron i aplikacji
-              internetowych. Projektując nasze witryny zwracamy uwagę na
-              popularne <b>trendy</b>, aby zwrócić uwagę odwiedzających i
-              wyróżnić się z tłumu.
+              We specialize in <b>modern web applications</b> that leverage the
+              latest technologies and design trends to provide an exceptional{' '}
+              <b>user experience</b>.
             </Paragraph>
           </div>
         </WhatWeDoItem>
         <WhatWeDoItem number='2'>
           <DesignSVG />
           <div className='content'>
-            <Title subTitle>Projekty graficzne</Title>
+            <Title subTitle>Graphic Design</Title>
             <Paragraph>
-              Projektujemy <b>loga</b>, <b>banery</b> i inne grafiki potrzebne
-              do przedstawienia Twojego biznesu w sieci. W naszej pracy stawiamy
-              na <b>oryginalność</b>, która zapadnie w pamięć Twoim przyszłym
-              klientom.
+              Our expertise lies in <b>graphic design</b>, where we focus on
+              creating visually appealing designs that effectively convey your
+              message. We specialize in various design areas such as{' '}
+              <b>branding</b>, and <b>digital graphics</b>.
             </Paragraph>
           </div>
         </WhatWeDoItem>
         <WhatWeDoItem number='3'>
           <SocialsSVG />
           <div className='content'>
-            <Title subTitle>Budowa marki</Title>
+            <Title subTitle>Brand Growth</Title>
             <Paragraph>
-              Pomożemy Ci w przeniesieniu Twojej działalności do mediów
-              społecznościowych. Stworzymy odpowiednie grafiki i znajdziemy
-              sposób na <b>zbudowanie stałego grona odbiorców</b>.
+              From developing your <b>brand identity</b> to launching effective
+              digital <b>marketing campaigns</b>, we provide the tools and
+              expertise to help your business thrive. Learn more about our
+              services to see how we can help you.
             </Paragraph>
           </div>
         </WhatWeDoItem>
-        <Link href='/oferta'>
-          <Button as='a' href='/oferta'>
-            Zobacz więcej
-          </Button>
+        <Link href='/offer'>
+          <Button as='a'>Show More</Button>
         </Link>
       </ContentWrapper>
     </WhatWeDoSection>

@@ -7,19 +7,9 @@ const Footer = () => {
     <StyledFooter>
       <FooterContentWrapper>
         <FooterSection>
-          <FooterTitle>Kodario.pl</FooterTitle>
-          <p className='lead'>
-            Tworzymy nowoczesne i oryginalne strony internetowe.
-          </p>
+          <FooterTitle>Kodario.co</FooterTitle>
+          <p className='lead'>Elevate your web presence today.</p>
           <div className='social-icons'>
-            <a
-              href='https://www.facebook.com/kodariopl'
-              target='_blank'
-              rel='noopener'
-              aria-label='Facebook'
-            >
-              <i className='fab fa-facebook' aria-hidden='true'></i>
-            </a>
             <a
               href='https://github.com/adrian-domanski'
               target='_blank'
@@ -29,7 +19,7 @@ const Footer = () => {
               <i className='fab fa-github' aria-hidden='true'></i>
             </a>
             <a
-              href='https://www.linkedin.com/in/adrian-domański-dev'
+              href='https://www.linkedin.com/in/adrian-domanski-dev'
               target='_blank'
               aria-label='Linkedin'
               rel='noopener'
@@ -40,28 +30,29 @@ const Footer = () => {
         </FooterSection>
 
         <FooterSection>
-          <FooterTitle>Nawigacja</FooterTitle>
+          <FooterTitle>Don't get lost</FooterTitle>
           <FooterList>
             <li>
               <Link href='/'>
                 <a className='footer-link'>
                   <i className='fas fa-angle-right' />
-                  Strona Główna
+                  Home
                 </a>
               </Link>
             </li>
             <li>
-              <Link href='/o-mnie'>
-                <a className='footer-link'>
-                  <i className='fas fa-angle-right' />O mnie
-                </a>
-              </Link>
-            </li>
-            <li>
-              <Link href='/oferta'>
+              <Link href='/about'>
                 <a className='footer-link'>
                   <i className='fas fa-angle-right' />
-                  Oferta
+                  About
+                </a>
+              </Link>
+            </li>
+            <li>
+              <Link href='/offer'>
+                <a className='footer-link'>
+                  <i className='fas fa-angle-right' />
+                  Offer
                 </a>
               </Link>
             </li>
@@ -74,27 +65,58 @@ const Footer = () => {
               </Link>
             </li>
             <li>
-              <Link href='/kontakt'>
+              <Link href='/contact'>
                 <a className='footer-link'>
                   <i className='fas fa-angle-right' />
-                  Kontakt
+                  Contact
                 </a>
               </Link>
             </li>
           </FooterList>
         </FooterSection>
         <FooterSection>
-          <FooterTitle>Kontakt</FooterTitle>
+          <FooterTitle>Stay in touch</FooterTitle>
           <FooterList>
             <li>
               <i className='fas fa-map-marker-alt' aria-hidden='true'></i>
-              Mosina, Śrem, Poznań
+              Poznań, Poland
             </li>
             <li>
               <i className='fas fa-envelope' aria-hidden='true'></i>
-              kontakt@kodario.pl
+              <a
+                href='mailto:contact@kodario.co'
+                target='_blank'
+                rel='noopener'
+                className='footer-link'
+              >
+                contact@kodario.co
+              </a>
             </li>
             <li>
+              <i className='fab fa-linkedin' aria-hidden='true'></i>
+              <a
+                href='https://www.linkedin.com/in/adrian-domanski-dev'
+                target='_blank'
+                aria-label='Linkedin'
+                className='footer-link'
+                rel='noopener'
+              >
+                adrian-domanski-dev
+              </a>
+            </li>
+            <li>
+              <i className='fab fa-github' aria-hidden='true'></i>
+              <a
+                href='https://github.com/adrian-domanski'
+                target='_blank'
+                className='footer-link'
+                rel='noopener'
+                aria-label='GitHub'
+              >
+                adrian-domanski
+              </a>
+            </li>
+            {/* <li>
               <i className='fab fa-facebook-f' aria-hidden='true'></i>
               <a
                 className='footer-link'
@@ -104,19 +126,15 @@ const Footer = () => {
               >
                 Napisz do nas na Facebooku
               </a>
-            </li>
-            <li>
-              <i className='fas fa-mobile-alt' aria-hidden='true'></i>(+48) 667
-              458 654
-            </li>
+            </li> */}
           </FooterList>
         </FooterSection>
         <FooterSection>
           <hr className='divider' />
           <p>
-            Wszelkie prawa zastrzeżone &copy; {new Date().getFullYear()} |{' '}
+            All rights reserved &copy; {new Date().getFullYear()} |{' '}
             <Link href='/'>
-              <a className='footer-link '>Kodario.pl</a>
+              <a className='footer-link '>Kodario.co</a>
             </Link>
           </p>
         </FooterSection>
@@ -167,7 +185,7 @@ const StyledFooter = styled.footer`
     font-size: 2rem;
     display: flex;
     width: 50%;
-    max-width: 135px;
+    max-width: 80px;
     margin: 1.5rem auto;
     justify-content: space-between;
 

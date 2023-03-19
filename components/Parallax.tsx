@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
-import Title from "../styles/components/Title";
+import React from 'react';
+import styled from 'styled-components';
+import Title from '../styles/components/Title';
 
 const ParallaxWrapper = styled.div`
-  background: url("/img/parallax-mobile.jpg") no-repeat;
+  background: url('/img/parallax.webp') no-repeat;
   background-position: center;
   background-size: cover;
   padding: 5rem 2rem 6rem;
@@ -18,11 +18,11 @@ const ParallaxWrapper = styled.div`
   }
 
   @media screen and (min-width: 1201px) {
-    background-image: url("/img/parallax-desktop.jpg");
+    background-image: url('/img/parallax.webp');
   }
 
   :before {
-    content: "";
+    content: '';
     display: block;
     background: ${({ theme }) => theme.colors.darkBlue};
     opacity: 0.9;
@@ -80,23 +80,23 @@ const ParallaxFlexItem = styled.div`
 const Parallax = () => {
   return (
     <ParallaxWrapper>
-      <Title isWhite>Rozwijaj swoją działalność w sieci</Title>
+      <Title isWhite>Expand Your Online Presence</Title>
       <ParallaxFlex>
         <ParallaxFlexItem>
-          <i className="fas fa-globe" aria-hidden="true"></i>
-          <p>Strona internetowa</p>
+          <i className='fas fa-globe' aria-hidden='true'></i>
+          <p>Web Application</p>
         </ParallaxFlexItem>
         <ParallaxFlexItem>
-          <i className="fab fa-facebook" aria-hidden="true"></i>
-          <p>Media społecznościowe</p>
+          <i className='fab fa-facebook' aria-hidden='true'></i>
+          <p>Social Media</p>
         </ParallaxFlexItem>
         <ParallaxFlexItem>
-          <i className="fas fa-users" aria-hidden="true"></i>
-          <p>Zadowoleni klienci</p>
+          <i className='fas fa-users' aria-hidden='true'></i>
+          <p>Satisfied Customers</p>
         </ParallaxFlexItem>
         <ParallaxFlexItem>
-          <i className="fas fa-signature" aria-hidden="true"></i>
-          <p>Własna marka</p>
+          <i className='fas fa-signature' aria-hidden='true'></i>
+          <p>Own Brand</p>
         </ParallaxFlexItem>
       </ParallaxFlex>
     </ParallaxWrapper>

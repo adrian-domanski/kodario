@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { Paragraph } from "../styles/components/Paragraph";
-import Title from "../styles/components/Title";
-import styled from "styled-components";
-import Button from "../styles/components/Button";
-import ContactChatSVG from "./svg-animations/ContactChatSVG";
+import React, { useState } from 'react';
+import { Paragraph } from '../styles/components/Paragraph';
+import Title from '../styles/components/Title';
+import styled from 'styled-components';
+import Button from '../styles/components/Button';
+import ContactChatSVG from './svg-animations/ContactChatSVG';
 
 const Form = styled.form`
   margin-top: 2rem;
@@ -87,6 +87,15 @@ const ContactList = styled.ul`
 const ContactListItem = styled.li`
   color: ${({ theme }) => theme.colors.darkerBlue};
 
+  a.footer-link {
+    color: ${({ theme }) => theme.colors.darkerBlue};
+    cursor: pointer;
+    transition: color 0.2s ease-in-out;
+    &:hover {
+      color: ${({ theme }) => theme.colors.darkBlue};
+    }
+  }
+
   :not(:last-child) {
     margin-bottom: 1rem;
   }
@@ -132,10 +141,10 @@ const PageWrapper = styled.div`
 
 const StyledFormMessage = styled.div<{ status: string }>`
   background-color: ${(props) =>
-    props.status === "SUCCESS" ? "#239c8f" : "red"};
+    props.status === 'SUCCESS' ? '#239c8f' : 'red'};
   color: ${({ theme }) => theme.colors.lightWhite};
   padding: 1rem;
-  display: ${(props) => (props.status === "NOT SENT" ? "none" : "flex")};
+  display: ${(props) => (props.status === 'NOT SENT' ? 'none' : 'flex')};
   justify-content: space-between;
   align-items: center;
   font-weight: 500;
@@ -170,12 +179,12 @@ interface IProps {
 
 const ContactForm: React.FC<IProps> = ({ contactInformation, showImage }) => {
   const [status, setStatus] = useState<
-    "SUCCESS" | "FAILURE" | "NOT FILLED" | "NOT SENT"
-  >("NOT SENT");
+    'SUCCESS' | 'FAILURE' | 'NOT FILLED' | 'NOT SENT'
+  >('NOT SENT');
   const [formState, setFormState] = useState({
-    name: "",
-    email: "",
-    message: "",
+    name: '',
+    email: '',
+    message: '',
   });
 
   const handleChange = (
@@ -190,122 +199,143 @@ const ContactForm: React.FC<IProps> = ({ contactInformation, showImage }) => {
     const { name, email, message } = formState;
 
     if (!name || !email || !message) {
-      return setStatus("NOT FILLED");
+      return setStatus('NOT FILLED');
     }
 
     const form = e.target;
     const data = new FormData(form);
     const xhr = new XMLHttpRequest();
     xhr.open(form.method, form.action);
-    xhr.setRequestHeader("Accept", "application/json");
+    xhr.setRequestHeader('Accept', 'application/json');
     xhr.onreadystatechange = () => {
       if (xhr.readyState !== XMLHttpRequest.DONE) return;
       if (xhr.status === 200) {
-        setStatus("SUCCESS");
+        setStatus('SUCCESS');
         setFormState({
-          email: "",
-          name: "",
-          message: "",
+          email: '',
+          name: '',
+          message: '',
         });
       } else {
-        setStatus("FAILURE");
+        setStatus('FAILURE');
       }
     };
     xhr.send(data);
   };
 
-  const handleCloseMessage = () => setStatus("NOT SENT");
+  const handleCloseMessage = () => setStatus('NOT SENT');
 
   return (
     <PageWrapper>
-      <ContactFormWrapper id="contact-form">
-        <Title>Formularz kontaktowy</Title>
+      <ContactFormWrapper id='contact-form'>
+        <Title>Get in touch</Title>
         <StyledFormMessage status={status}>
-          {status === "FAILURE" ? (
-            <span>Nie udało się wysłać wiadomości</span>
+          {status === 'FAILURE' ? (
+            <span>
+              There was an unexpected error - please send your message to
+              kontakt@kodario.co
+            </span>
           ) : (
-            ""
+            ''
           )}
-          {status === "SUCCESS" ? (
-            <span>Wiadomość została wysłana pomyślnie!</span>
+          {status === 'SUCCESS' ? (
+            <span>
+              Your message was sent successfully! We'll get back to you shortly!
+            </span>
           ) : (
-            ""
+            ''
           )}
-          {status === "NOT FILLED" ? (
-            <span>Proszę wypełnić wszystkie pola</span>
-          ) : (
-            ""
-          )}
-          {status !== "NOT SENT" ? (
+          {status === 'NOT FILLED' ? <span>Please fill all fields!</span> : ''}
+          {status !== 'NOT SENT' ? (
             <button onClick={handleCloseMessage}>
-              <i className="fas fa-times"></i>
+              <i className='fas fa-times'></i>
             </button>
           ) : (
-            ""
+            ''
           )}
         </StyledFormMessage>
         <Form
           onSubmit={handleSubmit}
-          action="https://formspree.io/f/mvovqere"
-          method="POST"
+          action='https://formspree.io/f/mvovqere'
+          method='POST'
         >
           <FormControl>
-            <label htmlFor="name">Twoje imie:</label>
+            <label htmlFor='name'>Name:</label>
             <input
               onChange={handleChange}
-              type="text"
+              type='text'
               value={formState.name}
-              name="name"
-              id="name"
+              name='name'
+              id='name'
             />
           </FormControl>
           <FormControl>
-            <label htmlFor="email">Twój adres email:</label>
+            <label htmlFor='email'>Email:</label>
             <input
-              type="email"
+              type='email'
               onChange={handleChange}
-              name="email"
+              name='email'
               value={formState.email}
-              id="email"
+              id='email'
             />
           </FormControl>
           <FormControl>
-            <label htmlFor="message">Treść wiadomości:</label>
+            <label htmlFor='message'>Message:</label>
             <textarea
-              name="message"
+              name='message'
               onChange={handleChange}
               value={formState.message}
-              id="message"
+              id='message'
             />
           </FormControl>
-          <Button type="submit">Wyślij</Button>
+          <Button type='submit'>Send</Button>
         </Form>
       </ContactFormWrapper>
 
       {contactInformation && (
         <ContactInformation>
-          <Title>Dane kontaktowe</Title>
+          <Title>Contact details</Title>
           <ContactList>
             <ContactListItem>
-              <i className="fas fa-map-marker-alt" />
-              Mosina, Śrem, Poznań
+              <i className='fas fa-map-marker-alt' />
+              Poznań, Poland
             </ContactListItem>
             <ContactListItem>
-              <i className="fas fa-envelope" />
-              kontakt@kodario.pl
+              <i className='fas fa-envelope' />
+              <a
+                href='mailto:contact@kodario.co'
+                target='_blank'
+                rel='noopener'
+                className='footer-link'
+              >
+                kontakt@kodario.co
+              </a>
             </ContactListItem>
             <ContactListItem>
-              <i className="fas fa-mobile-alt" />
-              (+48) 667 458 654
+              <i className='fab fa-linkedin' aria-hidden='true'></i>
+              <a
+                href='https://www.linkedin.com/in/adrian-domanski-dev'
+                target='_blank'
+                aria-label='Linkedin'
+                className='footer-link'
+                rel='noopener'
+              >
+                adrian-domanski-dev
+              </a>
+            </ContactListItem>
+            <ContactListItem>
+              <i className='fab fa-github' aria-hidden='true'></i>
+              <a
+                href='https://github.com/adrian-domanski'
+                target='_blank'
+                className='footer-link'
+                rel='noopener'
+                aria-label='GitHub'
+              >
+                adrian-domanski
+              </a>
             </ContactListItem>
           </ContactList>
-          <Button
-            as="a"
-            href="https://www.facebook.com/kodariopl/"
-            target="_blank"
-          >
-            Napisz na Facebooku
-          </Button>
         </ContactInformation>
       )}
 
