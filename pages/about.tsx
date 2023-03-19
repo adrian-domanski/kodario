@@ -35,10 +35,7 @@ const AboutMePage = () => {
           <ContentWrapper>
             <Title>Few words about me</Title>
             <div className='content-flex'>
-              <img
-                src='/img/me.png'
-                alt='Adrian Domański, twórca stron internetowych'
-              />
+              <img src='/img/me.png' alt='Adrian Domański, web developer' />
               <div className='content-right'>
                 <Paragraph>
                   My name is <b>Adrian Domański</b> and I live near Poznań,
