@@ -233,7 +233,7 @@ const ContactForm: React.FC<IProps> = ({ contactInformation, showImage }) => {
           {status === 'FAILURE' ? (
             <span>
               There was an unexpected error - please send your message to
-              kontakt@kodario.co
+              contact@kodario.dev
             </span>
           ) : (
             ''
@@ -303,12 +303,12 @@ const ContactForm: React.FC<IProps> = ({ contactInformation, showImage }) => {
             <ContactListItem>
               <i className='fas fa-envelope' />
               <a
-                href='mailto:contact@kodario.co'
+                href='mailto:contact@kodario.dev'
                 target='_blank'
                 rel='noopener'
                 className='footer-link'
               >
-                kontakt@kodario.co
+                contact@kodario.dev
               </a>
             </ContactListItem>
             <ContactListItem>

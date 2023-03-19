@@ -7,7 +7,7 @@ const Footer = () => {
     <StyledFooter>
       <FooterContentWrapper>
         <FooterSection>
-          <FooterTitle>Kodario.co</FooterTitle>
+          <FooterTitle>Kodario.dev</FooterTitle>
           <p className='lead'>Elevate your web presence today.</p>
           <div className='social-icons'>
             <a
@@ -84,12 +84,12 @@ const Footer = () => {
             <li>
               <i className='fas fa-envelope' aria-hidden='true'></i>
               <a
-                href='mailto:contact@kodario.co'
+                href='mailto:contact@kodario.dev'
                 target='_blank'
                 rel='noopener'
                 className='footer-link'
               >
-                contact@kodario.co
+                contact@kodario.dev
               </a>
             </li>
             <li>
@@ -134,7 +134,7 @@ const Footer = () => {
           <p>
             All rights reserved &copy; {new Date().getFullYear()} |{' '}
             <Link href='/'>
-              <a className='footer-link '>Kodario.co</a>
+              <a className='footer-link '>Kodario.dev</a>
             </Link>
           </p>
         </FooterSection>

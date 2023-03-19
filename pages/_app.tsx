@@ -27,8 +27,11 @@ class MyApp extends App {
             property='og:description'
             content='Are you interested in creating modern websites and web applications that will help grow your business? Trust my experience and knowledge to design and develop a website that meets your needs.'
           />
-          <meta property='og:image' content='https://kodario.pl/og-image.jpg' />
-          <meta property='og:url' content='https://kodario.pl' />
+          <meta
+            property='og:image'
+            content='https://kodario.dev/og-image.jpg'
+          />
+          <meta property='og:url' content='https://kodario.dev' />
         </Head>
         <ThemeProvider theme={theme}>
           <Component {...pageProps} />
