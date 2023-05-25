@@ -16,4 +16,4 @@ This project was created in purpose to show my work and abilities.
 
 ## Live demo
 
-Open [kodario.dev](https://kodario.dev/) to view it in the browser.
+Open [kodario.com](https://kodario.com/) to view it in the browser.

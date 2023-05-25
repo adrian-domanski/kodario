@@ -29,9 +29,9 @@ class MyApp extends App {
           />
           <meta
             property='og:image'
-            content='https://kodario.dev/og-image.jpg'
+            content='https://kodario.com/og-image.jpg'
           />
-          <meta property='og:url' content='https://kodario.dev' />
+          <meta property='og:url' content='https://kodario.com' />
         </Head>
         <ThemeProvider theme={theme}>
           <Component {...pageProps} />
