@@ -15,46 +15,51 @@ const WhatWeDo = () => {
   return (
     <WhatWeDoSection id='home-start'>
       <ContentWrapper>
-        <SideText text='OUR OFFER' side='LEFT' />
-        <Title>How can we help?</Title>
+        <SideText text='EXPERTISE' side='LEFT' />
+        <Title>How I Build Applications</Title>
+
         <WhatWeDoItem number='1'>
           <CodeSVG />
           <div className='content'>
-            <Title subTitle>Modern Web Application</Title>
+            <Title subTitle>Full-Stack Web Applications</Title>
             <Paragraph>
-              We specialize in <b>modern web applications</b> that leverage the
-              latest technologies and design trends to provide an exceptional{' '}
-              <b>user experience</b>.
+              I design and develop scalable web applications using{' '}
+              <b>React, TypeScript, and ASP.NET Core</b>, focusing on clean
+              architecture, maintainability, and production-ready delivery.
             </Paragraph>
           </div>
         </WhatWeDoItem>
+
         <WhatWeDoItem number='2'>
           <DesignSVG />
           <div className='content'>
-            <Title subTitle>Graphic Design</Title>
+            <Title subTitle>Backend & API Development</Title>
             <Paragraph>
-              Our expertise lies in <b>graphic design</b>, where we focus on
-              creating visually appealing designs that effectively convey your
-              message. We specialize in various design areas such as{' '}
-              <b>branding</b>, and <b>digital graphics</b>.
+              I build secure <b>REST APIs</b> with ASP.NET Core, implementing
+              authentication, structured architecture, and database integration
+              using <b>SQL Server and Entity Framework Core</b>.
             </Paragraph>
           </div>
         </WhatWeDoItem>
+
         <WhatWeDoItem number='3'>
           <SocialsSVG />
           <div className='content'>
-            <Title subTitle>Brand Growth</Title>
+            <Title subTitle>Modern Frontend Architecture</Title>
             <Paragraph>
-              From developing your <b>brand identity</b> to launching effective
-              digital <b>marketing campaigns</b>, we provide the tools and
-              expertise to help your business thrive. Learn more about our
-              services to see how we can help you.
+              I create responsive and performant interfaces using{' '}
+              <b>React and TypeScript</b>, emphasizing component structure,
+              state management, and long-term maintainability.
             </Paragraph>
           </div>
         </WhatWeDoItem>
-        <Link href='/offer'>
-          <Button as='a'>Show More</Button>
-        </Link>
+
+        <a
+          href='https://www.linkedin.com/in/adrian-domanski-dev/'
+          target='_blank'
+        >
+          <Button as='a'>Connect on LinkedIn</Button>
+        </a>
       </ContentWrapper>
     </WhatWeDoSection>
   );

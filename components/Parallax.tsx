@@ -67,36 +67,39 @@ const ParallaxFlexItem = styled.div`
   }
 
   p {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 500;
   }
 
   i {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    margin-bottom: 1.4rem;
   }
 `;
 
 const Parallax = () => {
   return (
     <ParallaxWrapper>
-      <Title isWhite>Expand Your Online Presence</Title>
+      <Title isWhite>What I Focus On</Title>
       <ParallaxFlex>
         <ParallaxFlexItem>
-          <i className='fas fa-globe' aria-hidden='true'></i>
-          <p>Web Application</p>
+          <i className='fas fa-layer-group' aria-hidden='true'></i>
+          <p>Scalable Web Applications</p>
         </ParallaxFlexItem>
+
         <ParallaxFlexItem>
-          <i className='fab fa-facebook' aria-hidden='true'></i>
-          <p>Social Media</p>
+          <i className='fas fa-server' aria-hidden='true'></i>
+          <p>Secure API Development</p>
         </ParallaxFlexItem>
+
         <ParallaxFlexItem>
-          <i className='fas fa-users' aria-hidden='true'></i>
-          <p>Satisfied Customers</p>
+          <i className='fas fa-code' aria-hidden='true'></i>
+          <p>Modern Frontend Architecture</p>
         </ParallaxFlexItem>
+
         <ParallaxFlexItem>
-          <i className='fas fa-signature' aria-hidden='true'></i>
-          <p>Own Brand</p>
+          <i className='fas fa-cogs' aria-hidden='true'></i>
+          <p>Production-Ready Systems</p>
         </ParallaxFlexItem>
       </ParallaxFlex>
     </ParallaxWrapper>

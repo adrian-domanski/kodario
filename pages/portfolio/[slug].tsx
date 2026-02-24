@@ -100,22 +100,22 @@ const PortfolioDetails: NextPage<IProps> = ({
                 <Link
                   key={index}
                   href='/portfolio/[slug]'
-                  as={`/portfolio/${product.slug}`}
+                  as={`/portfolio/${product?.slug}`}
                 >
                   <a className='link'>
                     <OtherListItem
-                      src={`/content/${product.slug}/${product.image}`}
-                      alt={`Photo showing project ${product.title}`}
+                      src={`/content/${product?.slug}/${product?.image}`}
+                      alt={`Photo showing project ${product?.title}`}
                     />
                   </a>
                 </Link>
               ))}
             </OtherList>
-            <Link href='/portfolio'>
+            {/* <Link href='/portfolio'>
               <Button as='a' centered>
                 Show more
               </Button>
-            </Link>
+            </Link> */}
           </ContentWrapper>
         </OtherPostsSection>
       </Layout>
@@ -127,8 +127,9 @@ const PortfolioDetails: NextPage<IProps> = ({
 
 const getPostFromMarkdown = async (
   slug: string,
-  options?: { basicData?: boolean }
+  options?: { basicData?: boolean },
 ) => {
+  if (!slug) return null;
   const rawMdFile = await import(`../../content/${slug}.md`);
   const images = getFileNames(`./public/content/${slug}`, { withExt: true });
   const { content, data } = matter(rawMdFile.default);
@@ -165,7 +166,7 @@ export const getOtherPosts = async (options?: {
 
   if (options?.slugs) {
     selectedSlugs = options.slugs.map((slug) =>
-      availableSlugs.find((availableSlug) => availableSlug === slug)
+      availableSlugs.find((availableSlug) => availableSlug === slug),
     );
   } else {
     for (let i = 0; i < amount; i++) {
@@ -176,7 +177,7 @@ export const getOtherPosts = async (options?: {
   }
 
   let result = await Promise.all(
-    selectedSlugs.map((post) => getPostFromMarkdown(post, { basicData: true }))
+    selectedSlugs.map((post) => getPostFromMarkdown(post, { basicData: true })),
   );
 
   if (options?.order === 'date:desc') {

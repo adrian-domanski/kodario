@@ -19,16 +19,16 @@ export default function Hom({ portfolioList }: IProps) {
       <SEO />
       <Layout>
         <Header
-          title='Elevate your web presence today.'
+          title='Building modern web applications.'
           svg={{
             component: <HomeSVG />,
           }}
           showList
           button={{
-            value: 'Portfolio',
-            href: '/portfolio',
+            value: 'View Projects',
+            href: '#recent-work',
           }}
-          scrollToId='home-start'
+          scrollToId='recent-work'
         />
         <WhatWeDo />
         <OurWork portfolioList={portfolioList} />
@@ -44,7 +44,7 @@ export default function Hom({ portfolioList }: IProps) {
 export async function getStaticProps() {
   const portfolioList = await getOtherPosts({
     amount: 4,
-    slugs: ['tc', 'netflix', 'prographers', 'amazon', 'airbnb', 'soccer'],
+    slugs: ['monkey', 'malinowskiego', 'tc', 'prographers'],
   });
 
   return {

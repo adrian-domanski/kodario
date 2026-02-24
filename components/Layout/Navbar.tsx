@@ -18,7 +18,9 @@ const StyledNavbar = styled.nav<{ isSticky: boolean }>`
   z-index: 100;
   box-shadow: ${({ isSticky }) =>
     isSticky ? '0 0 10px -8px #000000' : 'none'};
-  transition: box-shadow 0.5s ease, padding 0.5s ease;
+  transition:
+    box-shadow 0.5s ease,
+    padding 0.5s ease;
   transform: scaleY(1) scaleX(1);
 
   @media screen and (min-width: 998px) {
@@ -254,8 +256,8 @@ const Navbar: React.FC<IProps> = ({ router }) => {
           isActive={isMobileActive}
         ></Hamburger>
 
-        <NavbarList isActive={isMobileActive}>
-          <ListItem>
+        {/* <NavbarList isActive={isMobileActive}> */}
+        {/* <ListItem>
             <Link href='/'>
               <a className={`${path === '/' ? 'active' : ''}`}>Home</a>
             </Link>
@@ -284,7 +286,7 @@ const Navbar: React.FC<IProps> = ({ router }) => {
               </a>
             </Link>
           </ListItem>
-        </NavbarList>
+        </NavbarList> */}
       </div>
     </StyledNavbar>
   );

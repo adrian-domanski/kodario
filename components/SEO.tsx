@@ -9,9 +9,9 @@ interface IProps {
 
 const META_DEFAULT = {
   description:
-    'Welcome to my portfolio website! As a skilled web developer, I specialize in creating modern, responsive websites and web applications that deliver an exceptional user experience. My portfolio showcases a wide range of projects, from simple brochure websites to complex web applications. With a focus on clean design, user-friendly functionality, and the latest web technologies, I am dedicated to delivering high-quality solutions that meet your unique needs. Browse my portfolio to see examples of my work, and contact me to discuss how I can help bring your web development project to life.',
-  title: 'Modern Web Development Solutions | Kodario',
-  titeTemplate: '| Kodario',
+    'Adrian Domański – Full-Stack Developer specializing in React, TypeScript, and ASP.NET Core (.NET). 6+ years of experience building scalable web applications, secure REST APIs, and enterprise-grade systems. Based in Poland and open to remote opportunities.',
+  title: 'Adrian Domański | Full-Stack Developer (React & .NET) | Kodario',
+  titeTemplate: '%s | Adrian Domański',
 };
 
 const SEO: React.FC<IProps> = ({

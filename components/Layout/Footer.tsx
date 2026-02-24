@@ -8,7 +8,7 @@ const Footer = () => {
       <FooterContentWrapper>
         <FooterSection>
           <FooterTitle>Kodario.com</FooterTitle>
-          <p className='lead'>Elevate your web presence today.</p>
+          <p className='lead'>Building modern web applications.</p>
           <div className='social-icons'>
             <a
               href='https://github.com/adrian-domanski'
@@ -30,7 +30,7 @@ const Footer = () => {
         </FooterSection>
 
         <FooterSection>
-          <FooterTitle>Don't get lost</FooterTitle>
+          {/* <FooterTitle>Don't get lost</FooterTitle>
           <FooterList>
             <li>
               <Link href='/'>
@@ -72,7 +72,7 @@ const Footer = () => {
                 </a>
               </Link>
             </li>
-          </FooterList>
+          </FooterList> */}
         </FooterSection>
         <FooterSection>
           <FooterTitle>Stay in touch</FooterTitle>
@@ -81,7 +81,7 @@ const Footer = () => {
               <i className='fas fa-map-marker-alt' aria-hidden='true'></i>
               Poznań, Poland
             </li>
-            <li>
+            {/* <li>
               <i className='fas fa-envelope' aria-hidden='true'></i>
               <a
                 href='mailto:contact@kodario.com'
@@ -91,7 +91,7 @@ const Footer = () => {
               >
                 contact@kodario.com
               </a>
-            </li>
+            </li> */}
             <li>
               <i className='fab fa-linkedin' aria-hidden='true'></i>
               <a

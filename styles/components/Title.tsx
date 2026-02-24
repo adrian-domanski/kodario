@@ -14,7 +14,7 @@ const Title = styled.h2<IProps>`
   text-align: center;
   z-index: 1;
   display: ${(props) => (props.subTitle ? 'block' : 'table')};
-  margin: 0 auto 3rem auto;
+  margin: 0 auto 2rem auto;
   letter-spacing: 1px;
   line-height: 1.5;
 
@@ -42,7 +42,7 @@ const Title = styled.h2<IProps>`
   }
 
   @media screen and (min-width: 998px) {
-    margin: 0 auto 4rem auto;
+    margin: 0 auto 3rem auto;
     font-size: ${(props) => (props.subTitle ? '1.6rem' : '2.2rem')};
 
     :before {

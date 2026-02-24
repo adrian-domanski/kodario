@@ -61,9 +61,9 @@ const Header: React.FC<IProps> = ({
         )}
         {showList && (
           <StyledList>
-            <li>Web Applications</li>
-            <li>Graphic Designs</li>
-            <li>Brand Growth</li>
+            <li>Full-Stack Web Applications</li>
+            <li>React & ASP.NET Core</li>
+            <li>Scalable, Secure Solutions</li>
           </StyledList>
         )}
 
@@ -143,8 +143,8 @@ const StyledHomeHeader = styled.header<StyledHomeHeaderProps>`
       ${({ paragraph, showList }) => {
         return `
           grid-auto-rows: 1fr ${paragraph ? 'auto' : ''} ${
-          showList ? 'auto' : ''
-        } 1fr;
+            showList ? 'auto' : ''
+          } 1fr;
         `;
       }}
       align-items: center;
@@ -227,7 +227,7 @@ const StyledHomeHeader = styled.header<StyledHomeHeaderProps>`
     }
 
     @media screen and (min-width: 1200px) {
-      font-size: 3rem;
+      font-size: 2.5rem;
     }
   }
 
@@ -245,7 +245,7 @@ const StyledHomeHeader = styled.header<StyledHomeHeaderProps>`
   ${Button} {
     margin-top: 1.5rem;
     grid-area: button;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     padding: 0.8rem 2.6rem;
 
     @media screen and (min-width: 998px) {
@@ -312,7 +312,7 @@ const StyledList = styled.ul`
     }
 
     @media screen and (min-width: 1200px) {
-      font-size: 1.7rem;
+      font-size: 1.4rem;
     }
   }
 
