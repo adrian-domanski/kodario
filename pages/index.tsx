@@ -44,7 +44,7 @@ export default function Hom({ portfolioList }: IProps) {
 export async function getStaticProps() {
   const portfolioList = await getOtherPosts({
     amount: 4,
-    slugs: ['monkey', 'malinowskiego', 'tc', 'prographers'],
+    slugs: ['leadforge', 'malinowskiego', 'tc', 'prographers'],
   });
 
   return {
